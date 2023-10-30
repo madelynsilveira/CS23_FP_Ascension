@@ -9,6 +9,8 @@ public class GameHandler : MonoBehaviour
     public GameObject mainMenu;
     public GameObject winScene;
     public GameObject loseScene;
+    public GameObject pauseMenu;
+    bool pauseMenuActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class GameHandler : MonoBehaviour
         mainMenu.SetActive(false);
         winScene.SetActive(false);
         loseScene.SetActive(false);
+        pauseMenu.SetActive(false);
+        pauseMenuActive = false;
 
         if (scene.name == "MainMenu") {
             mainMenu.SetActive(true);
@@ -31,7 +35,17 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (scene.name == "Level1") {
+            if (Input.GetKey("escape")) {
+                if (pauseMenuActive) {
+                    pauseMenu.SetActive(false);
+                    pauseMenuActive = false;
+                } else {
+                    pauseMenu.SetActive(true);
+                    pauseMenuActive = true;
+                }
+            }
+        }
     }
 
     public void PlayGame()
@@ -39,6 +53,13 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("Level1");
         // Set static vars
     }
+
+    public void RestartGame() {
+            Time.timeScale = 1f;
+            GameHandler_PauseMenu.GameisPaused = false;
+            SceneManager.LoadScene("MainMenu");
+                // Please also reset all static variables here, for new games!
+      }
     public void QuitGame()
     {
         #if UNITY_EDITOR

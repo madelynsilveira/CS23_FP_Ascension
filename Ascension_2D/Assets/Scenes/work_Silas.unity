@@ -223,6 +223,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3226404407294948431, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
@@ -269,6 +281,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7084758533372331292, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668422879057756271, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668422879057756271, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
