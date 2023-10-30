@@ -10,7 +10,6 @@ public class GameHandler : MonoBehaviour
     public GameObject winScene;
     public GameObject loseScene;
     public GameObject pauseMenu;
-    bool pauseMenuActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,6 @@ public class GameHandler : MonoBehaviour
         winScene.SetActive(false);
         loseScene.SetActive(false);
         pauseMenu.SetActive(false);
-        pauseMenuActive = false;
 
         if (scene.name == "MainMenu") {
             mainMenu.SetActive(true);
@@ -35,17 +33,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scene.name == "Level1") {
-            if (Input.GetKey("escape")) {
-                if (pauseMenuActive) {
-                    pauseMenu.SetActive(false);
-                    pauseMenuActive = false;
-                } else {
-                    pauseMenu.SetActive(true);
-                    pauseMenuActive = true;
-                }
-            }
-        }
+
     }
 
     public void PlayGame()
