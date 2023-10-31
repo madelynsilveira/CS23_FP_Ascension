@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 38ae539edb5400847b0f9f83dda9062f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - NPC: {fileID: 9056497170118925540, guid: 6dd3eaa239356084282c89805766917a, type: 3}
+  - player: {fileID: 4406216798529171855, guid: 4a7ea9aaad53c4adfae27c47f1b204f9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
