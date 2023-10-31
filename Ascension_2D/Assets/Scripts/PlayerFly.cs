@@ -60,8 +60,6 @@ public class PlayerFly : MonoBehaviour
       }
 
       void OnCollisionEnter2D(Collision2D other) {
-            Debug.Log("Collision Detected");
-            Debug.Log("other layer: " + other.gameObject.layer);
             if (other.gameObject.layer == 3 /* ground */) {
                 isFlying = false;
             }
