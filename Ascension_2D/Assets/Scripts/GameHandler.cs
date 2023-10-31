@@ -10,6 +10,7 @@ public class GameHandler : MonoBehaviour
     public GameObject winScene;
     public GameObject loseScene;
     public GameObject pauseMenu;
+    public GameObject timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class GameHandler : MonoBehaviour
         winScene.SetActive(false);
         loseScene.SetActive(false);
         pauseMenu.SetActive(false);
+        timer.SetActive(false);
 
         // Set active menu
         if (scene.name == "MainMenu") {
@@ -27,6 +29,8 @@ public class GameHandler : MonoBehaviour
             winScene.SetActive(true);
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
+        } else if (scene.name == "Level1") {
+            timer.SetActive(true);
         }
     }
 
