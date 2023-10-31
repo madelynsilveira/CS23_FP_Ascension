@@ -32,6 +32,7 @@ public class PlayerFly : MonoBehaviour
             // }
 
            if ((Input.GetKeyDown("up")) && (canFly) && (isAlive == true)) {
+                  canFly = false;
                   Fly();
             }
       }
@@ -39,11 +40,19 @@ public class PlayerFly : MonoBehaviour
       public void Fly() {
             //flyTimer += 1;
             rb.velocity = Vector2.up * flyForce;
+            StartCoroutine(Flap());
+            // wait for wing flap
+            
             // anim.SetTrigger("Jump");
             // JumpSFX.Play();
 
             //Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
             //rb.velocity = movement;
+      }
+
+      IEnumerator Flap() {
+            yield return new WaitForSeconds(0.5f);
+            canFly = true;
       }
 
     //   public bool IsGrounded() {
