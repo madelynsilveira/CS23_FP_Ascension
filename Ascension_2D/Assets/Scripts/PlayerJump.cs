@@ -20,7 +20,7 @@ public class PlayerJump : MonoBehaviour {
             rb = GetComponent<Rigidbody2D>();
       }
 
-     void Update() {
+      void Update() {
             if ((IsGrounded()) || (jumpTimes <= 1)){
                   canJump = true;
             }  else if (jumpTimes > 1){

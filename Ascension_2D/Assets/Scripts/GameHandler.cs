@@ -14,13 +14,13 @@ public class GameHandler : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-        Debug.Log("Active scene:" + scene.name);
         
         mainMenu.SetActive(false);
         winScene.SetActive(false);
         loseScene.SetActive(false);
         pauseMenu.SetActive(false);
 
+        // Set active menu
         if (scene.name == "MainMenu") {
             mainMenu.SetActive(true);
         } else if (scene.name == "winScene") {
@@ -39,7 +39,7 @@ public class GameHandler : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Level1");
-        // Set static vars
+            // Set static vars
     }
 
     public void RestartGame() {
