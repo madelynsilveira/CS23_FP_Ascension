@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 1539861619}
   - component: {fileID: 1539861618}
   - component: {fileID: 1539861617}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,6 +438,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 316290505403478265, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: feet
+      value: 
+      objectReference: {fileID: 8757107129892582200}
+    - target: {fileID: 316290505403478265, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3073370618047061513, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -487,3 +495,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+--- !u!4 &8757107129892582200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7679651183457755355, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+  m_PrefabInstance: {fileID: 8757107129892582199}
+  m_PrefabAsset: {fileID: 0}
