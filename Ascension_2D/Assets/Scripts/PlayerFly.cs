@@ -11,7 +11,9 @@ public class PlayerFly : MonoBehaviour
       //public LayerMask groundLayer;
       //public LayerMask enemyLayer;
       public bool canFly = false;
-      //public int flyTimer = 0;
+      private bool isFlying = false;
+      public float flyTimer = 0f;
+      public float maxFlyTime = 5f;
       public bool isAlive = true;
       //public AudioSource FlySFX;
 
@@ -24,21 +26,32 @@ public class PlayerFly : MonoBehaviour
       }
 
       void Update() {
-            // replace with flying ability check
-            // if ((IsGrounded()) || (jumpTimes <= 1)){
-            //       canJump = true;
-            // }  else if (jumpTimes > 1){
-            //       canJump = false;
-            // }
+            // update fly timer
+            if (isFlying) {
+                if (flyTimer > 0f) {
+                    flyTimer -= Time.deltaTime;
+                }
+            } else if (flyTimer < maxFlyTime) {
+                flyTimer += Time.deltaTime;
+            }
 
-           if ((Input.GetKeyDown("up")) && (canFly) && (isAlive == true)) {
+           if ((Input.GetKeyDown("up")) && (canFly) && (isAlive) && (flyTimer > 0f)) {
                   canFly = false;
                   Fly();
             }
       }
 
+      void OnCollisionEnter2D(Collision2D other) {
+            Debug.Log("Collision Detected");
+            Debug.Log("other layer: " + other.gameObject.layer);
+            if (other.gameObject.layer == 3 /* ground */) {
+                isFlying = false;
+            }
+      }
+
       public void Fly() {
             //flyTimer += 1;
+            isFlying = true;
             rb.velocity = Vector2.up * flyForce;
             StartCoroutine(Flap());
             // wait for wing flap
