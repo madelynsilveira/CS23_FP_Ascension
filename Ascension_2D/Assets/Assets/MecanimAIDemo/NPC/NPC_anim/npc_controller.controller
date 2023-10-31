@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000bf1d25109e45fd81112d9a5eedcb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
+  NPC: {fileID: 9056497170118925540, guid: 6dd3eaa239356084282c89805766917a, type: 3}
 --- !u!1101 &-3275792942377286119
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
