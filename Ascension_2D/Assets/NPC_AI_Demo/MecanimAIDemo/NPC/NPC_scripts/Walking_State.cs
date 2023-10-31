@@ -15,7 +15,7 @@ public class Walking_State : StateMachineBehaviour
     {
         NPC = GameObject.FindWithTag("NPC");
         RaycastHit2D ray = Physics2D.Raycast(NPC.transform.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
-        Debug.Log("collide = " + ray.collider.bounds);
+
         Debug.DrawRay(NPC.transform.position, Vector2.down, Color.red); // Draw a debug ray to visualize the raycast
 
     }
