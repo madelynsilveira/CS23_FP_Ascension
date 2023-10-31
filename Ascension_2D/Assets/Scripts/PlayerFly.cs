@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFly : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerFly : MonoBehaviour
       public bool canFly = false;
       private bool isFlying = false;
       public float flyTimer = 0f;
+      public GameObject timerText;
       public float maxFlyTime = 5f;
       public bool isAlive = true;
       //public AudioSource FlySFX;
@@ -27,6 +29,24 @@ public class PlayerFly : MonoBehaviour
 
       void Update() {
             // update fly timer
+            // if (isFlying) {
+            //     if (flyTimer > 0f) {
+            //         flyTimer -= Time.deltaTime;
+            //     }
+            // } else if (flyTimer < maxFlyTime) {
+            //     flyTimer += Time.deltaTime;
+            // }
+            // Text flyTime = timerText.GetComponent<timerText>();
+            // flyTime = "" + Mathf.Round(flyTimer);
+
+           if ((Input.GetKeyDown("up")) && (canFly) && (isAlive) && (flyTimer > 0f)) {
+                  canFly = false;
+                  Fly();
+            }
+      }
+
+      void FixedUpdate() {
+            // update fly timer
             if (isFlying) {
                 if (flyTimer > 0f) {
                     flyTimer -= Time.deltaTime;
@@ -35,10 +55,8 @@ public class PlayerFly : MonoBehaviour
                 flyTimer += Time.deltaTime;
             }
 
-           if ((Input.GetKeyDown("up")) && (canFly) && (isAlive) && (flyTimer > 0f)) {
-                  canFly = false;
-                  Fly();
-            }
+            Text flyTime = timerText.GetComponent<Text>();
+            flyTime.text = "" + flyTimer;
       }
 
       void OnCollisionEnter2D(Collision2D other) {
