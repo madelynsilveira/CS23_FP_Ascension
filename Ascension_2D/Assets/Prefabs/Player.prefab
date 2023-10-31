@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2795951061388601534}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,9 @@ MonoBehaviour:
   rb: {fileID: 5196295548565359769}
   flyForce: 5
   canFly: 0
+  flyTimer: 0
+  timerText: {fileID: 0}
+  maxFlyTime: 5
   isAlive: 1
 --- !u!1 &3568640770131966203
 GameObject:

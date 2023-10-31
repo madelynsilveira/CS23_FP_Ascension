@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 8070869853883866931}
+    - target: {fileID: 7021449672805654481, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
+      propertyPath: lifeEnergy
+      value: 
+      objectReference: {fileID: 4987820899657267575}
     - target: {fileID: 8704453050763258237, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -652,6 +656,11 @@ GameObject:
 --- !u!1 &2092875041081993329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8526998052276455647, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
+  m_PrefabInstance: {fileID: 7736789770501349550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4987820899657267575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3343594933227149785, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
   m_PrefabInstance: {fileID: 7736789770501349550}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8070869853883866931 stripped
