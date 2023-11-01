@@ -54,7 +54,8 @@ public class PlayerMove : MonoBehaviour {
       }
 
       void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.tag == "LifeEnergy") {
+            Debug.Log("Other object tag: " + other.gameObject.tag);
+            if (other.gameObject.tag == "Food") {
                   Destroy(other.gameObject);
                   lifeEnergyScore += 1;
                   Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();

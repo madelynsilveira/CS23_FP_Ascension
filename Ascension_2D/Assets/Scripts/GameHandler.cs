@@ -31,7 +31,7 @@ public class GameHandler : MonoBehaviour
             winScene.SetActive(true);
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
-        } else if (scene.name == "Level1") {
+        } else if (scene.name == "Level1" || scene.name == "work_Silas") {
             timer.SetActive(true);
             lifeEnergy.SetActive(true);
         }
