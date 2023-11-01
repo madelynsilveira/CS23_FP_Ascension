@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
+ 
 public class PlayerMove : MonoBehaviour {
 
       //public Animator animator;
@@ -12,10 +13,14 @@ public class PlayerMove : MonoBehaviour {
       public bool isAlive = true;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
+      public int lifeEnergyScore = 0;
+      public GameObject lifeEnergyObj;
 
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
+           Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();
+           lifeEnergyText.text = "0";
       }
 
       void Update(){
@@ -45,6 +50,15 @@ public class PlayerMove : MonoBehaviour {
             //slow down on hills / stops sliding from velocity
             if (hMove.x == 0){
                   rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
+            }
+      }
+
+      void OnCollisionEnter2D(Collision2D other) {
+            if (other.gameObject.tag == "LifeEnergy") {
+                  Destroy(other.gameObject);
+                  lifeEnergyScore += 1;
+                  Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();
+                  lifeEnergyText.text = "" + lifeEnergyScore;
             }
       }
 

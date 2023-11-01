@@ -215,6 +215,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1294782464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4987820899657267575, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+  m_PrefabInstance: {fileID: 903918875869330364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1537338604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8900316291924520044, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+  m_PrefabInstance: {fileID: 903918875869330364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &903918875869330364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,12 +389,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: canFly
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: isAlive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1537338604}
     - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: maxFlyTime
       value: 5
@@ -433,6 +447,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8100936627181083668, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: lifeEnergyObj
+      value: 
+      objectReference: {fileID: 1294782464}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

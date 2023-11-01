@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3156670781575610546}
   m_Layer: 0
   m_Name: LifeEnergy
-  m_TagString: Untagged
+  m_TagString: LifeEnergy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   - {fileID: 6151257633519098875}
   - {fileID: 884727199399664422}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1841433487792001286
 PrefabInstance:
