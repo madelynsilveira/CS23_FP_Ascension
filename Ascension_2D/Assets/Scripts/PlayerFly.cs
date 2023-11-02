@@ -68,6 +68,7 @@ public class PlayerFly : MonoBehaviour
       public void Fly() {
             //flyTimer += 1;
             isFlying = true;
+            gameObject.GetComponent<AudioSource>().Play();
             rb.velocity = Vector2.up * flyForce;
             StartCoroutine(Flap());
             // wait for wing flap
@@ -81,6 +82,7 @@ public class PlayerFly : MonoBehaviour
 
       IEnumerator Flap() {
             yield return new WaitForSeconds(0.5f);
+            gameObject.GetComponent<AudioSource>().Stop();
             canFly = true;
       }
 
