@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5196295548565359769}
-  flyForce: 5
+  flyForce: 6
   canFly: 0
   flyTimer: 0
   timerText: {fileID: 0}
