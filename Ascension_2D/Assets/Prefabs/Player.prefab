@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8100936627181083668}
   - component: {fileID: 316290505403478265}
   - component: {fileID: 2795951061388601534}
+  - component: {fileID: 486688511440740058}
   - component: {fileID: 8214111900466498164}
   m_Layer: 0
   m_Name: Player
@@ -156,9 +157,21 @@ MonoBehaviour:
   flyForce: 8
   canFly: 0
   flyTimer: 0
-  timerText: {fileID: 0}
+  timerCircle: {fileID: 0}
   maxFlyTime: 5
   isAlive: 1
+--- !u!114 &486688511440740058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66518451102527513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea7887db340417da67c15f70cc4c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &8214111900466498164
 AudioSource:
   m_ObjectHideFlags: 0
