@@ -184,14 +184,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c10ef25e0884069a5493487635828f, type: 3}
+--- !u!1 &326045757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4241371832159081409, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+  m_PrefabInstance: {fileID: 903918875869330364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294782464 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4987820899657267575, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
-  m_PrefabInstance: {fileID: 903918875869330364}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1537338604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8900316291924520044, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
   m_PrefabInstance: {fileID: 903918875869330364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1670945186
@@ -428,11 +428,15 @@ PrefabInstance:
     - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 1537338604}
+      objectReference: {fileID: 0}
     - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: maxFlyTime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2795951061388601534, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: timerCircle
+      value: 
+      objectReference: {fileID: 326045757}
     - target: {fileID: 3073370618047061513, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -13,8 +13,8 @@ public class PlayerFly : MonoBehaviour
       //public LayerMask enemyLayer;
       public bool canFly = false;
       private bool isFlying = false;
-      public float flyTimer = 0f;
-      public GameObject timerText;
+      public float flyTimer;
+      public GameObject timerCircle;
       public float maxFlyTime = 5f;
       public bool isAlive = true;
       //public AudioSource FlySFX;
@@ -25,6 +25,7 @@ public class PlayerFly : MonoBehaviour
 
             // temporary
             canFly = true;
+            flyTimer = 0f;
       }
 
       void Update() {
@@ -50,13 +51,18 @@ public class PlayerFly : MonoBehaviour
             if (isFlying) {
                 if (flyTimer > 0f) {
                     flyTimer -= Time.deltaTime;
+                    if (flyTimer < 0f) {
+                        flyTimer = 0f;
+                    }
                 }
             } else if (flyTimer < maxFlyTime) {
                 flyTimer += Time.deltaTime;
+                if (flyTimer > maxFlyTime) {
+                  flyTimer = maxFlyTime;
+                }
             }
 
-            Text flyTime = timerText.GetComponent<Text>();
-            flyTime.text = "" + flyTimer;
+            timerCircle.GetComponent<Image>().fillAmount = flyTimer / maxFlyTime;
       }
 
       void OnCollisionEnter2D(Collision2D other) {
