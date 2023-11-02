@@ -27,9 +27,8 @@ public class LifeScript : MonoBehaviour
             // Mark the object as collected
             collected = true;
 
-            // Hide the object
-            gameObject.SetActive(false);
-            // should destroy object
+            // Destroy the object
+            Destroy(gameObject);
         }
     }
 }
