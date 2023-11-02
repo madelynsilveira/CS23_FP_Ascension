@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
@@ -11,7 +12,8 @@ public class GameHandler : MonoBehaviour
     public GameObject loseScene;
     public GameObject pauseMenu;
     public GameObject timer;
-    public GameObject lifeEnergy;
+    public GameObject lifeEnergyTextObj;
+    public static int lifeEnergyScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class GameHandler : MonoBehaviour
         loseScene.SetActive(false);
         pauseMenu.SetActive(false);
         timer.SetActive(false);
-        lifeEnergy.SetActive(false);
+        lifeEnergyTextObj.SetActive(false);
 
         // Set active menu
         if (scene.name == "MainMenu") {
@@ -33,7 +35,10 @@ public class GameHandler : MonoBehaviour
             loseScene.SetActive(true);
         } else if (scene.name == "Level1" || scene.name == "work_Silas") {
             timer.SetActive(true);
-            lifeEnergy.SetActive(true);
+            lifeEnergyTextObj.SetActive(true);
+            lifeEnergyScore = 0;
+            Text lifeEnergyText = lifeEnergyTextObj.GetComponent<Text>();
+            lifeEnergyText.text = "0";
         }
     }
 

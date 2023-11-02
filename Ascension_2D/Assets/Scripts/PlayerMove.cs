@@ -13,14 +13,12 @@ public class PlayerMove : MonoBehaviour {
       public bool isAlive = true;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
-      public int lifeEnergyScore = 0;
-      public GameObject lifeEnergyObj;
+      // public int lifeEnergyScore = 0;
+      //public GameObject lifeEnergyObj;
 
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
-           Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();
-           lifeEnergyText.text = "0";
       }
 
       void Update(){
@@ -53,15 +51,15 @@ public class PlayerMove : MonoBehaviour {
             }
       }
 
-      void OnCollisionEnter2D(Collision2D other) {
-            Debug.Log("Other object tag: " + other.gameObject.tag);
-            if (other.gameObject.tag == "Food") {
-                  Destroy(other.gameObject);
-                  lifeEnergyScore += 1;
-                  Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();
-                  lifeEnergyText.text = "" + lifeEnergyScore;
-            }
-      }
+      // void OnCollisionEnter2D(Collision2D other) {
+      //       Debug.Log("Other object tag: " + other.gameObject.tag);
+      //       if (other.gameObject.tag == "Food") {
+      //             Destroy(other.gameObject);
+      //             lifeEnergyScore += 1;
+      //             Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();
+      //             lifeEnergyText.text = "" + lifeEnergyScore;
+      //       }
+      // }
 
       private void playerTurn(){
             // NOTE: Switch player facing label

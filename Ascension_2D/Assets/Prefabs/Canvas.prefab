@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 2735485671742094831}
   m_Layer: 5
   m_Name: LifeEnergyScore
-  m_TagString: Untagged
+  m_TagString: LifeEnergyText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

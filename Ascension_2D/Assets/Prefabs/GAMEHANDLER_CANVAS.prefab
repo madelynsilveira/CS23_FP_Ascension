@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: lifeEnergy
       value: 
       objectReference: {fileID: 4987820899657267575}
+    - target: {fileID: 7021449672805654481, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
+      propertyPath: lifeEnergyTextObj
+      value: 
+      objectReference: {fileID: 4987820899657267575}
     - target: {fileID: 8704453050763258237, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
       propertyPath: m_RootOrder
       value: -1
