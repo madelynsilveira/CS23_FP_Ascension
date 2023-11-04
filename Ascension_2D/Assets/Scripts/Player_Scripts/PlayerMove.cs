@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour {
                   }
 
                   // Turning: Reverse if input is moving the Player right and Player faces left
-                 if ((hMove.x <0 && !FaceRight) || (hMove.x >0 && FaceRight)){
+                 if ((hMove.x <0 && FaceRight) || (hMove.x >0 && !FaceRight)){
                         playerTurn();
                   }
            }
