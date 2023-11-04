@@ -9,10 +9,8 @@ public class NPCController : MonoBehaviour
     public Transform followTransform;
     Vector3 moveTowards;
     public bool followTarget;
-
     bool faceRight = true;
     
-
     public Animator anim;
 
     // Start is called before the first frame update
@@ -88,39 +86,40 @@ public class NPCController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        //If the character found food, then make the food object a child
-        if (col.gameObject.tag == "Food")
-        {
-            anim.SetInteger("hold_food", (anim.GetInteger("hold_food") + 1));
-            //Debug.Log("NPC found food, currently holding " + anim.GetInteger("hold_food"));
-            col.transform.parent = this.transform;
-        }
+    // think it would be cool to glow the NPC when they walk by life
+    // void OnTriggerEnter2D(Collider2D col)
+    // {
+    //     //If the character found food, then make the food object a child
+    //     if (col.gameObject.tag == "Life")
+    //     {
+    //         anim.SetInteger("hold_food", (anim.GetInteger("hold_food") + 1));
+    //         //Debug.Log("NPC found food, currently holding " + anim.GetInteger("hold_food"));
+    //         col.transform.parent = this.transform;
+    //     }
 
-        //If the character found the player, then set the player_near parameter in the state machine to true
-        //May or may not trigger a transition
-        if (col.gameObject.tag == "Player")
-        {
-            //Debug.Log("Player is near NPC");
-            anim.SetBool("player_near", true);
-        }
-    }
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            //Debug.Log("Player is not near NPC");
-            anim.SetBool("player_near", false);
-        }
-    }
+    //     //If the character found the player, then set the player_near parameter in the state machine to true
+    //     //May or may not trigger a transition
+    //     if (col.gameObject.tag == "Player")
+    //     {
+    //         //Debug.Log("Player is near NPC");
+    //         anim.SetBool("player_near", true);
+    //     }
+    // }
+    // void OnTriggerExit2D(Collider2D col)
+    // {
+    //     if (col.gameObject.tag == "Player")
+    //     {
+    //         //Debug.Log("Player is not near NPC");
+    //         anim.SetBool("player_near", false);
+    //     }
+    // }
 
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            //Debug.Log("Player is near NPC");
-            anim.SetBool("player_near", true);
-        }
-    }
+    // private void OnTriggerStay2D(Collider2D col)
+    // {
+    //     if (col.gameObject.tag == "Player")
+    //     {
+    //         //Debug.Log("Player is near NPC");
+    //         anim.SetBool("player_near", true);
+    //     }
+    // }
 }

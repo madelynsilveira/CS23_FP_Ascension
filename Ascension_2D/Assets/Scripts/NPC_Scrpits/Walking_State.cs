@@ -10,18 +10,18 @@ public class Walking_State : StateMachineBehaviour
     private float timeUntilTurn = 0f;
     private float NPC_half_width = 0.5f;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+
+    override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
         NPC = GameObject.FindWithTag("NPC");
-        RaycastHit2D ray = Physics2D.Raycast(NPC.transform.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
+        anim.SetBool("is_walk", true);
 
-        Debug.DrawRay(NPC.transform.position, Vector2.down, Color.red); // Draw a debug ray to visualize the raycast
-
+        // RaycastHit2D ray = Physics2D.Raycast(NPC.transform.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    override public void OnStateUpdate(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // update timers
         timeUntilMove -= Time.deltaTime;
@@ -29,12 +29,16 @@ public class Walking_State : StateMachineBehaviour
 
         // have we encountered the player?
         Vector3 NPCPos = NPC.transform.position;
+        // if we see the player
         if (PlayerWithin(NPCPos, 3f)) {
-            // TRANSITION TO FIND / FOLLOW PLAYER STATE
-            Debug.Log("I see the player!");
+            // Debug.Log("I see the player!");
+            anim.SetBool("player_seen", true);
+            anim.SetBool("is_walk", false);
+
+            // if we are near enough to attack the player
             if (PlayerWithin(NPCPos, 1)) {
-                // TRANSITION TO ATTACK 
-                Debug.Log("ATTACK THE PLAYER");
+                // Debug.Log("ATTACK THE PLAYER");
+                anim.SetTrigger("attack");
             }
         }
 
@@ -76,16 +80,15 @@ public class Walking_State : StateMachineBehaviour
             return true;
         }
         timeUntilTurn = 4;
-        Debug.Log("different!");
         return false;
         
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    // 
-    //}
+    override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        anim.SetBool("is_walk", false);
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
