@@ -122,4 +122,13 @@ public class NPCController : MonoBehaviour
     //         anim.SetBool("player_near", true);
     //     }
     // }
+
+    // for following sprite transition: 
+    //  if (GUI.Button(buttonPos, "Choose next sprite"))
+    //     {
+    //         spriteVersion += 1;
+    //         if (spriteVersion > 3)
+    //             spriteVersion = 0;
+    //         spriteR.sprite = sprites[spriteVersion];
+    //     }
 }
