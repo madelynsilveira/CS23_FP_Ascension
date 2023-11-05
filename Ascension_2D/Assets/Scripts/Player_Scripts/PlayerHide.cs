@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerHide : MonoBehaviour
 {
-    // public GameObject player;
+    public GameObject player;
     
     // Start is called before the first frame update
     void Start()
     {
-        // player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
         
     }
 
