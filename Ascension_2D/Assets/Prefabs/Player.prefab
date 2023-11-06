@@ -116,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 5196295548565359769}
   startSpeed: 10
-  isAlive: 1
 --- !u!114 &316290505403478265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ea7887db340417da67c15f70cc4c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  feet: {fileID: 7679651183457755355}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!82 &8214111900466498164
 AudioSource:
   m_ObjectHideFlags: 0

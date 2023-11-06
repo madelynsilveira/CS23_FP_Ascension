@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour {
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
       public float startSpeed = 10f;
-      public bool isAlive = true;
+      public static bool isFrozen;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
       // public int lifeEnergyScore = 0;
@@ -19,12 +19,13 @@ public class PlayerMove : MonoBehaviour {
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
+           isFrozen = false;
       }
 
       void Update(){
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
            hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-           if (isAlive == true){
+           if (!isFrozen){
                   transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
 
                   if (Input.GetAxis("Horizontal") != 0){

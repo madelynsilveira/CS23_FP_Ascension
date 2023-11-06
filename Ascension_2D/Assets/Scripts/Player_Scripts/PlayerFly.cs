@@ -40,7 +40,8 @@ public class PlayerFly : MonoBehaviour
             // Text flyTime = timerText.GetComponent<timerText>();
             // flyTime = "" + Mathf.Round(flyTimer);
 
-           if ((Input.GetKeyDown("up")) && (canFly) && (isAlive) && (flyTimer > 0f)) {
+           if ((Input.GetKeyDown("up") || Input.GetKeyDown("w")) && 
+               (canFly) && (isAlive) && (flyTimer > 0f)) {
                   canFly = false;
                   Fly();
             }
