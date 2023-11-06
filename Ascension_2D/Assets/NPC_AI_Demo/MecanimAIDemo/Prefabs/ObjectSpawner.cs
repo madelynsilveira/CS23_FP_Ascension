@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject spawnObject;
-    public float minInterval = 5f;
-    public float maxInterval = 10f;
+    public float minInterval = 2f;
+    public float maxInterval = 7f;
 
-    float timeUntilSpawn = 10f;
+    float timeUntilSpawn = 3f;
     
     // Update is called once per frame
     void Update()
@@ -17,7 +17,7 @@ public class ObjectSpawner : MonoBehaviour
         timeUntilSpawn -= Time.deltaTime;
         if (timeUntilSpawn <= 0)
         {
-            Vector3 spawnPos = new Vector3(Random.Range(-8, 8), Random.Range(-3, 3), 0);
+            Vector3 spawnPos = new Vector3(Random.Range(-20, 20), Random.Range(0, 30), 0);
             GameObject spawnedObject = Instantiate(spawnObject, spawnPos, Quaternion.identity);
             timeUntilSpawn = Random.Range(minInterval, maxInterval);
         }
