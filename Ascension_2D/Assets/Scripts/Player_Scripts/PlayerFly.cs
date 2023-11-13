@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerFly : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerFly : MonoBehaviour
       public GameObject timerCircle;
       public float maxFlyTime = 5f;
       public bool isAlive = true;
+      private bool movingUp = false;
+      private GameObject[] groundObjs;
       //public AudioSource FlySFX;
 
       void Start(){
@@ -26,9 +29,26 @@ public class PlayerFly : MonoBehaviour
             // temporary
             canFly = true;
             flyTimer = 0f;
+
+            // set ground obj array
+            groundObjs = FindGroundObjects();
+            for (int i = 0; i < groundObjs.Length; i++) {
+                  groundObjs[i].GetComponent<BoxCollider2D>().isTrigger = false;
+            }
       }
 
       void Update() {
+            if (!movingUp && rb.velocity.y > 0) {
+                  movingUp = true;
+                  for (int i = 0; i < groundObjs.Length; i++) {
+                        groundObjs[i].GetComponent<BoxCollider2D>().isTrigger = true;
+                  }
+            } else if (movingUp && rb.velocity.y <= 0) {
+                  movingUp = false;
+                  for (int i = 0; i < groundObjs.Length; i++) {
+                        groundObjs[i].GetComponent<BoxCollider2D>().isTrigger = false;
+                  }
+            }
             // update fly timer
             // if (isFlying) {
             //     if (flyTimer > 0f) {
@@ -64,6 +84,25 @@ public class PlayerFly : MonoBehaviour
             }
 
             timerCircle.GetComponent<Image>().fillAmount = flyTimer / maxFlyTime;
+      }
+
+      GameObject[] FindGroundObjects() {
+            GameObject[] goArray = SceneManager.
+                                   GetSceneByName(SceneManager.GetActiveScene().name).
+                                   GetRootGameObjects();
+            var goList = new List<GameObject>();
+
+            for (int i = 0; i < goArray.Length; i++) {
+                  if (goArray[i].layer == 3) {
+                        goList.Add(goArray[i]);
+                  }
+            }
+
+            if (goList.Count == 0) {
+                  return null;
+            } else {
+                  return goList.ToArray();
+            }
       }
 
       void OnCollisionEnter2D(Collision2D other) {
