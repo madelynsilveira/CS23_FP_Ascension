@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
+    public Animator anim;
     public float speed = 5f;
+    bool faceRight = true;
+
     public Vector3 targetLocation;
     public Transform followTransform;
-    Vector3 moveTowards;
     public bool followTarget;
-    bool faceRight = true;
-    
-    public Animator anim;
+    Vector3 moveTowards;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
-        followTarget = true;
         targetLocation = this.transform.position;
         followTransform = this.transform;
+        followTarget = true;
     }
 
     // Update is called once per frame
@@ -31,21 +31,15 @@ public class NPCController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, moveTowards, speed * Time.deltaTime);
         if (transform.position == moveTowards)
         {
-            anim.SetBool("is_walk", false);
+            // anim.SetBool("is_walk", false);
+            anim.SetBool("npc_healed", false);
+            Debug.Log("I've finished walking.");
         } else
         {
             anim.SetBool("is_walk", true);
         }
-        
-        //If the character is not facing the target location, turn around
-        if ((moveTowards.x < this.transform.position.x) && faceRight)
-        {
-            turnAround();
-        }
-        else if ((moveTowards.x > this.transform.position.x) && !faceRight)
-        {
-            turnAround();
-        }
+
+        checkTurning(moveTowards);
     }
 
     //Chooses the current target location based on the type of location given (Transform or Vector3 transform.location)
@@ -73,6 +67,19 @@ public class NPCController : MonoBehaviour
     {
         followTarget = true;
         followTransform = transform;
+    }
+
+    private void checkTurning(Vector3 moveTowards) 
+    {
+        //If the character is not facing the target location, turn around
+        if ((moveTowards.x < this.transform.position.x) && faceRight)
+        {
+            turnAround();
+        }
+        else if ((moveTowards.x > this.transform.position.x) && !faceRight)
+        {
+            turnAround();
+        }
     }
 
     private void turnAround()
