@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - LifeEnergy
   - LifeEnergyText
+  - Portal
   layers:
   - Default
   - TransparentFX
