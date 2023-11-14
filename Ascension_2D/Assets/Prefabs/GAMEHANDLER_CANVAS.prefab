@@ -117,7 +117,7 @@ PrefabInstance:
     - target: {fileID: 7021449672805654481, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 4241371832159081409}
+      objectReference: {fileID: 630648988959496429}
     - target: {fileID: 7021449672805654481, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
       propertyPath: mainMenu
       value: 
@@ -642,6 +642,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
+--- !u!1 &630648988959496429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7178204148028422211, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
+  m_PrefabInstance: {fileID: 7736789770501349550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1327578567511673616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8733069987632081854, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
@@ -660,11 +665,6 @@ GameObject:
 --- !u!1 &2092875041081993329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8526998052276455647, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
-  m_PrefabInstance: {fileID: 7736789770501349550}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4241371832159081409 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5873530074374566767, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
   m_PrefabInstance: {fileID: 7736789770501349550}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4987820899657267575 stripped
