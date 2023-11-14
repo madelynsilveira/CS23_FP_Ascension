@@ -24,9 +24,13 @@ public class PlayerMove : MonoBehaviour {
 
       void Update(){
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
-           hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-           if (!isFrozen){
-                  transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
+            hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+            if (!isFrozen){
+                  if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -19f &&
+                      (transform.position + hMove * runSpeed * Time.deltaTime).x < 19f) {
+                        transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
+                  }
+                  
 
                   if (Input.GetAxis("Horizontal") != 0){
                   //       animator.SetBool ("Walk", true);
@@ -42,7 +46,7 @@ public class PlayerMove : MonoBehaviour {
                  if ((hMove.x <0 && FaceRight) || (hMove.x >0 && !FaceRight)){
                         playerTurn();
                   }
-           }
+            }
       }
 
       void FixedUpdate(){
