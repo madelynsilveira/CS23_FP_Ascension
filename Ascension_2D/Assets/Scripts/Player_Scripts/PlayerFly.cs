@@ -8,12 +8,14 @@ public class PlayerFly : MonoBehaviour
 {
       //public Animator anim;
       public Rigidbody2D rb;
-      public float flyForce = 10f;
+      private float flyForce = 8f;
+      public int numFeathers = 0;
+      private float maxFlyTime = 0f;
       public bool canFly = false;
       private bool isFlying = false;
       public float flyTimer;
       public GameObject timerCircle;
-      public float maxFlyTime = 5f;
+      
       public bool isAlive = true;
       private bool movingUp = false;
       private bool isColliding = false;
@@ -24,7 +26,7 @@ public class PlayerFly : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
 
             // temporary
-            canFly = true;
+            UpdateFlyingAbilities();
             flyTimer = 0f;
       }
 
@@ -46,6 +48,8 @@ public class PlayerFly : MonoBehaviour
                   canFly = false;
                   Fly();
             }
+
+            UpdateFlyingAbilities();
       }
 
       void FixedUpdate() {
@@ -64,7 +68,11 @@ public class PlayerFly : MonoBehaviour
                 }
             }
 
-            timerCircle.GetComponent<Image>().fillAmount = flyTimer / maxFlyTime;
+            if (flyTimer == 0f) {
+                  timerCircle.GetComponent<Image>().fillAmount = 0;
+            } else {
+                  timerCircle.GetComponent<Image>().fillAmount = flyTimer / maxFlyTime;
+            }
       }
 
       void OnCollisionEnter2D(Collision2D other) {
@@ -74,7 +82,9 @@ public class PlayerFly : MonoBehaviour
       }
 
       void OnTriggerEnter2D(Collider2D other) {
-            isColliding = true;
+            if (other.gameObject.layer == 3) {
+                  isColliding = true;
+            }
       }
 
       void OnTriggerExit2D(Collider2D other) {
@@ -104,5 +114,15 @@ public class PlayerFly : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             gameObject.GetComponent<AudioSource>().Stop();
             canFly = true;
+      }
+
+      void UpdateFlyingAbilities() {
+            if (numFeathers <= 0) {
+                  canFly = false;
+            } else {
+                  canFly = true;
+                  flyForce = 8f + 2f * (numFeathers / 5);
+                  maxFlyTime = numFeathers * 1.2f;
+            }
       }
 }
