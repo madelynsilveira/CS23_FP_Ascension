@@ -826,6 +826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6029408851111896120, guid: 700ad178e408b4d0c9d1604e52c66198, type: 3}
+      propertyPath: lifeEnergy
+      value: 
+      objectReference: {fileID: 1522042416250545655, guid: 700ad178e408b4d0c9d1604e52c66198, type: 3}
     - target: {fileID: 6285984216184919973, guid: 700ad178e408b4d0c9d1604e52c66198, type: 3}
       propertyPath: maxInterval
       value: 7

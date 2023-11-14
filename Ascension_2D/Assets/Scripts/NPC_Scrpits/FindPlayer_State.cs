@@ -11,8 +11,10 @@ public class FindPlayer_State : StateMachineBehaviour
     {
         //Sets the NPC to follow the player
         NPC = GameObject.FindWithTag("NPC");
+        anim = NPC.GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         NPC.GetComponent<NPCController>().followPosition(player.transform);
+        Debug.Log("In find player");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -21,7 +23,7 @@ public class FindPlayer_State : StateMachineBehaviour
         Vector3 NPCPos = NPC.transform.position;
         if (PlayerWithin(NPCPos, 1)) {
             Debug.Log("ATTACK THE PLAYER");
-            anim.SetTrigger("attack");
+            anim.SetBool("npc_attack", true);
         } else if (PlayerWithin(NPCPos, 4)) {
             Debug.Log("I see the player");
             NPC.GetComponent<NPCController>().followPosition(player.transform);
@@ -29,7 +31,7 @@ public class FindPlayer_State : StateMachineBehaviour
             // player has escaped
             Debug.Log("where did you go?");
             anim.SetBool("player_seen", false);
-            anim.SetBool("is_walk", true);
+            // anim.SetBool("is_walk", true);
         }
     }
 
@@ -37,7 +39,7 @@ public class FindPlayer_State : StateMachineBehaviour
     {
         // NPC.GetComponent<NPCController>().moveToLocation(player.transform.position);
         anim.SetBool("player_seen", false);
-        anim.SetBool("is_walk", true);
+        // anim.SetBool("is_walk", true);
     }
 
     private bool PlayerWithin(Vector3 NPCPos, float distance) 

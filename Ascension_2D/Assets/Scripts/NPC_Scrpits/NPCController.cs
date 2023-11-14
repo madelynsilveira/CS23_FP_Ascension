@@ -20,6 +20,8 @@ public class NPCController : MonoBehaviour
         targetLocation = this.transform.position;
         followTransform = this.transform;
         followTarget = true;
+
+        anim.SetBool("npc_healed", false);
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class NPCController : MonoBehaviour
             Debug.Log("I've finished walking.");
         } else
         {
-            anim.SetBool("is_walk", true);
+            // anim.SetBool("is_walk", true);
         }
 
         checkTurning(moveTowards);

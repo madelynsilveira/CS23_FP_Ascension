@@ -11,8 +11,8 @@ public class NPCEnemy : StateMachineBehaviour
     {
 
         NPC = GameObject.FindWithTag("NPC");
-        anim.SetBool("npc_prowl", true);
-        Debug.Log("In NPC Enemy");
+        // anim.SetBool("npc_prowl", true);
+        Debug.Log("Entered NPC ENEMY");
 
     }
 
@@ -26,7 +26,7 @@ public class NPCEnemy : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        anim.SetBool("npc_prowl", false);
+        Debug.Log("Leaving NPC enemy");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
