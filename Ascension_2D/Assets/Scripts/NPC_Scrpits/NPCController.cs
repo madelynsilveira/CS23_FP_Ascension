@@ -5,75 +5,105 @@ using UnityEngine;
 public class NPCController : MonoBehaviour
 {
     public Animator anim;
+    public GameObject player;
+
+    // movement variables
     public float speed = 5f;
     bool faceRight = true;
+    private float timeUntilMove = 0f;
+    // private float timeUntilTurn = 0f;
 
     public Vector3 targetLocation;
-    public Transform followTransform;
-    public bool followTarget;
-    Vector3 moveTowards;
+    public Transform playerTransform;
+
+
+    // audio
+    // public AudioSource[3];
+    // public AudioSource attack_smallSFX;
+    // public AudioSource attack_mediumSFX;
+    // public AudioSource attack_bigSFX;
+    // if (jumpSFX.isPlaying == false){
+    //                     jumpSFX.Play();
+    //             }
 
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
-        targetLocation = this.transform.position;
-        followTransform = this.transform;
-        followTarget = true;
+        playerTransform = GameObject.FindWithTag("Player").transform;
 
-        anim.SetBool("npc_healed", false);
+        // find a random target location for initial prowling
+        Vector3 cp = this.transform.position;
+        targetLocation = new Vector3(cp.x + Random.Range(-10, 11), cp.y, cp.z);
+        anim.SetBool("npc_prowling", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveTowards = getCurrTargetLocation();
-        
-        //Moves the character to the target location
-        transform.position = Vector2.MoveTowards(transform.position, moveTowards, speed * Time.deltaTime);
-        if (transform.position == moveTowards)
-        {
-            // anim.SetBool("is_walk", false);
-            anim.SetBool("npc_healed", false);
-            Debug.Log("I've finished walking.");
-        } else
-        {
-            // anim.SetBool("is_walk", true);
+        // updates
+        timeUntilMove -= Time.deltaTime;
+        targetLocation = getCurrTargetLocation();
+        checkTurning(targetLocation);
+
+        // bool to see if the x destination value has already been reached
+        bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
+
+        // Direct the NPC to a random x position
+        if (timeUntilMove <= 0 || closeEnough) {
+            targetLocation = new Vector3(Random.Range(-10, 11), transform.position.y, 0);
+            timeUntilMove = Random.Range(5, 10);
         }
 
-        checkTurning(moveTowards);
+        moveToLocation(targetLocation);
+
+
+        
     }
 
-    //Chooses the current target location based on the type of location given (Transform or Vector3 transform.location)
+    public void moveToLocation(Vector3 targetLocation) {
+        //Moves the character to the target location
+        transform.position = Vector2.MoveTowards(transform.position, targetLocation, speed * Time.deltaTime);
+        if (transform.position == targetLocation)
+        {
+            Debug.Log("Reached my position");
+            if (anim.GetBool("npc_healed")) {
+                anim.SetBool("npc_following", false);
+            } else {
+                anim.SetBool("npc_prowling", false);
+            }
+        } else // the npc is moving
+        {
+            if (anim.GetBool("npc_healed")) {
+                anim.SetBool("npc_prowling", true);
+            } else {
+                anim.SetBool("npc_prowling", true);
+            }
+        }
+    }
+
+    // target location either player or random assigned elsewhere
     private Vector3 getCurrTargetLocation()
     {
-        if (followTarget) {
-            return followTransform.position;
+        if (anim.GetBool("npc_prowling")) {
+            return targetLocation;
+        } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
+            return playerTransform.position;
         } else {
+            Debug.Log("something else");
             return targetLocation;
         }
     }
 
-    //Set the character to move towards a specific location
-    //Takes in Vector3 gameObject.transform.location
-    public void moveToLocation(Vector3 location)
+    // allows other scripts to set target location
+    public void setTargetLocation(Vector3 location)
     {
-        followTarget = false;
         targetLocation = location;
     }
 
-    //Set the character to follow another gameObject's transform
-    //Takes in Transform gameObject.transform
-    //Note: if the gameObject leaves its previous location, then the target location will move too
-    public void followPosition(Transform transform)
-    {
-        followTarget = true;
-        followTransform = transform;
-    }
 
-    private void checkTurning(Vector3 moveTowards) 
-    {
-        //If the character is not facing the target location, turn around
+    //If the character is not facing the target location, turn around
+    private void checkTurning(Vector3 moveTowards) {
         if ((moveTowards.x < this.transform.position.x) && faceRight)
         {
             turnAround();
@@ -84,16 +114,16 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    private void turnAround()
-    {
-        // NOTE: Switch player facing label (avoids constant turning)
-        faceRight = !faceRight;
+    private void turnAround() {
+        faceRight = !faceRight; // avoids constant turning
 
-        // NOTE: Multiply player's x local scale by -1.
+        // Multiply player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+
 
     // think it would be cool to glow the NPC when they walk by life
     // void OnTriggerEnter2D(Collider2D col)
