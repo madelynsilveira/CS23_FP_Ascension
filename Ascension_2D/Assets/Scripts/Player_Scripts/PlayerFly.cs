@@ -84,6 +84,8 @@ public class PlayerFly : MonoBehaviour
       void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.layer == 3) {
                   isColliding = true;
+            } else if (other.gameObject.tag == "Portal") {
+                  SceneManager.LoadScene("winScene");
             }
       }
 
