@@ -86,12 +86,30 @@ public class NPCController : MonoBehaviour
     private Vector3 getCurrTargetLocation()
     {
         if (anim.GetBool("npc_prowling")) {
+            // new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
+    
             return targetLocation;
         } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
             return playerTransform.position;
         } else {
             Debug.Log("something else");
             return targetLocation;
+        }
+    }
+
+    // target location either player or random assigned elsewhere
+    public Vector3 getCurrTargetLocation(Vector3 currentPos)
+    {
+        // need to go to a random location
+        if (anim.GetBool("npc_prowling")) {
+            return new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
+        // need to follow the player's transform
+        } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
+            return playerTransform.position;
+        } else {
+        // stay where it is
+            Debug.Log("idling");
+            return currentPos;
         }
     }
 
@@ -121,6 +139,13 @@ public class NPCController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public bool playerWithin(float distance) 
+    {
+        bool left = (Physics2D.Raycast(transform.position, Vector2.left, distance, LayerMask.GetMask("Player")).collider != null);
+        bool right = (Physics2D.Raycast(transform.position, Vector2.right, distance, LayerMask.GetMask("Player")).collider != null);
+        return left || right;
     }
 
 
