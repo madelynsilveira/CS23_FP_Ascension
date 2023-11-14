@@ -5,12 +5,20 @@ using UnityEngine;
 public class NPCEnemy : StateMachineBehaviour
 {
     public GameObject NPC;
-    private GameObject Player;
+    // private GameObject Player;
     private Vector3 randomTarget;
-    private Vector3 playerPosition;
+    // private Vector3 playerPosition;
 
-    private float eyesight = 3f;
+    // player detection
+    private float eyesight = 5f;
     private float attackRange = 1f;
+
+    // audio
+    // public AudioSource[3];
+    // public AudioSource attack_small_SFX;
+    // public AudioSource attack_medium_SFX;
+    // public AudioSource attack_big_SFX;
+
 
 
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,7 +26,7 @@ public class NPCEnemy : StateMachineBehaviour
         Debug.Log("Entered NPC ENEMY");
         
         NPC = GameObject.FindWithTag("NPC");
-        playerPosition = GameObject.FindWithTag("Player").transform.position;
+        // playerPosition = GameObject.FindWithTag("Player").transform.position;
         
     }
 
@@ -31,20 +39,25 @@ public class NPCEnemy : StateMachineBehaviour
         // have we encountered the player?
         if (playerWithin(eyesight)) { 
             // switch from prowl to pursue
-            // Debug.Log("I see the player");
             anim.SetBool("npc_prowling", false);
             anim.SetBool("npc_pursuing", true);
-
+            NPC.GetComponent<NPCController>().setSpeed(6f);
+            // SpriteRenderer NPCSpriteRenderer = NPC.GetComponentInChildren<SpriteRenderer>();
+            // NPCSpriteRenderer.color = Color.red; // why is this not working?
             // switch from pursue to attack
             if (playerWithin(attackRange)) {
-                // Debug.Log("ATTACK THE PLAYER");
+                NPC.GetComponent<AudioSource>().Play();
                 anim.SetBool("npc_prowling", false);
                 anim.SetBool("npc_attacking", true);
+                // if (attack_medium_SFX.isPlaying == false){
+                //         attack_medium_SFX.Play();
+                // }
             }
         } else {
             anim.SetBool("npc_prowling", true);
             anim.SetBool("npc_pursuing", false);
             anim.SetBool("npc_attacking", false);
+            NPC.GetComponent<NPCController>().setSpeed(5f);
         }
 
         // set the NPC's target (random, player, or idle)
@@ -59,14 +72,16 @@ public class NPCEnemy : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log("Exiting NPC Enemy");
         anim.SetBool("npc_prowling", false);
+        anim.SetBool("npc_pursuing", false);
+        anim.SetBool("npc_attacking", false);
+        
     }
 
 
-    private bool playerWithin(float distance) 
-    {
+    private bool playerWithin(float distance) {
         return NPC.GetComponent<NPCController>().playerWithin(distance);
-        // return (Physics2D.Raycast(NPCPos, Vector2.left, distance, LayerMask.GetMask("Player")).collider != null);
     }
 
 

@@ -17,16 +17,7 @@ public class NPCController : MonoBehaviour
     public Transform playerTransform;
 
 
-    // audio
-    // public AudioSource[3];
-    // public AudioSource attack_smallSFX;
-    // public AudioSource attack_mediumSFX;
-    // public AudioSource attack_bigSFX;
-    // if (jumpSFX.isPlaying == false){
-    //                     jumpSFX.Play();
-    //             }
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -38,27 +29,34 @@ public class NPCController : MonoBehaviour
         anim.SetBool("npc_prowling", true);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         // updates
         timeUntilMove -= Time.deltaTime;
-        targetLocation = getCurrTargetLocation();
+        targetLocation = getCurrTargetLocation(transform.position);
         checkTurning(targetLocation);
+        checkHealing();
 
         // bool to see if the x destination value has already been reached
         bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
+
 
         // Direct the NPC to a random x position
         if (timeUntilMove <= 0 || closeEnough) {
             targetLocation = new Vector3(Random.Range(-10, 11), transform.position.y, 0);
             timeUntilMove = Random.Range(5, 10);
         }
-
         moveToLocation(targetLocation);
+    }
 
-
-        
+    // checks for healing trigger and transitions to NPCHealed script
+    private void checkHealing() {
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
+            anim.SetTrigger("npc_healing");
+            anim.SetBool("npc_following", true);
+        }
+        // create particle effect
     }
 
     public void moveToLocation(Vector3 targetLocation) {
@@ -83,26 +81,27 @@ public class NPCController : MonoBehaviour
     }
 
     // target location either player or random assigned elsewhere
-    private Vector3 getCurrTargetLocation()
-    {
-        if (anim.GetBool("npc_prowling")) {
-            // new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
+    // private Vector3 getCurrTargetLocation()
+    // {
+    //     if (anim.GetBool("npc_prowling")) {
+    //         // new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
     
-            return targetLocation;
-        } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
-            return playerTransform.position;
-        } else {
-            Debug.Log("something else");
-            return targetLocation;
-        }
-    }
+    //         return targetLocation;
+    //     } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
+    //         return playerTransform.position;
+    //     } else {
+    //         Debug.Log("something else");
+    //         return targetLocation;
+    //     }
+    // }
 
     // target location either player or random assigned elsewhere
     public Vector3 getCurrTargetLocation(Vector3 currentPos)
     {
         // need to go to a random location
         if (anim.GetBool("npc_prowling")) {
-            return new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
+            return targetLocation;
+            // return new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
         // need to follow the player's transform
         } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
             return playerTransform.position;
@@ -111,12 +110,6 @@ public class NPCController : MonoBehaviour
             Debug.Log("idling");
             return currentPos;
         }
-    }
-
-    // allows other scripts to set target location
-    public void setTargetLocation(Vector3 location)
-    {
-        targetLocation = location;
     }
 
 
@@ -146,6 +139,18 @@ public class NPCController : MonoBehaviour
         bool left = (Physics2D.Raycast(transform.position, Vector2.left, distance, LayerMask.GetMask("Player")).collider != null);
         bool right = (Physics2D.Raycast(transform.position, Vector2.right, distance, LayerMask.GetMask("Player")).collider != null);
         return left || right;
+    }
+
+    // allows other scripts to set target location
+    public void setTargetLocation(Vector3 location)
+    {
+        targetLocation = location;
+    }
+
+    // allows other scripts to set NPC speed
+    public void setSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 
 
