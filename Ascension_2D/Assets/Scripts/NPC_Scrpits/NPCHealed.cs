@@ -15,6 +15,9 @@ public class NPCHealed : StateMachineBehaviour
         Debug.Log("Entered NPC HEALED");
         anim.SetBool("npc_healed", true);
         anim.SetBool("npc_following", true);
+        anim.SetBool("npc_prowling", false);
+        anim.SetBool("npc_pursuing", false);
+        anim.SetBool("npc_attack", false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

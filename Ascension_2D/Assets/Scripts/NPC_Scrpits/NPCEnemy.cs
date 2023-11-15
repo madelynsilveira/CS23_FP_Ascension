@@ -41,7 +41,7 @@ public class NPCEnemy : StateMachineBehaviour
             // switch from prowl to pursue
             anim.SetBool("npc_prowling", false);
             anim.SetBool("npc_pursuing", true);
-            NPC.GetComponent<NPCController>().setSpeed(6f);
+            NPC.GetComponent<NPCController>().setSpeed(8f);
             // SpriteRenderer NPCSpriteRenderer = NPC.GetComponentInChildren<SpriteRenderer>();
             // NPCSpriteRenderer.color = Color.red; // why is this not working?
             // switch from pursue to attack
