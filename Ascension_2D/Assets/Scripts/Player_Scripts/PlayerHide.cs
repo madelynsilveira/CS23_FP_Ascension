@@ -9,6 +9,7 @@ public class PlayerHide : MonoBehaviour
     public Transform feet;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
+    public static bool canHide;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class PlayerHide : MonoBehaviour
     {
         // SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
 
-        if (!isHidden && (Input.GetKey("down") || Input.GetKey("s")) && IsGrounded()) {
+        if (canHide && !isHidden && (Input.GetKey("down") || Input.GetKey("s")) && IsGrounded()) {
             Debug.Log("Player hiding");
             isHidden = true;
             // playerSprite.color = Color.blue;

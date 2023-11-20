@@ -33,12 +33,19 @@ public class GameHandler : MonoBehaviour
             winScene.SetActive(true);
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
-        } else if (scene.name == "Level1" || scene.name == "work_Silas") {
+        } else if (scene.name == "Level1" || scene.name == "work_Silas" || scene.name == "Tutorial") {
             timer.SetActive(true);
             lifeEnergyTextObj.SetActive(true);
             lifeEnergyScore = 0;
             Text lifeEnergyText = lifeEnergyTextObj.GetComponent<Text>();
             lifeEnergyText.text = "0";
+            if (scene.name == "Tutorial") {
+                PlayerJump.jumpFrozen = true;
+                PlayerHide.canHide = false;
+            } else {
+                PlayerJump.jumpFrozen = false;
+                PlayerHide.canHide = true;
+            }
         }
     }
 
