@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHide : MonoBehaviour
 {
@@ -30,6 +32,11 @@ public class PlayerHide : MonoBehaviour
             PlayerMove.isFrozen = true;
             // animate crouch
             player.layer = LayerMask.NameToLayer("PlayerHidden");
+
+            if (SceneManager.GetActiveScene().name == "Tutorial" && GameHandler.lifeEnergyScore == 1) {
+                Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
+                instructionsText.text = "You can also use [n] to use Life Energy to heal the NPC if you are close enough.";
+            }
         } else if (isHidden && (Input.GetKeyUp("down") || (Input.GetKeyUp("s")))) {
             Debug.Log("Player stopped hiding");
             isHidden = false;
