@@ -24,8 +24,7 @@ public class NPCController : MonoBehaviour
         playerTransform = GameObject.FindWithTag("Player").transform;
 
         // find a random target location for initial prowling
-        Vector3 cp = this.transform.position;
-        targetLocation = new Vector3(cp.x + Random.Range(-10, 11), cp.y, cp.z);
+        targetLocation = eitherDirection(this.transform.position);
         anim.SetBool("npc_prowling", true);
     }
 
@@ -41,10 +40,9 @@ public class NPCController : MonoBehaviour
         // bool to see if the x destination value has already been reached
         bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
 
-
-        // Direct the NPC to a random x position
+        // Direct the NPC to a random x direction
         if (timeUntilMove <= 0 || closeEnough) {
-            targetLocation = new Vector3(Random.Range(-10, 11), transform.position.y, 0);
+            targetLocation = eitherDirection(transform.position);
             timeUntilMove = Random.Range(5, 10);
         }
         moveToLocation(targetLocation);
@@ -64,7 +62,7 @@ public class NPCController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, targetLocation, speed * Time.deltaTime);
         if (transform.position == targetLocation)
         {
-            Debug.Log("Reached my position");
+            // Debug.Log("Reached my position");
             if (anim.GetBool("npc_healed")) {
                 anim.SetBool("npc_following", false);
             } else {
@@ -81,21 +79,6 @@ public class NPCController : MonoBehaviour
     }
 
     // target location either player or random assigned elsewhere
-    // private Vector3 getCurrTargetLocation()
-    // {
-    //     if (anim.GetBool("npc_prowling")) {
-    //         // new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
-    
-    //         return targetLocation;
-    //     } else if (anim.GetBool("npc_following") || anim.GetBool("npc_pursuing")) {
-    //         return playerTransform.position;
-    //     } else {
-    //         Debug.Log("something else");
-    //         return targetLocation;
-    //     }
-    // }
-
-    // target location either player or random assigned elsewhere
     public Vector3 getCurrTargetLocation(Vector3 currentPos)
     {
         // need to go to a random location
@@ -107,7 +90,7 @@ public class NPCController : MonoBehaviour
             return playerTransform.position;
         } else {
         // stay where it is
-            Debug.Log("idling");
+            // Debug.Log("idling");
             return currentPos;
         }
     }
@@ -134,6 +117,12 @@ public class NPCController : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    public void changeDirection() {
+        turnAround();
+        targetLocation = new Vector3(targetLocation.x * -1, targetLocation.y, targetLocation.z);
+        Debug.Log("turning!");
+    }
+
     public bool playerWithin(float distance) 
     {
         bool left = (Physics2D.Raycast(transform.position, Vector2.left, distance, LayerMask.GetMask("Player")).collider != null);
@@ -152,8 +141,30 @@ public class NPCController : MonoBehaviour
     {
         speed = newSpeed;
     }
+    
+    private Vector3 eitherDirection(Vector3 currentPos) {
+        int coin = Random.Range(2, 4);
+        if (coin % 2 == 0) {
+            return new Vector3(currentPos.x + 10, currentPos.y, currentPos.z);
+        } else {
+            return new Vector3(currentPos.x - 10, currentPos.y, currentPos.z);
+        }
+    }
 
+}
 
+    // public void OnCollisionEnter2D(Collision2D other){
+    //         if (other.gameObject.tag == "NPC") {
+    //                 targetLocation = new Vector3(targetLocation.x * -1, targetLocation.y, targetLocation.z)
+    //         }
+    // }
+
+    // public void OnCollisionExit2D(Collision2D other){
+    //         if (other.gameObject.tag == "NPC") {
+    //                 isAttacking = false;
+    //                 //anim.SetBool("Attack", false);
+    //         }
+    // }
 
     // think it would be cool to glow the NPC when they walk by life
     // void OnTriggerEnter2D(Collider2D col)
@@ -200,4 +211,4 @@ public class NPCController : MonoBehaviour
     //             spriteVersion = 0;
     //         spriteR.sprite = sprites[spriteVersion];
     //     }
-}
+

@@ -5,13 +5,13 @@ using UnityEngine;
 public class NPCEnemy : StateMachineBehaviour
 {
     public GameObject NPC;
-    // private GameObject Player;
     private Vector3 randomTarget;
-    // private Vector3 playerPosition;
 
     // player detection
     private float eyesight = 5f;
     private float attackRange = 1f;
+
+    private float timeSinceLastEdge = 0f;
 
     // audio
     // public AudioSource[3];
@@ -23,7 +23,7 @@ public class NPCEnemy : StateMachineBehaviour
 
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Entered NPC ENEMY");
+        // Debug.Log("Entered NPC ENEMY");
         
         NPC = GameObject.FindWithTag("NPC");
         // playerPosition = GameObject.FindWithTag("Player").transform.position;
@@ -35,6 +35,11 @@ public class NPCEnemy : StateMachineBehaviour
     override public void OnStateUpdate(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Vector3 NPCPos = NPC.transform.position;
+        timeSinceLastEdge -= Time.deltaTime;
+
+        if ((timeSinceLastEdge <= 0 ) && (anim.GetBool("npc_prowling"))) {
+            checkEdges(NPCPos);
+        }
 
         // have we encountered the player?
         if (playerWithin(eyesight)) { 
@@ -72,7 +77,7 @@ public class NPCEnemy : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Exiting NPC Enemy");
+        // Debug.Log("Exiting NPC Enemy");
         anim.SetBool("npc_prowling", false);
         anim.SetBool("npc_pursuing", false);
         anim.SetBool("npc_attacking", false);
@@ -82,6 +87,25 @@ public class NPCEnemy : StateMachineBehaviour
 
     private bool playerWithin(float distance) {
         return NPC.GetComponent<NPCController>().playerWithin(distance);
+    }
+
+    // allows the npc to stay on a platform while prowling
+    private void checkEdges(Vector3 NPCPos) {
+        // raycast down to the left and right to check for collision
+        Vector3 posLeft = new Vector3(NPCPos.x - 1, NPCPos.y, NPCPos.z);
+        Vector3 posRight = new Vector3(NPCPos.x + 1, NPCPos.y, NPCPos.z);
+        bool leftRay = (Physics2D.Raycast(posLeft, Vector2.down, 2, LayerMask.GetMask("Ground")).collider != null);
+        bool rightRay = (Physics2D.Raycast(posRight, Vector2.down, 2, LayerMask.GetMask("Ground")).collider != null);
+        Debug.Log("checking");
+        // call function to change the direction
+
+        if ((leftRay && !rightRay) || (rightRay && !leftRay)) {
+            
+            Debug.Log("EDge");
+            NPC.GetComponent<NPCController>().changeDirection();
+            timeSinceLastEdge = 2;
+        } 
+
     }
 
 
