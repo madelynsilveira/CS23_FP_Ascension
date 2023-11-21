@@ -38,7 +38,7 @@ public class NPCController : MonoBehaviour
         checkTurning(targetLocation);
         checkHealing();
 
-        if (!anim.GetBool("npc_healed")) {
+        // if (!anim.GetBool("npc_healed")) {
             
             // bool to see if the x destination value has already been reached
             bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
@@ -49,7 +49,7 @@ public class NPCController : MonoBehaviour
                 timeUntilMove = Random.Range(5, 10);
             }
             moveToLocation(targetLocation);
-        }
+        // }
 
     }
 
