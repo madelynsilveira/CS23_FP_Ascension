@@ -36,10 +36,13 @@ public class NPCController : MonoBehaviour
         timeUntilMove -= Time.deltaTime;
         targetLocation = getCurrTargetLocation(transform.position);
         checkTurning(targetLocation);
-        checkHealing();
+        
 
-        // if (!anim.GetBool("npc_healed")) {
-            
+
+        if (anim.GetBool("npc_healed")) {
+            moveToLocation(targetLocation);
+        } else {
+            checkHealing();
             // bool to see if the x destination value has already been reached
             bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
 
@@ -49,7 +52,7 @@ public class NPCController : MonoBehaviour
                 timeUntilMove = Random.Range(5, 10);
             }
             moveToLocation(targetLocation);
-        // }
+        }
 
     }
 
@@ -64,7 +67,6 @@ public class NPCController : MonoBehaviour
                 if (particleSystem != null)
                 {
                     // Play the Particle System
-                    Debug.Log("play particles");
                     particleSystem.Play();
                 }
                 Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
@@ -76,11 +78,13 @@ public class NPCController : MonoBehaviour
     }
 
     public void moveToLocation(Vector3 targetLocation) {
+        
         //Moves the character to the target location
         transform.position = Vector2.MoveTowards(transform.position, targetLocation, speed * Time.deltaTime);
+
+        // checks to see if idle animation should be playing
         if (transform.position == targetLocation)
         {
-            // Debug.Log("Reached my position");
             if (anim.GetBool("npc_healed")) {
                 anim.SetBool("npc_following", false);
             } else {
@@ -89,7 +93,7 @@ public class NPCController : MonoBehaviour
         } else // the npc is moving
         {
             if (anim.GetBool("npc_healed")) {
-                anim.SetBool("npc_prowling", true);
+                anim.SetBool("npc_following", true);
             } else {
                 anim.SetBool("npc_prowling", true);
             }
@@ -108,7 +112,6 @@ public class NPCController : MonoBehaviour
             return playerTransform.position;
         } else {
         // stay where it is
-            // Debug.Log("idling");
             return currentPos;
         }
     }
@@ -138,7 +141,6 @@ public class NPCController : MonoBehaviour
     public void changeDirection() {
         turnAround();
         targetLocation = new Vector3(targetLocation.x * -1, targetLocation.y, targetLocation.z);
-        Debug.Log("turning!");
     }
 
     public bool characterWithin(float distance) 
