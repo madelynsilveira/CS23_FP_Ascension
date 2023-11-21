@@ -31,10 +31,10 @@ public class LifeScript : MonoBehaviour
                     instructionsText.text = "Use the space bar to jump! Try hopping up onto the platform.";
                     PlayerJump.jumpFrozen = false;
                 } else if (GameHandler.lifeEnergyScore == 2) {
-                    instructionsText.text = "Watch out! An enemy character has appeared! Use the down arrow or [s] in order to hide from the enemy character.";
+                    instructionsText.text = "Watch out! An enemy character has appeared! Use the down arrow or [s] in order to hide from them.";
                     PlayerHide.canHide = true;
                     npc.SetActive(true);
-                }
+                } 
                     
             }
 
