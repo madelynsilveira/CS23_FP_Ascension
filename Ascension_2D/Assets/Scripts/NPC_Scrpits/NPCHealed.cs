@@ -35,8 +35,8 @@ public class NPCHealed : StateMachineBehaviour
         // anim.SetBool("npc_healed", false);
     }
 
-    private bool playerWithin(float distance) {
-        return NPC.GetComponent<NPCController>().playerWithin(distance);
-    }
+    // private bool playerWithin(float distance) {
+    //     return NPC.GetComponent<NPCController>().playerWithin(distance);
+    // }
 
 }

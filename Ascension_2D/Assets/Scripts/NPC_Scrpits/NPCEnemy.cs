@@ -89,7 +89,7 @@ public class NPCEnemy : StateMachineBehaviour
 
 
     private bool playerWithin(float distance) {
-        return NPC.GetComponent<NPCController>().playerWithin(distance);
+        return NPC.GetComponent<NPCController>().characterWithin(distance);
     }
 
     // allows the npc to stay on a platform while prowling

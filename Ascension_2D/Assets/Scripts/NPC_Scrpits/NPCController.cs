@@ -38,28 +38,40 @@ public class NPCController : MonoBehaviour
         checkTurning(targetLocation);
         checkHealing();
 
-        // bool to see if the x destination value has already been reached
-        bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
+        if (!anim.GetBool("npc_healed")) {
+            
+            // bool to see if the x destination value has already been reached
+            bool closeEnough = (Mathf.Abs(transform.position.x - targetLocation.x) < .3);
 
-        // Direct the NPC to a random x direction
-        if (timeUntilMove <= 0 || closeEnough) {
-            targetLocation = eitherDirection(transform.position);
-            timeUntilMove = Random.Range(5, 10);
+            // Direct the NPC to a random x direction
+            if (timeUntilMove <= 0 || closeEnough) {
+                targetLocation = eitherDirection(transform.position);
+                timeUntilMove = Random.Range(5, 10);
+            }
+            moveToLocation(targetLocation);
         }
-        moveToLocation(targetLocation);
+
     }
 
     // checks for healing trigger and transitions to NPCHealed script
     private void checkHealing() {
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
-            anim.SetTrigger("npc_healing");
-            anim.SetBool("npc_following", true);
-        }
-        // create particle effect
-        if (particleSystem != null)
-        {
-            // Play the Particle System
-            particleSystem.Play();
+            if (characterWithin(3f)) {
+                anim.SetTrigger("npc_healing");
+                anim.SetBool("npc_following", true);
+                    
+                // create particle effect
+                if (particleSystem != null)
+                {
+                    // Play the Particle System
+                    Debug.Log("play particles");
+                    particleSystem.Play();
+                }
+                Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
+                targetLocation = moveUp;
+                moveToLocation(moveUp);
+            }
+
         }
     }
 
@@ -129,7 +141,7 @@ public class NPCController : MonoBehaviour
         Debug.Log("turning!");
     }
 
-    public bool playerWithin(float distance) 
+    public bool characterWithin(float distance) 
     {
         bool left = (Physics2D.Raycast(transform.position, Vector2.left, distance, LayerMask.GetMask("Player")).collider != null);
         bool right = (Physics2D.Raycast(transform.position, Vector2.right, distance, LayerMask.GetMask("Player")).collider != null);
