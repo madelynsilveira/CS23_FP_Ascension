@@ -6,12 +6,12 @@ public class NPCController : MonoBehaviour
 {
     public Animator anim;
     public GameObject player;
+    private ParticleSystem particleSystem;
 
     // movement variables
     private float speed = 4f;
     bool faceRight = true;
     private float timeUntilMove = 0f;
-    // private float timeUntilTurn = 0f;
 
     private Vector3 targetLocation;
     private Transform playerTransform;
@@ -22,6 +22,7 @@ public class NPCController : MonoBehaviour
     {
         anim = gameObject.GetComponentInChildren<Animator>();
         playerTransform = GameObject.FindWithTag("Player").transform;
+        particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
 
         // find a random target location for initial prowling
         targetLocation = eitherDirection(this.transform.position);
@@ -55,6 +56,11 @@ public class NPCController : MonoBehaviour
             anim.SetBool("npc_following", true);
         }
         // create particle effect
+        if (particleSystem != null)
+        {
+            // Play the Particle System
+            particleSystem.Play();
+        }
     }
 
     public void moveToLocation(Vector3 targetLocation) {
