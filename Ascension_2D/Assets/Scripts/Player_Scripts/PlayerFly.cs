@@ -9,7 +9,7 @@ public class PlayerFly : MonoBehaviour
       //public Animator anim;
       public Rigidbody2D rb;
       private float flyForce = 8f;
-      public int numFeathers = 0;
+      public static int numFeathers = 0;
       private float maxFlyTime = 0f;
       public bool canFly = false;
       private bool isFlying = false;
@@ -26,6 +26,7 @@ public class PlayerFly : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
 
             // temporary
+            numFeathers = 0;
             UpdateFlyingAbilities();
             flyTimer = 0f;
       }
