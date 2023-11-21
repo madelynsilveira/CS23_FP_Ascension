@@ -562,8 +562,8 @@ GameObject:
   - component: {fileID: 561831233}
   - component: {fileID: 561831232}
   m_Layer: 5
-  m_Name: Instructions_Move_Text
-  m_TagString: Untagged
+  m_Name: Instructions_Text
+  m_TagString: Instructions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,8 +585,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 150}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchoredPosition: {x: 250, y: 200}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561831232
 MonoBehaviour:
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -610,7 +610,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -621,8 +621,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Use the arrow keys to move side to side! Pick up the blue orbs to gain
-    life energy!
+  m_Text: Use the arrow keys (or [a] and [d] to move side to side! Pick up the blue
+    orbs to gain life energy!
 --- !u!222 &561831233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1678,11 +1678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5240075662467005217, guid: aee258512ada44fe4a7cf799af5ef7ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.52
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5240075662467005217, guid: aee258512ada44fe4a7cf799af5ef7ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5240075662467005217, guid: aee258512ada44fe4a7cf799af5ef7ad, type: 3}
       propertyPath: m_LocalPosition.z

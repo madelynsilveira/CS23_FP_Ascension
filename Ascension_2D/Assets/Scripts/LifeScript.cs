@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LifeScript : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class LifeScript : MonoBehaviour
             GameHandler.lifeEnergyScore++;
             Text lifeText = lifeEnergy.GetComponent<Text>();
             lifeText.text = "" + GameHandler.lifeEnergyScore;
+            if (SceneManager.GetActiveScene().name == "Tutorial" && GameHandler.lifeEnergyScore == 1) {
+                Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
+                instructionsText.text = "Use the space bar to jump! Try hopping up onto the platform.";
+                PlayerJump.jumpFrozen = false;
+            }
 
             // Mark the object as collected
             collected = true;
