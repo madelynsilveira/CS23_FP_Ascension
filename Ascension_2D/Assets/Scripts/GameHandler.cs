@@ -14,6 +14,7 @@ public class GameHandler : MonoBehaviour
     public GameObject timer;
     public GameObject lifeEnergyTextObj;
     public static int lifeEnergyScore;
+    public static bool tutorialComplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,7 @@ public class GameHandler : MonoBehaviour
                 PlayerJump.jumpFrozen = true;
                 PlayerHide.canHide = false;
                 GameObject.FindWithTag("NPC").SetActive(false);
+                tutorialComplete = false;
             } else {
                 PlayerJump.jumpFrozen = false;
                 PlayerHide.canHide = true;
@@ -58,7 +60,12 @@ public class GameHandler : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level1");
+        if (!tutorialComplete) {
+            SceneManager.LoadScene("Tutorial");
+        } else {
+            SceneManager.LoadScene("Level1");
+        }
+        
             // Set static vars
     }
 

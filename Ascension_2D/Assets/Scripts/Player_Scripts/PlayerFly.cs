@@ -85,7 +85,12 @@ public class PlayerFly : MonoBehaviour
             if (other.gameObject.layer == 3) {
                   isColliding = true;
             } else if (other.gameObject.tag == "Portal") {
-                  SceneManager.LoadScene("winScene");
+                  if (SceneManager.GetActiveScene().name == "Level1") {
+                        SceneManager.LoadScene("winScene");
+                  } else {
+                        GameHandler.tutorialComplete = true;
+                        SceneManager.LoadScene("Level1");
+                  }
             }
       }
 
