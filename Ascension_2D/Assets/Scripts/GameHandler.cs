@@ -42,6 +42,7 @@ public class GameHandler : MonoBehaviour
             if (scene.name == "Tutorial") {
                 PlayerJump.jumpFrozen = true;
                 PlayerHide.canHide = false;
+                GameObject.FindWithTag("NPC").SetActive(false);
             } else {
                 PlayerJump.jumpFrozen = false;
                 PlayerHide.canHide = true;
