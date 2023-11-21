@@ -10,8 +10,8 @@ public class NPCEnemy : StateMachineBehaviour
     // player detection
     private float eyesight = 5f;
     private float attackRange = 1f;
-    private float normalSpeed = 0f;
-    private float doubleSpeed = 0f;
+    // private float normalSpeed = 0f;
+    // private float doubleSpeed = 0f;
     private float timeSinceLastEdge = 0f;
 
     // audio
@@ -27,8 +27,8 @@ public class NPCEnemy : StateMachineBehaviour
         // Debug.Log("Entered NPC ENEMY");
         
         NPC = GameObject.FindWithTag("NPC");
-        normalSpeed = NPC.GetComponent<NPCController>().getSpeed();
-        doubleSpeed = normalSpeed * 2;
+        // normalSpeed = NPC.GetComponent<NPCController>().getSpeed();
+        // doubleSpeed = normalSpeed * 2;
         // playerPosition = GameObject.FindWithTag("Player").transform.position;
         
     }
@@ -99,7 +99,6 @@ public class NPCEnemy : StateMachineBehaviour
         Vector3 posRight = new Vector3(NPCPos.x + 1, NPCPos.y, NPCPos.z);
         bool leftRay = (Physics2D.Raycast(posLeft, Vector2.down, 2, LayerMask.GetMask("Ground")).collider != null);
         bool rightRay = (Physics2D.Raycast(posRight, Vector2.down, 2, LayerMask.GetMask("Ground")).collider != null);
-        Debug.Log("checking");
         // call function to change the direction
 
         if ((leftRay && !rightRay) || (rightRay && !leftRay)) {

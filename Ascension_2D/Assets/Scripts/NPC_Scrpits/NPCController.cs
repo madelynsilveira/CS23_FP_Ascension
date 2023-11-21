@@ -8,13 +8,13 @@ public class NPCController : MonoBehaviour
     public GameObject player;
 
     // movement variables
-    public float speed = 4f;
+    private float speed = 4f;
     bool faceRight = true;
     private float timeUntilMove = 0f;
     // private float timeUntilTurn = 0f;
 
-    public Vector3 targetLocation;
-    public Transform playerTransform;
+    private Vector3 targetLocation;
+    private Transform playerTransform;
 
 
 
