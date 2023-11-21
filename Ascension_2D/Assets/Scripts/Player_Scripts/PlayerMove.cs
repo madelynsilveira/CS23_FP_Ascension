@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour {
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
       public float startSpeed = 10f;
+      public float freezeDistance = 25f;
       public static bool isFrozen;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
@@ -26,8 +27,8 @@ public class PlayerMove : MonoBehaviour {
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             if (!isFrozen){
-                  if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -19f &&
-                      (transform.position + hMove * runSpeed * Time.deltaTime).x < 19f) {
+                  if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
+                      (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {
                         transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
                   }
                   
