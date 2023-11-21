@@ -10,7 +10,8 @@ public class NPCEnemy : StateMachineBehaviour
     // player detection
     private float eyesight = 5f;
     private float attackRange = 1f;
-
+    private float normalSpeed = 0f;
+    private float doubleSpeed = 0f;
     private float timeSinceLastEdge = 0f;
 
     // audio
@@ -26,6 +27,8 @@ public class NPCEnemy : StateMachineBehaviour
         // Debug.Log("Entered NPC ENEMY");
         
         NPC = GameObject.FindWithTag("NPC");
+        normalSpeed = NPC.GetComponent<NPCController>().getSpeed();
+        doubleSpeed = normalSpeed * 2;
         // playerPosition = GameObject.FindWithTag("Player").transform.position;
         
     }
@@ -62,7 +65,7 @@ public class NPCEnemy : StateMachineBehaviour
             anim.SetBool("npc_prowling", true);
             anim.SetBool("npc_pursuing", false);
             anim.SetBool("npc_attacking", false);
-            NPC.GetComponent<NPCController>().setSpeed(5f);
+            NPC.GetComponent<NPCController>().setSpeed(4f);
         }
 
         // set the NPC's target (random, player, or idle)
@@ -103,7 +106,7 @@ public class NPCEnemy : StateMachineBehaviour
             
             Debug.Log("EDge");
             NPC.GetComponent<NPCController>().changeDirection();
-            timeSinceLastEdge = 2;
+            timeSinceLastEdge = 1;
         } 
 
     }

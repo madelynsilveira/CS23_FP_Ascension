@@ -8,7 +8,7 @@ public class NPCController : MonoBehaviour
     public GameObject player;
 
     // movement variables
-    public float speed = 5f;
+    public float speed = 4f;
     bool faceRight = true;
     private float timeUntilMove = 0f;
     // private float timeUntilTurn = 0f;
@@ -140,6 +140,12 @@ public class NPCController : MonoBehaviour
     public void setSpeed(float newSpeed)
     {
         speed = newSpeed;
+    }
+
+    // allows other scripts to set NPC speed
+    public float getSpeed()
+    {
+        return speed;
     }
     
     private Vector3 eitherDirection(Vector3 currentPos) {
