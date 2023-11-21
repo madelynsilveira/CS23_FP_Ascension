@@ -43,11 +43,15 @@ public class GameHandler : MonoBehaviour
             if (scene.name == "Tutorial") {
                 PlayerJump.jumpFrozen = true;
                 PlayerHide.canHide = false;
+                PlayerHeal.canHealSelf = false;
+                PlayerHeal.canHealEnemy = false;
                 GameObject.FindWithTag("NPC").SetActive(false);
                 tutorialComplete = false;
             } else {
                 PlayerJump.jumpFrozen = false;
                 PlayerHide.canHide = true;
+                PlayerHeal.canHealSelf = true;
+                PlayerHeal.canHealEnemy = true;
             }
         }
     }

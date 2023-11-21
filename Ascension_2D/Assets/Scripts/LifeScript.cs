@@ -8,7 +8,6 @@ public class LifeScript : MonoBehaviour
 {
     private bool collected = false;
     public GameObject lifeEnergy;
-    public GameObject npc;
         
 
     void Start()
@@ -25,18 +24,16 @@ public class LifeScript : MonoBehaviour
             GameHandler.lifeEnergyScore++;
             Text lifeText = lifeEnergy.GetComponent<Text>();
             lifeText.text = "" + GameHandler.lifeEnergyScore;
-            
+
             if (SceneManager.GetActiveScene().name == "Tutorial") {
                 Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
                 if (GameHandler.lifeEnergyScore == 1) {
                     instructionsText.text = "Use the space bar to jump! Try hopping up onto the platform.";
                     PlayerJump.jumpFrozen = false;
-                } else if (GameHandler.lifeEnergyScore == 2) {
-                    instructionsText.text = "Watch out! An enemy character has appeared! Use the down arrow or [s] in order to hide from them.";
-                    PlayerHide.canHide = true;
-                    npc.SetActive(true);
-                } 
-                    
+                } else if (GameHandler.lifeEnergyScore == 3) {
+                    PlayerHeal.canHealSelf = true;
+                    instructionsText.text = "Life Energy can be used on yourself or on an enemy. If you are not at 100% health, using it on yourself will heal you. Try it with [m]!";
+                }     
             }
 
             // Mark the object as collected
