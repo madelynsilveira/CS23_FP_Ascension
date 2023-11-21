@@ -25,6 +25,7 @@ public class LifeScript : MonoBehaviour
             GameHandler.lifeEnergyScore++;
             Text lifeText = lifeEnergy.GetComponent<Text>();
             lifeText.text = "" + GameHandler.lifeEnergyScore;
+            
             if (SceneManager.GetActiveScene().name == "Tutorial") {
                 Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
                 if (GameHandler.lifeEnergyScore == 1) {
