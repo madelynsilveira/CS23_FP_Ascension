@@ -50,7 +50,7 @@ public class PlayerHeal : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "Tutorial") {
                 Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
-                instructionsText.text = "Use the up arrow or [s] to flap your wings and fly. The circle in the top left is the flying timer which shows how long you can fly for and will refill while you are not flying.";
+                instructionsText.text = "Use the up arrow or [w] to flap your wings and fly. The circle in the top left is the flying timer which shows how long you can fly for and will refill while you are not flying.";
             }
         }
     }
