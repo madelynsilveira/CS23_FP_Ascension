@@ -33,15 +33,15 @@ public class PlayerMove : MonoBehaviour {
                   }
                   
 
-                  if (Input.GetAxis("Horizontal") != 0){
+                  // if (Input.GetAxis("Horizontal") != 0){
                   //       animator.SetBool ("Walk", true);
                   //       if (!WalkSFX.isPlaying){
                   //             WalkSFX.Play();
                   //      }
-                  } else {
+                  // } else {
                   //      animator.SetBool ("Walk", false);
                   //      WalkSFX.Stop();
-                  }
+                  // }
 
                   // Turning: Reverse if input is moving the Player right and Player faces left
                  if ((hMove.x <0 && FaceRight) || (hMove.x >0 && !FaceRight)){
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour {
             }
       }
 
-      // void OnCollisionEnter2D(Collision2D other) {
+      // void OnTriggerEnter2D(Collider2D other) {
       //       Debug.Log("Other object tag: " + other.gameObject.tag);
       //       if (other.gameObject.tag == "Food") {
       //             Destroy(other.gameObject);

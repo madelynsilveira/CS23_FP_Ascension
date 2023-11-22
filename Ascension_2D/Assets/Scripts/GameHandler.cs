@@ -11,7 +11,7 @@ public class GameHandler : MonoBehaviour
     public GameObject winScene;
     public GameObject loseScene;
     public GameObject pauseMenu;
-    public GameObject timer;
+    public GameObject healthCircle;
     public GameObject lifeEnergyTextObj;
     public static int lifeEnergyScore;
     public static bool tutorialComplete;
@@ -24,7 +24,7 @@ public class GameHandler : MonoBehaviour
         winScene.SetActive(false);
         loseScene.SetActive(false);
         pauseMenu.SetActive(false);
-        timer.SetActive(false);
+        healthCircle.SetActive(false);
         lifeEnergyTextObj.SetActive(false);
 
         // Set active menu
@@ -35,7 +35,7 @@ public class GameHandler : MonoBehaviour
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
         } else if (scene.name == "Level1" || scene.name == "work_Silas" || scene.name == "Tutorial") {
-            timer.SetActive(true);
+            healthCircle.SetActive(true);
             lifeEnergyTextObj.SetActive(true);
             lifeEnergyScore = 0;
             Text lifeEnergyText = lifeEnergyTextObj.GetComponent<Text>();
@@ -43,15 +43,13 @@ public class GameHandler : MonoBehaviour
             if (scene.name == "Tutorial") {
                 PlayerJump.jumpFrozen = true;
                 PlayerHide.canHide = false;
-                PlayerHeal.canHealSelf = false;
-                PlayerHeal.canHealEnemy = false;
+                PlayerHeal.canHeal = false;
                 GameObject.FindWithTag("NPC").SetActive(false);
                 tutorialComplete = false;
             } else {
                 PlayerJump.jumpFrozen = false;
                 PlayerHide.canHide = true;
-                PlayerHeal.canHealSelf = true;
-                PlayerHeal.canHealEnemy = true;
+                PlayerHeal.canHeal = true;
             }
         }
     }

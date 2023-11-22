@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 7073887456033785864}
   - component: {fileID: 928780786278918653}
   m_Layer: 5
-  m_Name: FlyCircle
+  m_Name: Life1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 3995507160482674714}
   - component: {fileID: 1306948742275232717}
   m_Layer: 5
-  m_Name: FlyCircle_BG
+  m_Name: healthCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
