@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour {
                   canJump = false;
             }
 
-           if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true) && !jumpFrozen) {
+           if ((Input.GetKeyDown("up")) && (canJump) && (isAlive == true) && !jumpFrozen) {
                   Jump();
             }
       }
