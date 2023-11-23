@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerHeal : MonoBehaviour
 {
     public static bool canHeal;
+    public static bool beingAttacked;
+    private bool attackFinished;
     public GameObject npc;
 
     public float maxHealth = 100f;
@@ -18,8 +20,9 @@ public class PlayerHeal : MonoBehaviour
     void Start()
     {
         health = 100f;
-        life1.GetComponent<Image>().fillAmount = 1f;
-        healthBG.GetComponent<Image>().fillAmount = 0f;
+        UpdateHealth();
+        beingAttacked = false;
+        attackFinished = true;
     }
 
     // Update is called once per frame
@@ -60,5 +63,25 @@ public class PlayerHeal : MonoBehaviour
             //     instructionsText.text = "Use the up arrow or [w] to flap your wings and fly. The circle in the top left is the flying timer which shows how long you can fly for and will refill while you are not flying.";
             // }
         }
+
+        if (beingAttacked && attackFinished) {
+            attackFinished = false;
+            health -= 5f;
+            UpdateHealth();
+            if (health == 0) {
+                Debug.Log("Player died");
+            }
+            StartCoroutine(Attack());
+        }
+    }
+
+    public void UpdateHealth() {
+        life1.GetComponent<Image>().fillAmount = health / maxHealth;
+        healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
+    }
+
+    IEnumerator Attack() {
+        yield return new WaitForSeconds(0.5f);
+        attackFinished = true;
     }
 }

@@ -57,6 +57,7 @@ public class NPCEnemy : StateMachineBehaviour
                 NPC.GetComponent<AudioSource>().Play();
                 anim.SetBool("npc_prowling", false);
                 anim.SetBool("npc_attacking", true);
+                PlayerHeal.beingAttacked = true;
                 // if (attack_medium_SFX.isPlaying == false){
                 //         attack_medium_SFX.Play();
                 // }
@@ -65,6 +66,7 @@ public class NPCEnemy : StateMachineBehaviour
             anim.SetBool("npc_prowling", true);
             anim.SetBool("npc_pursuing", false);
             anim.SetBool("npc_attacking", false);
+            PlayerHeal.beingAttacked = false;
             NPC.GetComponent<NPCController>().setSpeed(4f);
         }
 
