@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 7021449672805654481, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
       propertyPath: healthCircle
       value: 
-      objectReference: {fileID: 630648988959496429}
+      objectReference: {fileID: 5175559873978347576}
     - target: {fileID: 7021449672805654481, guid: f67b3e2944a5f4dfc9516f14614179d5, type: 3}
       propertyPath: lifeEnergyTextObj
       value: 
@@ -674,6 +674,11 @@ GameObject:
 --- !u!1 &4987820899657267575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3343594933227149785, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
+  m_PrefabInstance: {fileID: 7736789770501349550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5175559873978347576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3210451936015110294, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
   m_PrefabInstance: {fileID: 7736789770501349550}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8070869853883866931 stripped

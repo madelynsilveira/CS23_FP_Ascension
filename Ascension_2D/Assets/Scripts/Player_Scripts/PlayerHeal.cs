@@ -9,10 +9,17 @@ public class PlayerHeal : MonoBehaviour
     public static bool canHeal;
     public GameObject npc;
 
+    public float maxHealth = 100f;
+    public float health;
+    public GameObject life1;
+    public GameObject healthBG;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = 100f;
+        life1.GetComponent<Image>().fillAmount = 1f;
+        healthBG.GetComponent<Image>().fillAmount = 0f;
     }
 
     // Update is called once per frame

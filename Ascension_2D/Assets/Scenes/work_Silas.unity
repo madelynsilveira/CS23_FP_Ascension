@@ -311,6 +311,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee258512ada44fe4a7cf799af5ef7ad, type: 3}
+--- !u!1 &1234480391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 630648988959496429, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+  m_PrefabInstance: {fileID: 903918875869330364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294782464 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4987820899657267575, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
@@ -729,6 +734,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6648608830097391468, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: life1
+      value: 
+      objectReference: {fileID: 326045757}
+    - target: {fileID: 6648608830097391468, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: healthBG
+      value: 
+      objectReference: {fileID: 1234480391}
     - target: {fileID: 8100936627181083668, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: lifeEnergyObj
       value: 

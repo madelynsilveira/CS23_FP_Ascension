@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8100936627181083668}
   - component: {fileID: 316290505403478265}
   - component: {fileID: 486688511440740058}
-  - component: {fileID: 8214111900466498164}
   - component: {fileID: 6648608830097391468}
+  - component: {fileID: 8214111900466498164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -162,6 +162,23 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &6648608830097391468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66518451102527513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b412220ea8347b087c3aeca7c0fc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 0}
+  maxHealth: 100
+  health: 0
+  life1: {fileID: 0}
+  healthBG: {fileID: 0}
 --- !u!82 &8214111900466498164
 AudioSource:
   m_ObjectHideFlags: 0
@@ -258,19 +275,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6648608830097391468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66518451102527513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b412220ea8347b087c3aeca7c0fc61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npc: {fileID: 0}
 --- !u!1 &3568640770131966203
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +378,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
