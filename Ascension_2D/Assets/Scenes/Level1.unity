@@ -5425,6 +5425,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6648608830097391468, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: life1
+      value: 
+      objectReference: {fileID: 996846072}
+    - target: {fileID: 6648608830097391468, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: healthBG
+      value: 
+      objectReference: {fileID: 1670997034}
     - target: {fileID: 7179087840834364903, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -6494,6 +6502,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3073370618047061513, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
   m_PrefabInstance: {fileID: 274632344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1670997034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 630648988959496429, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+  m_PrefabInstance: {fileID: 996846070}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1705328858
 PrefabInstance:
