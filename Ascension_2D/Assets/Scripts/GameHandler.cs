@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
     public GameObject mainMenu;
     public GameObject winScene;
     public GameObject loseScene;
-    public GameObject healthCircle;
+    public GameObject playScene;
     public GameObject lifeEnergyTextObj;
     public static int lifeEnergyScore;
     public static bool tutorialComplete;
@@ -22,8 +22,7 @@ public class GameHandler : MonoBehaviour
         mainMenu.SetActive(false);
         winScene.SetActive(false);
         loseScene.SetActive(false);
-        healthCircle.SetActive(false);
-        lifeEnergyTextObj.SetActive(false);
+        playScene.SetActive(false);
 
         // Set active menu
         if (scene.name == "MainMenu") {
@@ -33,8 +32,7 @@ public class GameHandler : MonoBehaviour
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
         } else if (scene.name == "Level1" || scene.name == "work_Silas" || scene.name == "Tutorial") {
-            healthCircle.SetActive(true);
-            lifeEnergyTextObj.SetActive(true);
+            playScene.SetActive(true);
             lifeEnergyScore = 0;
             Text lifeEnergyText = lifeEnergyTextObj.GetComponent<Text>();
             lifeEnergyText.text = "0";

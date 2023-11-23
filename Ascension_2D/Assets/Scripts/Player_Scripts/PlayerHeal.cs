@@ -69,7 +69,7 @@ public class PlayerHeal : MonoBehaviour
             health -= 5f;
             UpdateHealth();
             if (health == 0) {
-                Debug.Log("Player died");
+                SceneManager.LoadScene("LoseScene");
             }
             StartCoroutine(Attack());
         }
