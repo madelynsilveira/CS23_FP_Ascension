@@ -10,7 +10,6 @@ public class GameHandler : MonoBehaviour
     public GameObject mainMenu;
     public GameObject winScene;
     public GameObject loseScene;
-    public GameObject pauseMenu;
     public GameObject healthCircle;
     public GameObject lifeEnergyTextObj;
     public static int lifeEnergyScore;
@@ -23,7 +22,6 @@ public class GameHandler : MonoBehaviour
         mainMenu.SetActive(false);
         winScene.SetActive(false);
         loseScene.SetActive(false);
-        pauseMenu.SetActive(false);
         healthCircle.SetActive(false);
         lifeEnergyTextObj.SetActive(false);
 
