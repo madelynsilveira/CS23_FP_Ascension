@@ -11,6 +11,7 @@ TagManager:
   - LifeEnergyText
   - Portal
   - Instructions
+  - Boundary
   layers:
   - Default
   - TransparentFX

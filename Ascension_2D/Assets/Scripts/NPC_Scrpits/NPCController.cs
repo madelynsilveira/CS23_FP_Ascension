@@ -177,6 +177,12 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D other){
+            if (other.gameObject.tag == "Boundary") {
+                    changeDirection();
+            }
+    }
+
 }
 
     // public void OnCollisionEnter2D(Collision2D other){
