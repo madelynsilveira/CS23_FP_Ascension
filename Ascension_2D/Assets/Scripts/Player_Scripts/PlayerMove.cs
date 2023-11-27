@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
  
 public class PlayerMove : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class PlayerMove : MonoBehaviour {
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
       public float startSpeed = 10f;
-      public float freezeDistance = 25f;
+      //public float freezeDistance = 25f;
       public static bool isFrozen;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
@@ -27,10 +28,10 @@ public class PlayerMove : MonoBehaviour {
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             if (!isFrozen){
-                  if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
-                      (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {
+                  /*if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
+                      (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {*/
                         transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
-                  }
+                  //}
                   
 
                   // if (Input.GetAxis("Horizontal") != 0){
@@ -75,5 +76,16 @@ public class PlayerMove : MonoBehaviour {
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+      }
+
+      void OnTriggerEnter2D(Collider2D other) {
+            if (other.gameObject.tag == "Portal") {
+                  if (SceneManager.GetActiveScene().name == "Level1") {
+                        SceneManager.LoadScene("winScene");
+                  } else {
+                        GameHandler.tutorialComplete = true;
+                        SceneManager.LoadScene("Level1");
+                  }
+            }
       }
 }
