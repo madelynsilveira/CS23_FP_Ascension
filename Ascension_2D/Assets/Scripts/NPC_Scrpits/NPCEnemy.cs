@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCEnemy : StateMachineBehaviour
+//public class NPCEnemy : MonoBehaviour
 {
     public GameObject NPC;
+    //public Animator anim;
     private Vector3 randomTarget;
 
     // player detection
@@ -13,6 +15,7 @@ public class NPCEnemy : StateMachineBehaviour
     // private float normalSpeed = 0f;
     // private float doubleSpeed = 0f;
     private float timeSinceLastEdge = 0f;
+    private AudioSource audioSource;
 
     // audio
     // public AudioSource[3];
@@ -42,6 +45,7 @@ public class NPCEnemy : StateMachineBehaviour
 
         if ((timeSinceLastEdge <= 0 ) && (anim.GetBool("npc_prowling"))) {
             checkEdges(NPCPos);
+            //checkEdges(transform.position);
         }
 
         // have we encountered the player?
@@ -51,11 +55,16 @@ public class NPCEnemy : StateMachineBehaviour
             anim.SetBool("npc_pursuing", true);
             anim.SetBool("npc_attacking", false);
             NPC.GetComponent<NPCController>().setSpeed(8f);
+            //gameObject.GetComponent<NPCController>().setSpeed(8f);
             // SpriteRenderer NPCSpriteRenderer = NPC.GetComponentInChildren<SpriteRenderer>();
             // NPCSpriteRenderer.color = Color.red; // why is this not working?
             // switch from pursue to attack
             if (playerWithin(attackRange)) {
-                NPC.GetComponent<AudioSource>().Play();
+                //NPC.GetComponent<AudioSource>().Play();
+                audioSource = NPC.GetComponent<AudioSource>();
+                if (!audioSource.isPlaying) {
+                    audioSource.Play();
+                }
                 anim.SetBool("npc_prowling", false);
                 anim.SetBool("npc_attacking", true);
                 PlayerHeal.beingAttacked = true;
@@ -69,11 +78,13 @@ public class NPCEnemy : StateMachineBehaviour
             anim.SetBool("npc_attacking", false);
             PlayerHeal.beingAttacked = false;
             NPC.GetComponent<NPCController>().setSpeed(4f);
+            //gameObject.GetComponent<NPCController>().setSpeed(4f);
         }
 
         // set the NPC's target (random, player, or idle)
         if (anim.GetBool("npc_prowling") || anim.GetBool("npc_pursuing")) {
             NPC.GetComponent<NPCController>().getCurrTargetLocation(NPCPos);
+            //gameObject.GetComponent<NPCController>().getCurrTargetLocation(transform.position);
         } 
 
 
@@ -93,6 +104,7 @@ public class NPCEnemy : StateMachineBehaviour
 
     private bool playerWithin(float distance) {
         return NPC.GetComponent<NPCController>().characterWithin(distance);
+        //return gameObject.GetComponent<NPCController>().characterWithin(distance);
     }
 
     // allows the npc to stay on a platform while prowling
@@ -106,8 +118,9 @@ public class NPCEnemy : StateMachineBehaviour
 
         if ((leftRay && !rightRay) || (rightRay && !leftRay)) {
             
-            Debug.Log("EDge");
+            //Debug.Log("EDge");
             NPC.GetComponent<NPCController>().changeDirection();
+            //gameObject.GetComponent<NPCController>().changeDirection();
             timeSinceLastEdge = 1;
         } 
 
