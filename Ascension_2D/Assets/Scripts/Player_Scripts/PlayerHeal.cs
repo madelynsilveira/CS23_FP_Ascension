@@ -51,8 +51,7 @@ public class PlayerHeal : MonoBehaviour
         //     // }
         // } else 
         if (Input.GetKeyDown("space") && GameHandler.lifeEnergyScore > 0 && canHeal) {
-            // heal npc player
-            Debug.Log("Healing enemy");
+            // healing effect
 
             GameHandler.lifeEnergyScore--;
             Text lifeText = GameObject.FindWithTag("LifeEnergyText").GetComponent<Text>();

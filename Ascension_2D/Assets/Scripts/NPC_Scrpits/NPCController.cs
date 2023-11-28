@@ -60,25 +60,22 @@ public class NPCController : MonoBehaviour
 
     // checks for healing trigger and transitions to NPCHealed script
     private void checkHealing() {
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
-            if (characterWithin(3f) && GameHandler.lifeEnergyScore > 0 && PlayerHeal.canHeal) {
-                anim.SetTrigger("npc_healing");
-                anim.SetBool("npc_following", true);
-                PlayerHeal.beingAttacked = false;
-                healed = true;
+        if (Input.GetKeyDown("space") && characterWithin(3f) && GameHandler.lifeEnergyScore > 0 && PlayerHeal.canHeal) {
+            anim.SetTrigger("npc_healing");
+            anim.SetBool("npc_following", true);
+            PlayerHeal.beingAttacked = false;
+            healed = true;
                     
-                // create particle effect
-                if (particleSystem != null)
-                {
-                    // Play the Particle System
-                    particleSystem.Play();
-                }
-                Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
-                targetLocation = moveUp;
-                moveToLocation(moveUp);
-                StartCoroutine(DestroyNPC());
+            // create particle effect
+            if (particleSystem != null)
+            {
+                // Play the Particle System
+                particleSystem.Play();
             }
-
+            Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
+            targetLocation = moveUp;
+            moveToLocation(moveUp);
+            StartCoroutine(DestroyNPC());
         }
     }
 
