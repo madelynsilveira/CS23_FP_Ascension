@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour {
 
       public Animator anim;
+      private SpriteRenderer playerSprite;
       public Rigidbody2D rb2D;
+
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
       public float startSpeed = 10f;
@@ -22,17 +24,49 @@ public class PlayerMove : MonoBehaviour {
            anim = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
            isFrozen = false;
+
+            // Get the SpriteRenderer component attached to the GameObject
+            playerSprite = GetComponentInChildren<SpriteRenderer>();
+
+            // Check if a SpriteRenderer component is found
+            if (playerSprite != null)
+            {
+                  Debug.Log("SPRITE");
+                  // Change the color to red (you can use any color you want)
+                  playerSprite.color = new Color(0.0f, 0.0f, 0.0f);
+            }
+            else
+            {
+                  // Log a warning if no SpriteRenderer component is found
+                  Debug.LogWarning("SpriteRenderer component not found on this GameObject.");
+            }
       }
 
       void Update(){
+            playerSprite.color = new Color(0.0f, 0.0f, 0.0f);
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             
+            // set movement animation
             if ((hMove.x > 0.5) || (hMove.x < -0.5)) {
                   anim.SetBool("player_walk", true);
             } else {
                   anim.SetBool("player_walk", false);
             }
+
+            // adjust falling gravity
+            if (rb2D.velocity.y < 0) {
+                  if (rb2D != null)
+                  {
+                        // Adjust the gravity scale
+                        rb2D.gravityScale = 2;
+                        Debug.Log("falling");
+                  }
+            } else {
+                  rb2D.gravityScale = 1;
+            }
+
+
             if (!isFrozen){
                   /*if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
                       (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {*/

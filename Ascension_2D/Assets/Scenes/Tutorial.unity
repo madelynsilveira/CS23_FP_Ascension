@@ -517,6 +517,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5196295548565359769, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6648608830097391468, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
       propertyPath: npc
       value: 
@@ -2014,6 +2018,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: JasonWiser_PlayerSpritesheet_1024_0
       objectReference: {fileID: 0}
+    - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_Color.g
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f08ad49f4ff4b4ce4b0976f464ba02fb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

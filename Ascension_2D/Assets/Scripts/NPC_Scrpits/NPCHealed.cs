@@ -5,8 +5,8 @@ using UnityEngine;
 public class NPCHealed : StateMachineBehaviour
 {
     public GameObject NPC;
-    private float maxFollowingDistance = 15;
-    private float minFollowingDistance = 5;
+    // private float maxFollowingDistance = 15;
+    // private float minFollowingDistance = 5;
 
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
