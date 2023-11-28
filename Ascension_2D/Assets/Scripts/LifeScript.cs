@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class LifeScript : MonoBehaviour
 {
-    private bool collected = false;
-    public GameObject lifeEnergy;
-        
+    private bool collected = false;   
 
     void Start()
     {
-        lifeEnergy = GameObject.FindWithTag("LifeEnergyText");
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -22,9 +20,11 @@ public class LifeScript : MonoBehaviour
         {
             // Increment a count (You should manage this count elsewhere)
             GameHandler.lifeEnergyScore++;
-            Text lifeText = lifeEnergy.GetComponent<Text>();
-            lifeText.text = "" + GameHandler.lifeEnergyScore;
-
+            if (GameHandler.lifeEnergyScore > GameHandler.maxLifeEnergy) {
+                GameHandler.maxLifeEnergy = GameHandler.lifeEnergyScore;
+            }
+            Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
+            lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
             // if (SceneManager.GetActiveScene().name == "Tutorial") {
             //     Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
             //     if (GameHandler.lifeEnergyScore == 1) {

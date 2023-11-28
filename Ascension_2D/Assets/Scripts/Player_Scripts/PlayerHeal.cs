@@ -54,8 +54,9 @@ public class PlayerHeal : MonoBehaviour
             // healing effect
 
             GameHandler.lifeEnergyScore--;
-            Text lifeText = GameObject.FindWithTag("LifeEnergyText").GetComponent<Text>();
-            lifeText.text = "" + GameHandler.lifeEnergyScore;
+            Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
+            lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
+            
 
             // if (SceneManager.GetActiveScene().name == "Tutorial") {
             //     Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();

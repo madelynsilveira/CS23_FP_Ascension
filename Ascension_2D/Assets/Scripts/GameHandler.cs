@@ -11,8 +11,9 @@ public class GameHandler : MonoBehaviour
     public GameObject winScene;
     public GameObject loseScene;
     public GameObject playScene;
-    public GameObject lifeEnergyTextObj;
-    public static int lifeEnergyScore;
+    public GameObject lifeEnergyBar;
+    public static float lifeEnergyScore;
+    public static float maxLifeEnergy;
     public static bool tutorialComplete;
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,9 @@ public class GameHandler : MonoBehaviour
             loseScene.SetActive(true);
         } else if (scene.name == "Level1" || scene.name == "work_Silas" || scene.name == "Tutorial") {
             playScene.SetActive(true);
-            lifeEnergyScore = 0;
-            Text lifeEnergyText = lifeEnergyTextObj.GetComponent<Text>();
-            lifeEnergyText.text = "0";
+            lifeEnergyScore = 0f;
+            maxLifeEnergy = 10f;
+            lifeEnergyBar.GetComponent<Image>().fillAmount = lifeEnergyScore / maxLifeEnergy;
             if (scene.name == "Tutorial") {
                 PlayerJump.jumpFrozen = true;
                 PlayerHide.canHide = false;
@@ -53,7 +54,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void PlayGame()
