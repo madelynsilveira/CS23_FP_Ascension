@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
  
 public class PlayerMove : MonoBehaviour {
 
-      //public Animator animator;
+      public Animator anim;
       public Rigidbody2D rb2D;
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour {
       //public GameObject lifeEnergyObj;
 
       void Start(){
-           //animator = gameObject.GetComponentInChildren<Animator>();
+           anim = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
            isFrozen = false;
       }
@@ -27,6 +27,12 @@ public class PlayerMove : MonoBehaviour {
       void Update(){
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+            
+            if ((hMove.x > 0.5) || (hMove.x < -0.5)) {
+                  anim.SetBool("player_walk", true);
+            } else {
+                  anim.SetBool("player_walk", false);
+            }
             if (!isFrozen){
                   /*if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
                       (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {*/
