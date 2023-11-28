@@ -6,6 +6,7 @@ public class NPCController : MonoBehaviour
 {
     public Animator anim;
     public GameObject player;
+    public GameObject NPCArt;
     private ParticleSystem particleSystem;
 
     // movement variables
@@ -15,6 +16,7 @@ public class NPCController : MonoBehaviour
 
     private Vector3 targetLocation;
     private Transform playerTransform;
+    private bool healed;
 
 
 
@@ -23,6 +25,7 @@ public class NPCController : MonoBehaviour
         anim = gameObject.GetComponentInChildren<Animator>();
         playerTransform = GameObject.FindWithTag("Player").transform;
         particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
+        healed = false;
 
         // find a random target location for initial prowling
         targetLocation = eitherDirection(this.transform.position);
@@ -36,10 +39,10 @@ public class NPCController : MonoBehaviour
         timeUntilMove -= Time.deltaTime;
         targetLocation = getCurrTargetLocation(transform.position);
         checkTurning(targetLocation);
-        
+            
 
 
-        if (anim.GetBool("npc_healed")) {
+        if (healed) {
             moveToLocation(targetLocation);
         } else {
             checkHealing();
@@ -53,15 +56,16 @@ public class NPCController : MonoBehaviour
             }
             moveToLocation(targetLocation);
         }
-
     }
 
     // checks for healing trigger and transitions to NPCHealed script
     private void checkHealing() {
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
-            if (characterWithin(3f)) {
+            if (characterWithin(3f) && GameHandler.lifeEnergyScore > 0 && PlayerHeal.canHeal) {
                 anim.SetTrigger("npc_healing");
                 anim.SetBool("npc_following", true);
+                PlayerHeal.beingAttacked = false;
+                healed = true;
                     
                 // create particle effect
                 if (particleSystem != null)
@@ -72,6 +76,7 @@ public class NPCController : MonoBehaviour
                 Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
                 targetLocation = moveUp;
                 moveToLocation(moveUp);
+                StartCoroutine(DestroyNPC());
             }
 
         }
@@ -85,16 +90,12 @@ public class NPCController : MonoBehaviour
         // checks to see if idle animation should be playing
         if (transform.position == targetLocation)
         {
-            if (anim.GetBool("npc_healed")) {
-                anim.SetBool("npc_following", false);
-            } else {
+            if (!healed) {
                 anim.SetBool("npc_prowling", false);
             }
         } else // the npc is moving
         {
-            if (anim.GetBool("npc_healed")) {
-                anim.SetBool("npc_following", true);
-            } else {
+            if (!healed) {
                 anim.SetBool("npc_prowling", true);
             }
         }
@@ -104,7 +105,7 @@ public class NPCController : MonoBehaviour
     public Vector3 getCurrTargetLocation(Vector3 currentPos)
     {
         // need to go to a random location
-        if (anim.GetBool("npc_prowling")) {
+        if (healed || anim.GetBool("npc_prowling")) {
             return targetLocation;
             // return new Vector3(currentPos.x + Random.Range(-10, 11), currentPos.y, currentPos.z);
         // need to follow the player's transform
@@ -183,6 +184,12 @@ public class NPCController : MonoBehaviour
             }
     }
 
+    IEnumerator DestroyNPC() {
+        NPCArt.SetActive(false);
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
 }
 
     // public void OnCollisionEnter2D(Collision2D other){
