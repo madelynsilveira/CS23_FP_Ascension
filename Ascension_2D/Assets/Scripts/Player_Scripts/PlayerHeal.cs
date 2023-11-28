@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHeal : MonoBehaviour
 {
-    public static bool canHeal;
+    //public static bool canHeal;
     public static bool beingAttacked;
     private bool attackFinished;
     public GameObject npc;
@@ -50,7 +50,7 @@ public class PlayerHeal : MonoBehaviour
         //     //     }
         //     // }
         // } else 
-        if (Input.GetKeyDown("space") && GameHandler.lifeEnergyScore > 0 && canHeal) {
+        if (Input.GetKeyDown("space") && GameHandler.lifeEnergyScore > 0 /*&& canHeal*/) {
             // healing effect
 
             GameHandler.lifeEnergyScore--;

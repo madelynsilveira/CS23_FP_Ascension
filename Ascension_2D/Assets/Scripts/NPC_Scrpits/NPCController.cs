@@ -60,7 +60,7 @@ public class NPCController : MonoBehaviour
 
     // checks for healing trigger and transitions to NPCHealed script
     private void checkHealing() {
-        if (Input.GetKeyDown("space") && characterWithin(3f) && GameHandler.lifeEnergyScore > 0 && PlayerHeal.canHeal) {
+        if (Input.GetKeyDown("space") && characterWithin(3f) && GameHandler.lifeEnergyScore > 0/* && PlayerHeal.canHeal*/) {
             anim.SetTrigger("npc_healing");
             anim.SetBool("npc_following", true);
             PlayerHeal.beingAttacked = false;

@@ -38,15 +38,15 @@ public class GameHandler : MonoBehaviour
             maxLifeEnergy = 10f;
             lifeEnergyBar.GetComponent<Image>().fillAmount = lifeEnergyScore / maxLifeEnergy;
             if (scene.name == "Tutorial") {
-                PlayerJump.jumpFrozen = true;
-                PlayerHide.canHide = false;
-                PlayerHeal.canHeal = false;
-                GameObject.FindWithTag("NPC").SetActive(false);
+                // PlayerJump.jumpFrozen = true;
+                // PlayerHide.canHide = false;
+                // PlayerHeal.canHeal = false;
+                // GameObject.FindWithTag("NPC").SetActive(false);
                 tutorialComplete = false;
             } else {
-                PlayerJump.jumpFrozen = false;
-                PlayerHide.canHide = true;
-                PlayerHeal.canHeal = true;
+                // PlayerJump.jumpFrozen = false;
+                // PlayerHide.canHide = true;
+                // PlayerHeal.canHeal = true;
             }
         }
     }

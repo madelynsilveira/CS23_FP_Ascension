@@ -13,7 +13,7 @@ public class PlayerJump : MonoBehaviour {
       public bool canJump = false;
       public int jumpTimes = 0;
       public bool isAlive = true;
-      public static bool jumpFrozen;
+      //public static bool jumpFrozen;
       //public AudioSource JumpSFX;
 
       void Start(){
@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour {
                   canJump = false;
             }
 
-           if ((Input.GetKeyDown("up")) && (canJump) && (isAlive == true) && !jumpFrozen) {
+           if ((Input.GetKeyDown("up")) && (canJump) && (isAlive == true)/* && !jumpFrozen*/) {
                   Jump();
             }
       }

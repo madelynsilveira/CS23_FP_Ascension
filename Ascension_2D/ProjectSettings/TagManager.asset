@@ -8,10 +8,10 @@ TagManager:
   - Food
   - NPC
   - LifeEnergy
-  - LifeEnergyText
   - Portal
   - Instructions
   - Boundary
+  - LifeEnergyBar
   layers:
   - Default
   - TransparentFX

@@ -28,8 +28,9 @@ public class NPCEnemy : StateMachineBehaviour
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Debug.Log("Entered NPC ENEMY");
-        
+        Debug.Log ("entering state");
         NPC = GameObject.FindWithTag("NPC");
+        Debug.Log ("NPC coordinates: " + NPC.transform.position.x + ", " + NPC.transform.position.y);
         // normalSpeed = NPC.GetComponent<NPCController>().getSpeed();
         // doubleSpeed = normalSpeed * 2;
         // playerPosition = GameObject.FindWithTag("Player").transform.position;
@@ -40,10 +41,12 @@ public class NPCEnemy : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log ("updating state");
         Vector3 NPCPos = NPC.transform.position;
         timeSinceLastEdge -= Time.deltaTime;
 
         if ((timeSinceLastEdge <= 0 ) && (anim.GetBool("npc_prowling"))) {
+            Debug.Log("checking edges");
             checkEdges(NPCPos);
             //checkEdges(transform.position);
         }
@@ -51,6 +54,7 @@ public class NPCEnemy : StateMachineBehaviour
         // have we encountered the player?
         if (playerWithin(eyesight)) { 
             // switch from prowl to pursue
+            Debug.Log ("player within eyesight, pursuing");
             anim.SetBool("npc_prowling", false);
             anim.SetBool("npc_pursuing", true);
             anim.SetBool("npc_attacking", false);
@@ -61,6 +65,7 @@ public class NPCEnemy : StateMachineBehaviour
             // switch from pursue to attack
             if (playerWithin(attackRange)) {
                 //NPC.GetComponent<AudioSource>().Play();
+                Debug.Log("player within attack range, attacking");
                 audioSource = NPC.GetComponent<AudioSource>();
                 if (!audioSource.isPlaying) {
                     audioSource.Play();
@@ -73,6 +78,7 @@ public class NPCEnemy : StateMachineBehaviour
                 // }
             }
         } else {
+            Debug.Log ("can't find player, prowling");
             anim.SetBool("npc_prowling", true);
             anim.SetBool("npc_pursuing", false);
             anim.SetBool("npc_attacking", false);
@@ -94,6 +100,7 @@ public class NPCEnemy : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log ("exiting state");
         // Debug.Log("Exiting NPC Enemy");
         anim.SetBool("npc_prowling", false);
         anim.SetBool("npc_pursuing", false);
@@ -112,6 +119,7 @@ public class NPCEnemy : StateMachineBehaviour
         // raycast down to the left and right to check for collision
         Vector3 posLeft = new Vector3(NPCPos.x - 1, NPCPos.y, NPCPos.z);
         Vector3 posRight = new Vector3(NPCPos.x + 1, NPCPos.y, NPCPos.z);
+        Debug.Log (posLeft + ", " + posRight);
         bool leftRay = (Physics2D.Raycast(posLeft, Vector2.down, 2, LayerMask.GetMask("Ground")).collider != null);
         bool rightRay = (Physics2D.Raycast(posRight, Vector2.down, 2, LayerMask.GetMask("Ground")).collider != null);
         // call function to change the direction
