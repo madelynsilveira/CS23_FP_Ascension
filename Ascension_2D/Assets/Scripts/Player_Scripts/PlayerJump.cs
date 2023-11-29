@@ -22,13 +22,13 @@ public class PlayerJump : MonoBehaviour {
       }
 
       void Update() {
-            if ((IsGrounded()) || (jumpTimes <= 1)){
-                  canJump = true;
-            }  else if (jumpTimes > 1){
-                  canJump = false;
-            }
+            // if ((IsGrounded()) || (jumpTimes <= 1)){
+            //       canJump = true;
+            // }  else if (jumpTimes > 1){
+            //       canJump = false;
+            // }
 
-           if ((Input.GetKeyDown("up")) && (canJump) && (isAlive == true)/* && !jumpFrozen*/) {
+           if ((Input.GetKeyDown("up")) && ((IsGrounded()) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
                   Jump();
             }
       }
