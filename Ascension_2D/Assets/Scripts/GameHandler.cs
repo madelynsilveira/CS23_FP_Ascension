@@ -14,7 +14,12 @@ public class GameHandler : MonoBehaviour
     public GameObject lifeEnergyBar;
     public static float lifeEnergyScore;
     public static float maxLifeEnergy;
-    public static bool tutorialComplete;
+    public static bool level1Complete = false;
+    public static bool level2Complete = false;
+    public static bool level3Complete = false;
+    public static bool level4Complete = false;
+    public static bool level5Complete = false;
+    public static bool level6Complete = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,17 +42,6 @@ public class GameHandler : MonoBehaviour
             lifeEnergyScore = 0f;
             maxLifeEnergy = 10f;
             lifeEnergyBar.GetComponent<Image>().fillAmount = lifeEnergyScore / maxLifeEnergy;
-            if (scene.name == "Tutorial") {
-                // PlayerJump.jumpFrozen = true;
-                // PlayerHide.canHide = false;
-                // PlayerHeal.canHeal = false;
-                // GameObject.FindWithTag("NPC").SetActive(false);
-                tutorialComplete = false;
-            } else {
-                // PlayerJump.jumpFrozen = false;
-                // PlayerHide.canHide = true;
-                // PlayerHeal.canHeal = true;
-            }
         }
     }
 

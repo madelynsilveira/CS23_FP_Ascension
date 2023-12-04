@@ -120,12 +120,25 @@ public class PlayerMove : MonoBehaviour {
 
       void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.tag == "Portal") {
-                  if (SceneManager.GetActiveScene().name == "Level1") {
-                        SceneManager.LoadScene("winScene");
-                  } else {
+                  if (SceneManager.GetActiveScene().name == "Tutorial") {
                         GameHandler.tutorialComplete = true;
-                        SceneManager.LoadScene("Level1");
+                  } else if (SceneManager.GetActiveScene().name == "Level1") {
+                        GameHandler.level1Complete = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level2") {
+                        GameHandler.level2Complete = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level3") {
+                        GameHandler.level3Complete = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level4") {
+                        GameHandler.level4Complete = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level5") {
+                        GameHandler.level5Complete = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level6") {
+                        GameHandler.level6Complete = true;
+                  } else {
+                        SceneManager.LoadScene("winScene");
                   }
+
+                  SceneManager.LoadScene("MainMenu");
             }
       }
 }
