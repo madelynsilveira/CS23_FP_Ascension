@@ -15,11 +15,17 @@ public class GameHandler : MonoBehaviour
     public static float lifeEnergyScore;
     public static float maxLifeEnergy;
     public static bool level1Complete = false;
+    public GameObject level2Button;
     public static bool level2Complete = false;
+    public GameObject level3Button;
     public static bool level3Complete = false;
+    public GameObject level4Button;
     public static bool level4Complete = false;
+    public GameObject level5Button;
     public static bool level5Complete = false;
+    public GameObject level6Button;
     public static bool level6Complete = false;
+    public GameObject level7Button;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,37 @@ public class GameHandler : MonoBehaviour
         // Set active menu
         if (scene.name == "MainMenu") {
             mainMenu.SetActive(true);
+
+            if (level1Complete) {
+                level2Button.SetActive(true);
+            } else {
+                level2Button.SetActive(false);
+            }
+            if (level2Complete) {
+                level3Button.SetActive(true);
+            } else {
+                level3Button.SetActive(false);
+            }
+            if (level3Complete) {
+                level4Button.SetActive(true);
+            } else {
+                level4Button.SetActive(false);
+            }
+            if (level4Complete) {
+                level5Button.SetActive(true);
+            } else {
+                level5Button.SetActive(false);
+            }
+            if (level5Complete) {
+                level6Button.SetActive(true);
+            } else {
+                level6Button.SetActive(false);
+            }
+            if (level6Complete) {
+                level7Button.SetActive(true);
+            } else {
+                level7Button.SetActive(false);
+            }
         } else if (scene.name == "winScene") {
             winScene.SetActive(true);
         } else if (scene.name == "loseScene") {
