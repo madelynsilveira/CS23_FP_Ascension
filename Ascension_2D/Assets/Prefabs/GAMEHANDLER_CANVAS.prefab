@@ -683,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600619987172783081, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: PlayTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 5600619987172783081, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
