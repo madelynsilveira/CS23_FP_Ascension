@@ -51,14 +51,51 @@ public class GameHandler : MonoBehaviour
         
     }
 
-    public void PlayGame()
+    public void PlayTutorial()
     {
-        if (!tutorialComplete) {
-            SceneManager.LoadScene("Tutorial");
-        } else {
-            SceneManager.LoadScene("Level1");
-        }
-        
+        SceneManager.LoadScene("Tutorial");
+            // Set static vars
+    }
+
+    public void PlayLevel1()
+    {
+        SceneManager.LoadScene("Level1");
+            // Set static vars
+    }
+
+    public void PlayLevel2()
+    {
+        SceneManager.LoadScene("Level2");
+            // Set static vars
+    }
+
+    public void PlayLevel3()
+    {
+        SceneManager.LoadScene("Level3");
+            // Set static vars
+    }
+
+    public void PlayLevel4()
+    {
+        SceneManager.LoadScene("Level4");
+            // Set static vars
+    }
+
+    public void PlayLevel5()
+    {
+        SceneManager.LoadScene("Level5");
+            // Set static vars
+    }
+
+    public void PlayLevel6()
+    {
+        SceneManager.LoadScene("Level6");
+            // Set static vars
+    }
+
+    public void PlayLevel7()
+    {
+        SceneManager.LoadScene("Level7");
             // Set static vars
     }
 
