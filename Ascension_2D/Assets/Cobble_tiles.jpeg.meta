@@ -113,12 +113,12 @@ TextureImporter:
       name: Cobble_tiles_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 100
+        x: 53
+        y: 102
         width: 40
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
