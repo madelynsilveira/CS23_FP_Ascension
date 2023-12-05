@@ -19,12 +19,12 @@ public class CameraFollow2DLERP : MonoBehaviour
     {
         Vector2 pos = Vector2.Lerp ((Vector2) transform.position, (Vector2) target.transform.position,
                                     camSpeed * Time.fixedDeltaTime);
-        if (pos.x < -distance) {
-            transform.position = new Vector3 (-distance, pos.y, transform.position.z);
-        } else if (pos.x > distance) {
-            transform.position = new Vector3 (distance, pos.y, transform.position.z);
-        } else {
+        // if (pos.x < -distance) {
+        //     transform.position = new Vector3 (-distance, pos.y, transform.position.z);
+        // } else if (pos.x > distance) {
+        //     transform.position = new Vector3 (distance, pos.y, transform.position.z);
+        // } else {
             transform.position = new Vector3 (pos.x, pos.y, transform.position.z);
-        }
+        // }
     }
 }
