@@ -50,19 +50,19 @@ public class PlayerHeal : MonoBehaviour
         //     //     }
         //     // }
         // } else 
-        if (Input.GetKeyDown("space") && GameHandler.lifeEnergyScore > 0 /*&& canHeal*/) {
-            // healing effect
+        // if (Input.GetKeyDown("space") &&  GameHandler.lifeEnergyScore > 0 /*&& canHeal*/) {
+        //     // healing effect
 
-            GameHandler.lifeEnergyScore--;
-            Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
-            lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
+        //     GameHandler.lifeEnergyScore--;
+        //     Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
+        //     lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
             
 
-            // if (SceneManager.GetActiveScene().name == "Tutorial") {
-            //     Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
-            //     instructionsText.text = "Use the up arrow or [w] to flap your wings and fly. The circle in the top left is the flying timer which shows how long you can fly for and will refill while you are not flying.";
-            // }
-        }
+        //     // if (SceneManager.GetActiveScene().name == "Tutorial") {
+        //     //     Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
+        //     //     instructionsText.text = "Use the up arrow or [w] to flap your wings and fly. The circle in the top left is the flying timer which shows how long you can fly for and will refill while you are not flying.";
+        //     // }
+        // }
 
         if (beingAttacked && attackFinished) {
             attackFinished = false;

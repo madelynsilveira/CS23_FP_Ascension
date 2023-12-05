@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCController : MonoBehaviour
 {
@@ -62,11 +63,18 @@ public class NPCController : MonoBehaviour
     private void checkHealing() {
         // Debug.Log("characterWithin: " + characterWithin(3f));
         // Debug.Log("lifeEnergy: " + GameHandler.lifeEnergyScore);
-        if (Input.GetKeyDown("space") && characterWithin(3f) && GameHandler.lifeEnergyScore > 0/* && PlayerHeal.canHeal*/) {
+        if (Input.GetKeyDown("space") && characterWithin(2f) && GameHandler.lifeEnergyScore > 0/* && PlayerHeal.canHeal*/) {
+            
+            // deal with animation
             anim.SetTrigger("npc_healing");
             anim.SetBool("npc_following", true);
             PlayerHeal.beingAttacked = false;
             healed = true;
+
+            // adjust player health
+            GameHandler.lifeEnergyScore--;
+            Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
+            lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
                     
             // create particle effect
             if (particleSystem != null)
