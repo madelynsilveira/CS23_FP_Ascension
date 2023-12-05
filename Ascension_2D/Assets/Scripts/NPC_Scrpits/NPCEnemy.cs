@@ -8,6 +8,7 @@ public class NPCEnemy : StateMachineBehaviour
     public GameObject NPC;
     //public Animator anim;
     private Vector3 randomTarget;
+    private NPCController npcController;
 
     // player detection
     private float eyesight = 5f;
@@ -28,6 +29,8 @@ public class NPCEnemy : StateMachineBehaviour
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Debug.Log("Entered NPC ENEMY");
+        // npcController = anim.GetComponent<NPCController>();
+        // NPC = anim.gameObject;
         NPC = GameObject.FindWithTag("NPC");
         // Debug.Log ("NPC coordinates: " + NPC.transform.position.x + ", " + NPC.transform.position.y);
         

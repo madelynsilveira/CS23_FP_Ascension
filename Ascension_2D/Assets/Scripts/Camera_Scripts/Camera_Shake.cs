@@ -24,7 +24,6 @@ public class Camera_Shake : MonoBehaviour
         float elapsedTime = 0f;
 
         while (elapsedTime < shakeDuration) {
-            Debug.Log("camera shaking");
             elapsedTime += Time.deltaTime;
             float strength = animCurve.Evaluate(elapsedTime / shakeDuration);
             transform.position = startCamPos + Random.insideUnitSphere * strength;
