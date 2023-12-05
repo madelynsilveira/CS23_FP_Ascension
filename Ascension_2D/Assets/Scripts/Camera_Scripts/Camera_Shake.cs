@@ -13,8 +13,8 @@ public class Camera_Shake : MonoBehaviour
     private float shakeDuration = 0.5f;
     
     void Start() {
-        NPC = GameObject.FindWithTag("NPC");
-        player = GameObject.FindWithTag("Player");
+        // NPC = GameObject.FindWithTag("NPC");
+        // player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
