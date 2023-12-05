@@ -28,12 +28,8 @@ public class NPCEnemy : StateMachineBehaviour
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Debug.Log("Entered NPC ENEMY");
-        Debug.Log ("entering state");
         NPC = GameObject.FindWithTag("NPC");
-        Debug.Log ("NPC coordinates: " + NPC.transform.position.x + ", " + NPC.transform.position.y);
-        // normalSpeed = NPC.GetComponent<NPCController>().getSpeed();
-        // doubleSpeed = normalSpeed * 2;
-        // playerPosition = GameObject.FindWithTag("Player").transform.position;
+        // Debug.Log ("NPC coordinates: " + NPC.transform.position.x + ", " + NPC.transform.position.y);
         
     }
 
@@ -52,7 +48,6 @@ public class NPCEnemy : StateMachineBehaviour
         // have we encountered the player?
         if (playerWithin(eyesight)) { 
             // switch from prowl to pursue
-            Debug.Log ("player within eyesight, pursuing");
             anim.SetBool("npc_prowling", false);
             anim.SetBool("npc_pursuing", true);
             anim.SetBool("npc_attacking", false);
@@ -63,14 +58,18 @@ public class NPCEnemy : StateMachineBehaviour
             // switch from pursue to attack
             if (playerWithin(attackRange)) {
                 //NPC.GetComponent<AudioSource>().Play();
-                Debug.Log("player within attack range, attacking");
                 audioSource = NPC.GetComponent<AudioSource>();
                 if (!audioSource.isPlaying) {
                     audioSource.Play();
                 }
+                // set up animation
                 anim.SetBool("npc_prowling", false);
                 anim.SetBool("npc_attacking", true);
+
+                // decrease health somewhere else
                 PlayerHeal.beingAttacked = true;
+
+
                 // if (attack_medium_SFX.isPlaying == false){
                 //         attack_medium_SFX.Play();
                 // }
@@ -97,8 +96,6 @@ public class NPCEnemy : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log ("exiting state");
-        // Debug.Log("Exiting NPC Enemy");
         anim.SetBool("npc_prowling", false);
         anim.SetBool("npc_pursuing", false);
         anim.SetBool("npc_attacking", false);
