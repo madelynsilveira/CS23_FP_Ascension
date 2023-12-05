@@ -6,6 +6,7 @@ public class NPCEnemy : StateMachineBehaviour
 //public class NPCEnemy : MonoBehaviour
 {
     public GameObject NPC;
+    public GameObject player;
     //public Animator anim;
     private Vector3 randomTarget;
     private NPCController npcController;
@@ -32,6 +33,7 @@ public class NPCEnemy : StateMachineBehaviour
         // npcController = anim.GetComponent<NPCController>();
         // NPC = anim.gameObject;
         NPC = GameObject.FindWithTag("NPC");
+        player = GameObject.FindWithTag("Player");
         // Debug.Log ("NPC coordinates: " + NPC.transform.position.x + ", " + NPC.transform.position.y);
         
     }
@@ -55,9 +57,10 @@ public class NPCEnemy : StateMachineBehaviour
             anim.SetBool("npc_pursuing", true);
             anim.SetBool("npc_attacking", false);
             NPC.GetComponent<NPCController>().setSpeed(8f);
-            //gameObject.GetComponent<NPCController>().setSpeed(8f);
+
             // SpriteRenderer NPCSpriteRenderer = NPC.GetComponentInChildren<SpriteRenderer>();
             // NPCSpriteRenderer.color = Color.red; // why is this not working?
+
             // switch from pursue to attack
             if (playerWithin(attackRange)) {
                 //NPC.GetComponent<AudioSource>().Play();
@@ -71,6 +74,7 @@ public class NPCEnemy : StateMachineBehaviour
 
                 // decrease health somewhere else
                 PlayerHeal.beingAttacked = true;
+              
 
 
                 // if (attack_medium_SFX.isPlaying == false){
@@ -131,17 +135,4 @@ public class NPCEnemy : StateMachineBehaviour
     }
 
 
-    
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }
