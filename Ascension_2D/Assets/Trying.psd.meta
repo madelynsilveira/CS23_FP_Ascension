@@ -1,0 +1,1205 @@
+fileFormatVersion: 2
+guid: 889bdc0c6207e4e819d6721374a7a8f3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 14
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trying_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb9613ae93174ba48de75142d134cff
+      internalID: 1482526913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32cdc4d53cb9d4c78bf99c28632e4f8c
+      internalID: 1450265258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6a94754f72e44689aaf37f946e36de
+      internalID: 506342304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_3
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb5dfbd927a5451dbc252082c2c6f27
+      internalID: 1463076106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_4
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b3feb138b44414b9ec30d45342fe2b
+      internalID: -1526875264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_5
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15ce5888007e4b8196b50303d71cedb
+      internalID: 468701025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_6
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 438.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cace4f579e3ff40119a001c0a06f03e1
+      internalID: 1340817226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb3493ae03b343d3bb9ddbe50bc5a2c
+      internalID: -1011419545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_8
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652492fce91e8431184814255989437d
+      internalID: 1460972376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419362ecc7e7e4157a073be33e971704
+      internalID: 168750544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_10
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b74257656c84fa29c57681c53d098b
+      internalID: -2140450296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_11
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd178c986aa3746a2b49b140d5660f51
+      internalID: -1991736010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_12
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65cc12e0c30a4c218b94504e688a4ff
+      internalID: 1957323665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_13
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 365.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2345b25ff68f74d1380b39cc1425cce9
+      internalID: 1377612155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2214021e54f3f422fb55851b795a317e
+      internalID: 1043494347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c34abcd392b4369a67c4ba373d3de8
+      internalID: -1795399319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d79afd11e113f465caafdda1e17ce980
+      internalID: 809607509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_17
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bf2cc2185ec445593d8fda0f355fde
+      internalID: -2081258109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_18
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24921c430d8344f4db04dbf4bdfa6e92
+      internalID: 709078760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_19
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcaf4c3b358c469d8dbf54045d2f86a
+      internalID: -1385241584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_20
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 292.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3750af68d8af84389a7eecab0b20e470
+      internalID: -83770545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f9df3b854c4434bae646caca0a1bef
+      internalID: 1125965574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_22
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f51d6798cf54ecfa9bc459a412bf71
+      internalID: -1081183876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_23
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbad673582eb240199c3141e3e129a37
+      internalID: 849364727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_24
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba4c8e8f7ff54823b73b162d789416c
+      internalID: -647133078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_25
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa5b2ad079c94a1e9ee03ed79bd648b
+      internalID: -1515897019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_26
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29b86f62cb0943dcb25f7f3c5f39356
+      internalID: 1701896068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_27
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 219.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1b3ac03cf514af5824def47b30f1df
+      internalID: 982363318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64303ada492bf4401ad1d4d926a136ff
+      internalID: 555989685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_29
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19692effa86d0466590a6925ef64f780
+      internalID: 1080024984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_30
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29f1f61a235e47cda6695bae10080d4
+      internalID: 1194319753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_31
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1277971920cc4019858bbd7a781d6fa
+      internalID: 683066481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_32
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967ad40f672c647c18a7313be017bd20
+      internalID: 1776872576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_33
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d9544d214554433b24a694db10b9bd
+      internalID: -1143819166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_34
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 146.85715
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33af7f1b793d341808e9ae326d8bea6b
+      internalID: -1514688810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eba99a61818544ffb6880bbfae3aa39
+      internalID: 2029401733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_36
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ad66b4b727a4715b3645a1979c0901
+      internalID: -2029553307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_37
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f843629b9dc4402a2970f163bd49d2
+      internalID: -151693459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_38
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49266fdcdbef549799fef3e26d819328
+      internalID: -791678950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_39
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fbe02bc0c7d74bb3a0c511fa5e6b9f9
+      internalID: -1261267930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_40
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d398b2ffb6b544ec5850b2281b5029dd
+      internalID: -1332554062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_41
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 73.85714
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b871ed5db9347d09d4c13427aa06f0
+      internalID: -366890618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523a2ce4ee79c4ca9a64bb3d360b701f
+      internalID: -1070519807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_43
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69899449988e64fddae8700ff6ee8dbb
+      internalID: 2095899681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_44
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c5db64551714e8ea201c17d2d9ea92
+      internalID: -738354013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_45
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab7dd659fb0a4df4948a72159a6be3f
+      internalID: 1516849946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_46
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c364e41e716420bab8326b3f878890
+      internalID: 285400438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_47
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc2d5392d9ea45bd8cd2a7d8b9e572c
+      internalID: 701077216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trying_48
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 0.8571396
+        width: 73.14286
+        height: 73.14286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab1cdd6984044f51800eef5985a84a3
+      internalID: -717015866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Trying_0: 1482526913
+      Trying_1: 1450265258
+      Trying_10: -2140450296
+      Trying_11: -1991736010
+      Trying_12: 1957323665
+      Trying_13: 1377612155
+      Trying_14: 1043494347
+      Trying_15: -1795399319
+      Trying_16: 809607509
+      Trying_17: -2081258109
+      Trying_18: 709078760
+      Trying_19: -1385241584
+      Trying_2: 506342304
+      Trying_20: -83770545
+      Trying_21: 1125965574
+      Trying_22: -1081183876
+      Trying_23: 849364727
+      Trying_24: -647133078
+      Trying_25: -1515897019
+      Trying_26: 1701896068
+      Trying_27: 982363318
+      Trying_28: 555989685
+      Trying_29: 1080024984
+      Trying_3: 1463076106
+      Trying_30: 1194319753
+      Trying_31: 683066481
+      Trying_32: 1776872576
+      Trying_33: -1143819166
+      Trying_34: -1514688810
+      Trying_35: 2029401733
+      Trying_36: -2029553307
+      Trying_37: -151693459
+      Trying_38: -791678950
+      Trying_39: -1261267930
+      Trying_4: -1526875264
+      Trying_40: -1332554062
+      Trying_41: -366890618
+      Trying_42: -1070519807
+      Trying_43: 2095899681
+      Trying_44: -738354013
+      Trying_45: 1516849946
+      Trying_46: 285400438
+      Trying_47: 701077216
+      Trying_48: -717015866
+      Trying_5: 468701025
+      Trying_6: 1340817226
+      Trying_7: -1011419545
+      Trying_8: 1460972376
+      Trying_9: 168750544
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
