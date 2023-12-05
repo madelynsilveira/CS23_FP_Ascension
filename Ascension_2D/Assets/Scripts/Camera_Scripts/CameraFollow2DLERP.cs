@@ -6,7 +6,7 @@ public class CameraFollow2DLERP : MonoBehaviour
 {
     public GameObject target;
     public float camSpeed = 4.0f;
-    private float distance = 16f;
+    // private float distance = 16f;
 
     // Start is called before the first frame update
     void Start()
