@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour {
             //       canJump = false;
             // }
 
-           if ((Input.GetKeyDown("up")) && ((IsGrounded()) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
+           if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w"))) && ((IsGrounded()) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
                   Jump();
             }
       }
