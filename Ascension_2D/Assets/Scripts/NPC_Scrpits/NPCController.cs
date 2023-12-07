@@ -63,29 +63,32 @@ public class NPCController : MonoBehaviour
     private void checkHealing() {
         // Debug.Log("characterWithin: " + characterWithin(3f));
         // Debug.Log("lifeEnergy: " + GameHandler.lifeEnergyScore);
-        if (Input.GetKeyDown("space") && characterWithin(2f) && GameHandler.lifeEnergyScore > 0/* && PlayerHeal.canHeal*/) {
+        if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift")) && GameHandler.lifeEnergyScore > 0/* && PlayerHeal.canHeal*/) {
             
-            // deal with animation
-            anim.SetTrigger("npc_healing");
-            anim.SetBool("npc_following", true);
-            PlayerHeal.beingAttacked = false;
-            healed = true;
+            if (characterWithin(2f)) {
+                // deal with animation
+                anim.SetTrigger("npc_healing");
+                anim.SetBool("npc_following", true);
+                PlayerHeal.beingAttacked = false;
+                healed = true;
+                        
+                // create particle effect
+                if (particleSystem != null)
+                {
+                    // Play the Particle System
+                    particleSystem.Play();
+                }
+                
+                Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
+                targetLocation = moveUp;
+                moveToLocation(moveUp);
+                StartCoroutine(DestroyNPC());
+            }
 
-            // adjust player health
+            // adjust player life energy
             GameHandler.lifeEnergyScore--;
             Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
             lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
-                    
-            // create particle effect
-            if (particleSystem != null)
-            {
-                // Play the Particle System
-                particleSystem.Play();
-            }
-            Vector3 moveUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
-            targetLocation = moveUp;
-            moveToLocation(moveUp);
-            StartCoroutine(DestroyNPC());
         }
     }
 

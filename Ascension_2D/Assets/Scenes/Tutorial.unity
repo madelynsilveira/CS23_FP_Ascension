@@ -1467,8 +1467,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -480, y: -300}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -450, y: -300}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688526238
 MonoBehaviour:
@@ -1503,9 +1503,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[space] - heal enemy
+  m_Text: '[shift] - heal enemy
 
-    [down arrow] - hide'
+    [hold down arrow] - hide'
 --- !u!222 &688526239
 CanvasRenderer:
   m_ObjectHideFlags: 0
