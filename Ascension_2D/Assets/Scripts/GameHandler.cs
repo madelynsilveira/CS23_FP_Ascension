@@ -74,7 +74,7 @@ public class GameHandler : MonoBehaviour
             winScene.SetActive(true);
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
-        } else if (scene.name == "Level1" || scene.name == "work_Silas" || scene.name == "Tutorial") {
+        } else {
             playScene.SetActive(true);
             lifeEnergyScore = 0f;
             maxLifeEnergy = 10f;
