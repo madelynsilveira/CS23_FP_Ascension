@@ -32,6 +32,7 @@ public class NPCEnemy : StateMachineBehaviour
         // Debug.Log("Entered NPC ENEMY");
         // npcController = anim.GetComponent<NPCController>();
         // NPC = anim.gameObject;
+        // NPC = transform.parent.gameObject;
         NPC = GameObject.FindWithTag("NPC");
         player = GameObject.FindWithTag("Player");
         // Debug.Log ("NPC coordinates: " + NPC.transform.position.x + ", " + NPC.transform.position.y);
@@ -63,6 +64,7 @@ public class NPCEnemy : StateMachineBehaviour
 
             // switch from pursue to attack
             if (playerWithin(attackRange)) {
+                Debug.Log("attacking");
                 //NPC.GetComponent<AudioSource>().Play();
                 audioSource = NPC.GetComponent<AudioSource>();
                 if (!audioSource.isPlaying) {
@@ -74,12 +76,7 @@ public class NPCEnemy : StateMachineBehaviour
 
                 // decrease health somewhere else
                 PlayerHeal.beingAttacked = true;
-              
 
-
-                // if (attack_medium_SFX.isPlaying == false){
-                //         attack_medium_SFX.Play();
-                // }
             }
         } else {
             anim.SetBool("npc_prowling", true);
@@ -110,9 +107,16 @@ public class NPCEnemy : StateMachineBehaviour
     }
 
 
-    private bool playerWithin(float distance) {
-        return NPC.GetComponent<NPCController>().characterWithin(distance);
-        //return gameObject.GetComponent<NPCController>().characterWithin(distance);
+    // private bool playerWithin(float distance) {
+    //     return NPC.GetComponent<NPCController>().characterWithin(distance);
+    //     //return gameObject.GetComponent<NPCController>().characterWithin(distance);
+    // }
+    
+    public bool playerWithin(float distance) 
+    {
+        bool left = (Physics2D.Raycast(NPC.transform.position, Vector2.left, distance, LayerMask.GetMask("Player")).collider != null);
+        bool right = (Physics2D.Raycast(NPC.transform.position, Vector2.right, distance, LayerMask.GetMask("Player")).collider != null);
+        return left || right;
     }
 
     // allows the npc to stay on a platform while prowling
