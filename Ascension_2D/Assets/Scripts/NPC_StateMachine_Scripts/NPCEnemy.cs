@@ -75,14 +75,14 @@ public class NPCEnemy : StateMachineBehaviour
                 anim.SetBool("npc_attacking", true);
 
                 // decrease health somewhere else
+                // PlayerHeal.beginAttack();
                 PlayerHeal.beingAttacked = true;
-
             }
         } else {
             anim.SetBool("npc_prowling", true);
             anim.SetBool("npc_pursuing", false);
             anim.SetBool("npc_attacking", false);
-            PlayerHeal.beingAttacked = false;
+            //PlayerHeal.beingAttacked = false;
             NPC.GetComponent<NPCController>().setSpeed(4f);
             //gameObject.GetComponent<NPCController>().setSpeed(4f);
         }

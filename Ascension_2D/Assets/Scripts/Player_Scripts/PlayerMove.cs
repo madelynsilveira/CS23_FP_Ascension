@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour {
                   {
                         // Adjust the gravity scale
                         rb2D.gravityScale = 2;
-                        Debug.Log("falling");
+                        //Debug.Log("falling");
                   }
             } else {
                   rb2D.gravityScale = 1;
