@@ -37,7 +37,7 @@ public class PlayerHeal : MonoBehaviour
         }
 
         Debug.Log("beingAttacked: " + beingAttacked);
-        Debug.Log("attackFinished: " + attackFinished);
+        //Debug.Log("attackFinished: " + attackFinished);
 
         if (beingAttacked && attackFinished) {
             attackFinished = false;
