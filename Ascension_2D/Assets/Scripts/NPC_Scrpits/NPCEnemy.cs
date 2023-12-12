@@ -74,7 +74,8 @@ public class NPCEnemy : StateMachineBehaviour
 
                 // decrease health somewhere else
                 PlayerHeal.beingAttacked = true;
-                Debug.Log("attacking");
+                Debug.Log("PlayerHeal.beingAttacked: " + PlayerHeal.beingAttacked);
+                //Debug.Log("attacking");
               
                 // if (attack_medium_SFX.isPlaying == false){
                 //         attack_medium_SFX.Play();

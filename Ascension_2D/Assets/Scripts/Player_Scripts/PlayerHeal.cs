@@ -21,7 +21,7 @@ public class PlayerHeal : MonoBehaviour
     {
         health = 100f;
         UpdateHealth();
-        beingAttacked = false;
+        // beingAttacked = false;
         attackFinished = true;
     }
 
@@ -36,6 +36,9 @@ public class PlayerHeal : MonoBehaviour
             Debug.Log(GameHandler.lifeEnergyScore);
         }
 
+        Debug.Log("beingAttacked: " + beingAttacked);
+        Debug.Log("attackFinished: " + attackFinished);
+
         if (beingAttacked && attackFinished) {
             attackFinished = false;
             health -= 5f;
@@ -48,6 +51,7 @@ public class PlayerHeal : MonoBehaviour
     }
 
     public void UpdateHealth() {
+        Debug.Log("in update health");
         life1.GetComponent<Image>().fillAmount = health / maxHealth;
         healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
     }
