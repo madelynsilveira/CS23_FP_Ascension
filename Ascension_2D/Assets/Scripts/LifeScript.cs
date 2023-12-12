@@ -25,16 +25,6 @@ public class LifeScript : MonoBehaviour
             }
             Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
             lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
-            // if (SceneManager.GetActiveScene().name == "Tutorial") {
-            //     Text instructionsText = GameObject.FindWithTag("Instructions").GetComponent<Text>();
-            //     if (GameHandler.lifeEnergyScore == 1) {
-            //         instructionsText.text = "Use the space bar to jump! Try hopping up onto the platform.";
-            //         PlayerJump.jumpFrozen = false;
-            //     } else if (GameHandler.lifeEnergyScore == 3) {
-            //         PlayerHeal.canHealSelf = true;
-            //         instructionsText.text = "Life Energy can be used on yourself or on an enemy. If you are not at 100% health, using it on yourself will heal you. Try it with [m]!";
-            //     }     
-            // }
 
             // Mark the object as collected
             collected = true;
