@@ -36,7 +36,7 @@ public class PlayerHeal : MonoBehaviour
             Debug.Log(GameHandler.lifeEnergyScore);
         }
 
-        Debug.Log("beingAttacked: " + beingAttacked);
+        //Debug.Log("beingAttacked: " + beingAttacked);
         //Debug.Log("attackFinished: " + attackFinished);
 
         if (beingAttacked && attackFinished) {
@@ -56,8 +56,21 @@ public class PlayerHeal : MonoBehaviour
         healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
     }
 
+    // public static void beginAttack() {
+    //     StartCoroutine(Attack());
+    // }
+
     IEnumerator Attack() {
+        // if (attackFinished) {
+        //     attackFinished = false;
+        //     health -= 5f;
+        //     UpdateHealth();
+        //     if (health == 0) {
+        //         SceneManager.LoadScene("LoseScene");
+        //     }
+
         yield return new WaitForSeconds(0.5f);
         attackFinished = true;
+        // }
     }
 }

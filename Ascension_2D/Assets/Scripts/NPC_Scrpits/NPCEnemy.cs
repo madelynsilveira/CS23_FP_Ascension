@@ -73,8 +73,9 @@ public class NPCEnemy : StateMachineBehaviour
                 anim.SetBool("npc_attacking", true);
 
                 // decrease health somewhere else
+                // PlayerHeal.beginAttack();
                 PlayerHeal.beingAttacked = true;
-                Debug.Log("PlayerHeal.beingAttacked: " + PlayerHeal.beingAttacked);
+                //Debug.Log("PlayerHeal.beingAttacked: " + PlayerHeal.beingAttacked);
                 //Debug.Log("attacking");
               
                 // if (attack_medium_SFX.isPlaying == false){
