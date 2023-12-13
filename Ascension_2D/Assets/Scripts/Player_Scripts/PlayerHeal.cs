@@ -13,13 +13,13 @@ public class PlayerHeal : MonoBehaviour
 
     public float maxHealth = 100f;
     public float health;
-    public GameObject life1;
-    public GameObject healthBG;
+    private GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         health = 100f;
+        healthBar = GameObject.FindWithTag("HealthBar");
         UpdateHealth();
         // beingAttacked = false;
         attackFinished = true;
@@ -52,8 +52,8 @@ public class PlayerHeal : MonoBehaviour
 
     public void UpdateHealth() {
         Debug.Log("in update health");
-        life1.GetComponent<Image>().fillAmount = health / maxHealth;
-        healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
+        healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
+        // healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
     }
 
     // public static void beginAttack() {
