@@ -8,11 +8,11 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       public float attackRange = 5f;
-       public float damageRange = 7f;
+       private float attackRange = 3f;
+       private float damageRange = 5f;
        //public LayerMask playerLayer;
 
-       public int damage = 10;
+       public float damage = 10;
        private float distanceToMouth;
        public float timeToNextAttack = 2f;
        public bool canAttack = true;
@@ -37,8 +37,8 @@ public class EnemyAttack : MonoBehaviour {
               Debug.Log("I am biting the player!");
               if (distanceToMouth < damageRange){
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=true;
-                PlayerHeal.beingAttacked = true;
-                //gameHandler.playerGetHit(damage);
+                //PlayerHeal.beingAttacked = true;
+                PlayerHeal.playerGetHit(damage);
               }
               else {
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=false;

@@ -8,12 +8,12 @@ public class PlayerHeal : MonoBehaviour
 {
     //public static bool canHeal;
     public static bool beingAttacked;
-    private bool attackFinished;
+    //private bool attackFinished;
     public GameObject npc;
 
-    public float maxHealth = 100f;
-    public float health;
-    private GameObject healthBar;
+    public static float maxHealth = 100f;
+    public static float health;
+    public static GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class PlayerHeal : MonoBehaviour
         healthBar = GameObject.FindWithTag("HealthBar");
         UpdateHealth();
         // beingAttacked = false;
-        attackFinished = true;
+        // attackFinished = true;
     }
 
     // Update is called once per frame
@@ -39,38 +39,42 @@ public class PlayerHeal : MonoBehaviour
         //Debug.Log("beingAttacked: " + beingAttacked);
         //Debug.Log("attackFinished: " + attackFinished);
 
-        if (beingAttacked && attackFinished) {
-            attackFinished = false;
-            health -= 5f;
-            UpdateHealth();
-            if (health == 0) {
-                SceneManager.LoadScene("LoseScene");
-            }
-            StartCoroutine(Attack());
-        }
-    }
-
-    public void UpdateHealth() {
-        Debug.Log("in update health");
-        healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
-        // healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
-    }
-
-    // public static void beginAttack() {
-    //     StartCoroutine(Attack());
-    // }
-
-    IEnumerator Attack() {
-        // if (attackFinished) {
+        // if (beingAttacked && attackFinished) {
         //     attackFinished = false;
         //     health -= 5f;
         //     UpdateHealth();
         //     if (health == 0) {
         //         SceneManager.LoadScene("LoseScene");
         //     }
-
-        yield return new WaitForSeconds(0.5f);
-        attackFinished = true;
+        //     StartCoroutine(Attack());
         // }
     }
+
+    public static void UpdateHealth() {
+        Debug.Log("in update health");
+        healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
+        // healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
+    }
+
+    public static void playerGetHit(float damage) {
+        health -= damage;
+        UpdateHealth();
+        if (health == 0) {
+            SceneManager.LoadScene("LoseScene");
+        }
+    }
+
+    // IEnumerator Attack() {
+    //     // if (attackFinished) {
+    //     //     attackFinished = false;
+    //     //     health -= 5f;
+    //     //     UpdateHealth();
+    //     //     if (health == 0) {
+    //     //         SceneManager.LoadScene("LoseScene");
+    //     //     }
+
+    //     yield return new WaitForSeconds(0.5f);
+    //     attackFinished = true;
+    //     // }
+    // }
 }
