@@ -449,8 +449,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackPoint: {fileID: 2849328135220075075}
-  attackRange: 5
-  damageRange: 7
   damage: 10
   timeToNextAttack: 2
   canAttack: 1
@@ -463,9 +461,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2381879778188927157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_PATROLSYSTEM
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

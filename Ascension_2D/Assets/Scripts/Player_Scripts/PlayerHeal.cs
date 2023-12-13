@@ -14,6 +14,8 @@ public class PlayerHeal : MonoBehaviour
     public static float maxHealth = 100f;
     public static float health;
     public static GameObject healthBar;
+    private GameObject[] enemyArray;
+    private float[] enemyDistanceArray;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,25 @@ public class PlayerHeal : MonoBehaviour
     void Update()
     {
         if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift")) && GameHandler.lifeEnergyScore > 0) {
+            enemyArray = GameObject.FindGameObjectsWithTag("NPC");
+
+            if (enemyArray.Length > 0) {
+                // find closest enemy
+                int closestEnemy = -1;
+                float currMin = 5;
+                for (int i = 0; i < enemyArray.Length; i++) {
+                    if (Vector3.Distance (enemyArray[i].transform.position, gameObject.transform.position) < currMin) {
+                        closestEnemy = i;
+                    }
+                }
+                
+                // heal closest enemy if they exist
+                if (closestEnemy != -1) {
+                    enemyArray[closestEnemy].GetComponentInChildren<Animator>().SetTrigger("getHurt");
+                    StartCoroutine(HealEnemy(enemyArray[closestEnemy]));
+                }
+            }
+
             // adjust player life energy
             GameHandler.lifeEnergyScore--;
             Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
@@ -64,17 +85,8 @@ public class PlayerHeal : MonoBehaviour
         }
     }
 
-    // IEnumerator Attack() {
-    //     // if (attackFinished) {
-    //     //     attackFinished = false;
-    //     //     health -= 5f;
-    //     //     UpdateHealth();
-    //     //     if (health == 0) {
-    //     //         SceneManager.LoadScene("LoseScene");
-    //     //     }
-
-    //     yield return new WaitForSeconds(0.5f);
-    //     attackFinished = true;
-    //     // }
-    // }
+    IEnumerator HealEnemy(GameObject enemy) {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(enemy);
+    }
 }

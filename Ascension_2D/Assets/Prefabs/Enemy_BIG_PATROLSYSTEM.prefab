@@ -128,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06346062, y: -0.27499604}
+  m_Offset: {x: -0.06346062, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.492315, y: 1.5499921}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &2577199730535139527
 MonoBehaviour:
@@ -175,8 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackPoint: {fileID: 8100413537005106639}
-  attackRange: 5
-  damageRange: 7
   damage: 10
   timeToNextAttack: 2
   canAttack: 1
@@ -326,9 +324,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8978177634153378169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_BIG_PATROLSYSTEM
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
