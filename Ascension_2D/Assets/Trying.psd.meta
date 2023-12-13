@@ -126,9 +126,9 @@ TextureImporter:
       name: Hill_Left
       rect:
         serializedVersion: 2
-        x: 4
-        y: 441
-        width: 68
+        x: 5
+        y: 440
+        width: 63
         height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -147,9 +147,9 @@ TextureImporter:
       name: Hill_Right
       rect:
         serializedVersion: 2
-        x: 76
-        y: 440
-        width: 68
+        x: 80
+        y: 444
+        width: 63
         height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,9 +168,9 @@ TextureImporter:
       name: Hill_Main
       rect:
         serializedVersion: 2
-        x: 149
+        x: 151
         y: 441
-        width: 68
+        width: 63
         height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -273,10 +273,10 @@ TextureImporter:
       name: Trying_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 365.85715
-        width: 73.14286
-        height: 73.14286
+        x: 7
+        y: 368
+        width: 63
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: Trying_8
       rect:
         serializedVersion: 2
-        x: 73
-        y: 365.85715
-        width: 73.14286
-        height: 73.14286
+        x: 79
+        y: 369
+        width: 63
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
