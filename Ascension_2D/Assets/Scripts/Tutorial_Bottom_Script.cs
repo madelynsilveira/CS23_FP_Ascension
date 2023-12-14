@@ -19,6 +19,16 @@ public class Tutorial_Bottom_Script : MonoBehaviour
     private bool isDisplaying = false;
     private float displayTimer = 0.0f;
 
+    private int next = 0;
+    private string[] messages = {
+        "Oh no! You have fallen from grace..",
+        "Maybe you should follow the blue orbs..", 
+        "They increase your soul bar up top!", 
+        "Who is that scary creature?",
+        "I wish we could help it...",
+        "Keep going until you reach the gate!"
+    };
+
     void Start()
     {
         fallTime -= Time.deltaTime;
@@ -27,6 +37,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         fourthTime -= Time.deltaTime;
         fifthTime -= Time.deltaTime;
         sixthTime -= Time.deltaTime;
+        
         // Hide the text initially
         textComponent.enabled = false;
     }
@@ -82,4 +93,14 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         textComponent.enabled = false;
         isDisplaying = false;
     }
+
+    // // This method is called when the first collision occurs
+    // private void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     // Check if the collision involves a specific tag
+    //     if (collision.gameObject.tag == "FirstSoul")
+    //     {
+    //         DisplayText("They increase your soul bar up top!");
+    //     }
+    // }
 }
