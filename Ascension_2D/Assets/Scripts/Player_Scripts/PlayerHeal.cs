@@ -14,6 +14,7 @@ public class PlayerHeal : MonoBehaviour
     public static float maxHealth = 100f;
     public static float health;
     public static GameObject healthBar;
+    public static GameObject healthBarBG;
     private GameObject[] enemyArray;
     private float[] enemyDistanceArray;
 
@@ -22,6 +23,7 @@ public class PlayerHeal : MonoBehaviour
     {
         health = 100f;
         healthBar = GameObject.FindWithTag("HealthBar");
+        healthBarBG = GameObject.FindWithTag("HealthBarBG");
         UpdateHealth();
         // beingAttacked = false;
         // attackFinished = true;
@@ -36,7 +38,7 @@ public class PlayerHeal : MonoBehaviour
             if (enemyArray.Length > 0) {
                 // find closest enemy
                 int closestEnemy = -1;
-                float currMin = 5;
+                float currMin = 8f;
                 for (int i = 0; i < enemyArray.Length; i++) {
                     if (Vector3.Distance (enemyArray[i].transform.position, gameObject.transform.position) < currMin) {
                         closestEnemy = i;
@@ -47,7 +49,13 @@ public class PlayerHeal : MonoBehaviour
                 if (closestEnemy != -1) {
                     enemyArray[closestEnemy].GetComponentInChildren<Animator>().SetTrigger("getHurt");
                     StartCoroutine(HealEnemy(enemyArray[closestEnemy]));
+                } else if (health < maxHealth) {
+                    health += 5f;
+                    UpdateHealth();
                 }
+            } else {
+                health += 5f;
+                UpdateHealth();
             }
 
             // adjust player life energy
@@ -74,7 +82,7 @@ public class PlayerHeal : MonoBehaviour
     public static void UpdateHealth() {
         Debug.Log("in update health");
         healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
-        // healthBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
+        healthBarBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
     }
 
     public static void playerGetHit(float damage) {

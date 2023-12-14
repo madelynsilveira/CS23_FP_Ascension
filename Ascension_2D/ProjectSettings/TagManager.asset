@@ -13,6 +13,7 @@ TagManager:
   - Boundary
   - LifeEnergyBar
   - HealthBar
+  - HealthBarBG
   layers:
   - Default
   - TransparentFX

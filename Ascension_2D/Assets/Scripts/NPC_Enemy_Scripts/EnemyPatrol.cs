@@ -31,7 +31,7 @@ public class EnemyPatrol : MonoBehaviour {
 
        void Update(){
 
-            if (isAttacking == false){
+            if (!isAttacking) {
               if (Vector2.Distance(transform.position, player.position) < 5f) {
                      Vector2 targetPos = new Vector2 (player.position.x, transform.position.y);
                      transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * 1.25f * Time.deltaTime);
@@ -68,7 +68,7 @@ public class EnemyPatrol : MonoBehaviour {
               else if ((((!pursuing) && (previousSpot == (moveSpots.Length -1))) || (pursuing && (player.position.x < transform.position.x))) && (!faceRight)) { NPCTurn(); }
               // NOTE1: If faceRight does not change, try reversing !faceRight, above
               // NOTE2: If NPC faces the wrong direction as it moves, set the sprite Scale X = -1.
-            } else {Debug.Log("isAttacking");}
+            }
        }
 
        private void NPCTurn(){

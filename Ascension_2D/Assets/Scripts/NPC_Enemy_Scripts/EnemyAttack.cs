@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       private float attackRange = 1f;
-       private float damageRange = 1f;
+       private float attackRange = 1.5f;
+       private float damageRange = 1.5f;
        //public LayerMask playerLayer;
 
        public float damage = 10;
@@ -60,9 +60,9 @@ public class EnemyAttack : MonoBehaviour {
        IEnumerator AttackDelay(){
               canAttack = false;
               anim.SetBool("Walk", false);
-              yield return new WaitForSeconds(1f);
+              yield return new WaitForSeconds(1.5f);
               gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
-              yield return new WaitForSeconds(1f);
+              //yield return new WaitForSeconds(1f);
               //Debug.Log("Waiting to attack");
               canAttack = true;
               //gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
