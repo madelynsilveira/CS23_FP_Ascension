@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour {
        private Animator anim;
-       public float speed = 10f;
+       private float speed = 6f;
        private float waitTime;
        public float startWaitTime = 2f;
 
@@ -15,25 +15,36 @@ public class EnemyPatrol : MonoBehaviour {
        // Turning
        private int nextSpot;
        private int previousSpot;
+       private Transform player;
        public bool faceRight = false;
 
 
-      public bool isAttacking = false;
+       public bool isAttacking = false;
+       private bool pursuing = false;
 
        void Start(){
               waitTime = startWaitTime;
               nextSpot = startSpot;
               anim = gameObject.GetComponentInChildren<Animator>();
+              player = GameObject.FindWithTag("Player").transform;
        }
 
        void Update(){
 
             if (isAttacking == false){
-              transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
-
-              if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) < 0.2f){
+              if (Vector2.Distance(transform.position, player.position) < 5f) {
+                     Vector2 targetPos = new Vector2 (player.position.x, transform.position.y);
+                     transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * 1.25f * Time.deltaTime);
+                     anim.SetBool("Walk", true);
+                     pursuing = true;
+              } else if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) > 0.5f) {
+                     transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
+                     anim.SetBool("Walk", true);
+                     pursuing = false;
+              } else if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) <= 0.5f){
+                     pursuing = false;
                      if (waitTime <= 0){
-                            Debug.Log("Walking");
+                            //Debug.Log("Walking");
                             anim.SetBool("Walk", true);
                             if (moveForward == true){ previousSpot = nextSpot; nextSpot += 1; }
                             else if (moveForward == false){ previousSpot = nextSpot; nextSpot -= 1; }
@@ -53,11 +64,11 @@ public class EnemyPatrol : MonoBehaviour {
               if (previousSpot < 0){ previousSpot = moveSpots.Length -1; }
               else if (previousSpot > moveSpots.Length -1){ previousSpot = 0; }
 
-              if ((previousSpot == 0) && (faceRight)){ NPCTurn(); }
-              else if ((previousSpot == (moveSpots.Length -1)) && (!faceRight)) { NPCTurn(); }
+              if ((((!pursuing) && (previousSpot == 0)) || (pursuing && (player.position.x > transform.position.x))) && (faceRight)){ NPCTurn(); }
+              else if ((((!pursuing) && (previousSpot == (moveSpots.Length -1))) || (pursuing && (player.position.x < transform.position.x))) && (!faceRight)) { NPCTurn(); }
               // NOTE1: If faceRight does not change, try reversing !faceRight, above
               // NOTE2: If NPC faces the wrong direction as it moves, set the sprite Scale X = -1.
-            }
+            } else {Debug.Log("isAttacking");}
        }
 
        private void NPCTurn(){

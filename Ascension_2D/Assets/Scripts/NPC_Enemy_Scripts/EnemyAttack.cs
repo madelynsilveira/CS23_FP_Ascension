@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       private float attackRange = 3f;
-       private float damageRange = 5f;
+       private float attackRange = 2f;
+       private float damageRange = 2f;
        //public LayerMask playerLayer;
 
        public float damage = 10;
@@ -34,9 +34,9 @@ public class EnemyAttack : MonoBehaviour {
 
        void Attack(){
               anim.SetTrigger("Attack");
+              gameObject.GetComponent<EnemyPatrol>().isAttacking=true;
               Debug.Log("Entering Attack");
               if (distanceToMouth < damageRange){
-                gameObject.GetComponent<EnemyPatrol>().isAttacking=true;
                 Debug.Log("Attacking");
                 StartCoroutine(HurtPlayer());
                 //PlayerHeal.playerGetHit(damage);
@@ -57,9 +57,10 @@ public class EnemyAttack : MonoBehaviour {
 
        IEnumerator AttackDelay(){
               canAttack = false;
-              yield return new WaitForSeconds(0.2f);
+              anim.SetBool("Walk", false);
+              yield return new WaitForSeconds(1f);
               gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
-              yield return new WaitForSeconds(1.8f);
+              yield return new WaitForSeconds(1f);
               Debug.Log("Waiting to attack");
               canAttack = true;
               //gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
