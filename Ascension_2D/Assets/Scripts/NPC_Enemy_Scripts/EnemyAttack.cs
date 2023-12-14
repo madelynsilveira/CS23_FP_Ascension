@@ -57,10 +57,12 @@ public class EnemyAttack : MonoBehaviour {
 
        IEnumerator AttackDelay(){
               canAttack = false;
-              yield return new WaitForSeconds(timeToNextAttack);
+              yield return new WaitForSeconds(0.2f);
+              gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
+              yield return new WaitForSeconds(1.8f);
               Debug.Log("Waiting to attack");
               canAttack = true;
-              gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
+              //gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
               //anim.SetBool("Attack", false);
               //Attack();
        }

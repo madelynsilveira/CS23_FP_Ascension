@@ -57,7 +57,7 @@ public class EnemyPatrol : MonoBehaviour {
               else if ((previousSpot == (moveSpots.Length -1)) && (!faceRight)) { NPCTurn(); }
               // NOTE1: If faceRight does not change, try reversing !faceRight, above
               // NOTE2: If NPC faces the wrong direction as it moves, set the sprite Scale X = -1.
-            } else {Debug.Log("isAttacking");};
+            }
        }
 
        private void NPCTurn(){
