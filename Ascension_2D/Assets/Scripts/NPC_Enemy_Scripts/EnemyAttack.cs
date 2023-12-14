@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       private float attackRange = 2f;
-       private float damageRange = 2f;
+       private float attackRange = 1f;
+       private float damageRange = 1f;
        //public LayerMask playerLayer;
 
        public float damage = 10;
@@ -36,18 +36,18 @@ public class EnemyAttack : MonoBehaviour {
        void Attack(){
               anim.SetTrigger("Attack");
               gameObject.GetComponent<EnemyPatrol>().isAttacking=true;
-              Debug.Log("Entering Attack");
+              //Debug.Log("Entering Attack");
               if (distanceToMouth < damageRange){
                 Debug.Log("Attacking");
                 StartCoroutine(HurtPlayer());
                 //PlayerHeal.playerGetHit(damage);
               }
               else {
-                Debug.Log("Stopped Attacking");
+                //Debug.Log("Stopped Attacking");
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
                 //anim.SetBool("Attack", false);
                 //EnemyPatrol.isAttacking = false;
-                Debug.Log("Not attacking anymore");
+                //Debug.Log("Not attacking anymore");
               }
 
               // Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, damageRange, playerLayer);
@@ -63,7 +63,7 @@ public class EnemyAttack : MonoBehaviour {
               yield return new WaitForSeconds(1f);
               gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
               yield return new WaitForSeconds(1f);
-              Debug.Log("Waiting to attack");
+              //Debug.Log("Waiting to attack");
               canAttack = true;
               //gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
               //anim.SetBool("Attack", false);

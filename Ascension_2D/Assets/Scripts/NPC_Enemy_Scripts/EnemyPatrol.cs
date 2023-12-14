@@ -52,7 +52,7 @@ public class EnemyPatrol : MonoBehaviour {
                      } else {
                             waitTime -= Time.deltaTime;
                             anim.SetBool("Walk", false);
-                            Debug.Log("Not walking");
+                            //Debug.Log("Not walking");
                      }
               }
 
