@@ -28,18 +28,20 @@ public class EnemyPatrol : MonoBehaviour {
 
        void Update(){
 
-            if (isAttacking==false){
-                transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
-                Debug.Log("transform p " + transform.position);
-                if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) < 0.2f){
+            if (isAttacking == false){
+              transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
+
+              if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) < 0.2f){
                      if (waitTime <= 0){
-                        anim.SetBool("Walk", true);
+                            Debug.Log("Walking");
+                            anim.SetBool("Walk", true);
                             if (moveForward == true){ previousSpot = nextSpot; nextSpot += 1; }
                             else if (moveForward == false){ previousSpot = nextSpot; nextSpot -= 1; }
                             waitTime = startWaitTime;
                      } else {
                             waitTime -= Time.deltaTime;
                             anim.SetBool("Walk", false);
+                            Debug.Log("Not walking");
                      }
               }
 

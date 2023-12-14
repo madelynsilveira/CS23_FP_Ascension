@@ -35,15 +35,19 @@ public class EnemyAttack : MonoBehaviour {
 
        void Attack(){
               anim.SetTrigger("Attack");
-              Debug.Log("I am biting the player!");
+              Debug.Log("Entering Attack");
               if (distanceToMouth < damageRange){
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=true;
-                //PlayerHeal.beingAttacked = true;
-                PlayerHeal.playerGetHit(damage);
+                Debug.Log("Attacking");
+                StartCoroutine(HurtPlayer());
+                //PlayerHeal.playerGetHit(damage);
               }
               else {
                 Debug.Log("Stopped Attacking");
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
+                //anim.SetBool("Attack", false);
+                //EnemyPatrol.isAttacking = false;
+                Debug.Log("Not attacking anymore");
               }
 
               // Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, damageRange, playerLayer);
@@ -55,8 +59,19 @@ public class EnemyAttack : MonoBehaviour {
 
        IEnumerator AttackDelay(){
               canAttack = false;
-              yield return new WaitForSeconds(timeToNextAttack);
+              yield return new WaitForSeconds(0.2f);
+              gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
+              yield return new WaitForSeconds(1.8f);
+              Debug.Log("Waiting to attack");
               canAttack = true;
+              //gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
+              //anim.SetBool("Attack", false);
+              //Attack();
+       }
+
+       IEnumerator HurtPlayer() {
+              yield return new WaitForSeconds(0.1f);
+              PlayerHeal.playerGetHit(damage);
        }
 
        //NOTE: to help see the attack sphere in editor:
