@@ -26,6 +26,7 @@ public class EnemyAttack : MonoBehaviour {
 
        void Update(){
               distanceToMouth = Vector3.Distance(player.position, AttackPoint.position);
+              
               if ((distanceToMouth < attackRange) && (canAttack)){
                      Attack();
                      StartCoroutine(AttackDelay());
@@ -41,6 +42,7 @@ public class EnemyAttack : MonoBehaviour {
                 PlayerHeal.playerGetHit(damage);
               }
               else {
+                Debug.Log("Stopped Attacking");
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
               }
 

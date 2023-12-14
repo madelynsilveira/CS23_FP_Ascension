@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
       objectReference: {fileID: 0}
+    - target: {fileID: 7328376565734529529, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Name
+      value: WinImage
+      objectReference: {fileID: 0}
     - target: {fileID: 7668422879057756271, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
