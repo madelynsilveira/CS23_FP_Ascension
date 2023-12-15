@@ -31,7 +31,6 @@ public class PlayerMove : MonoBehaviour {
             // Check if a SpriteRenderer component is found
             if (playerSprite != null)
             {
-                  Debug.Log("SPRITE");
                   // Change the color to red (you can use any color you want)
                   playerSprite.color = new Color(0.0f, 0.0f, 0.0f);
             }
@@ -60,7 +59,6 @@ public class PlayerMove : MonoBehaviour {
                   {
                         // Adjust the gravity scale
                         rb2D.gravityScale = 2;
-                        //Debug.Log("falling");
                   }
             } else {
                   rb2D.gravityScale = 1;
@@ -97,16 +95,6 @@ public class PlayerMove : MonoBehaviour {
                   rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
             }
       }
-
-      // void OnTriggerEnter2D(Collider2D other) {
-      //       Debug.Log("Other object tag: " + other.gameObject.tag);
-      //       if (other.gameObject.tag == "Food") {
-      //             Destroy(other.gameObject);
-      //             lifeEnergyScore += 1;
-      //             Text lifeEnergyText = lifeEnergyObj.GetComponent<Text>();
-      //             lifeEnergyText.text = "" + lifeEnergyScore;
-      //       }
-      // }
 
       private void playerTurn(){
             // NOTE: Switch player facing label
