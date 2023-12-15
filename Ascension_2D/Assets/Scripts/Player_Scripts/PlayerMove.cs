@@ -125,6 +125,8 @@ public class PlayerMove : MonoBehaviour {
                   }
 
                   SceneManager.LoadScene("MainMenu");
+            } else if (other.gameObject.tag == "Boundary") {
+                  transform.position = new Vector2 (-72f, -1f);
             }
       }
 }
