@@ -36,23 +36,16 @@ public class EnemyAttack : MonoBehaviour {
        void Attack(){
               anim.SetTrigger("Attack");
               gameObject.GetComponent<EnemyPatrol>().isAttacking=true;
-              //Debug.Log("Entering Attack");
               if (distanceToMouth < damageRange){
-                Debug.Log("Attacking");
                 StartCoroutine(HurtPlayer());
                 //PlayerHeal.playerGetHit(damage);
               }
               else {
-                //Debug.Log("Stopped Attacking");
                 gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
-                //anim.SetBool("Attack", false);
-                //EnemyPatrol.isAttacking = false;
-                //Debug.Log("Not attacking anymore");
               }
 
               // Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, damageRange, playerLayer);
               // foreach(Collider2D player in hitPlayer){
-                     // Debug.Log("We hit " + player.name);
                      // gameHandler.playerGetHit(damage);
               // }
        }
@@ -62,12 +55,7 @@ public class EnemyAttack : MonoBehaviour {
               anim.SetBool("Walk", false);
               yield return new WaitForSeconds(1.5f);
               gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
-              //yield return new WaitForSeconds(1f);
-              //Debug.Log("Waiting to attack");
               canAttack = true;
-              //gameObject.GetComponent<EnemyPatrol>().isAttacking=false;
-              //anim.SetBool("Attack", false);
-              //Attack();
        }
 
        IEnumerator HurtPlayer() {

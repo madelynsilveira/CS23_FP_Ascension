@@ -41,7 +41,6 @@ public class PlayerHeal : MonoBehaviour
                 float currMin = 5f;
                 for (int i = 0; i < enemyArray.Length; i++) {
                     Transform childArt = enemyArray[i].transform.GetChild(0).transform;
-                    Debug.Log("Enemy " + i + " distance: " + Vector3.Distance (childArt.position, gameObject.transform.position));
                     if (Vector3.Distance (childArt.position, gameObject.transform.position) < currMin) {
                         closestEnemy = i;
                     }
@@ -64,25 +63,10 @@ public class PlayerHeal : MonoBehaviour
             GameHandler.lifeEnergyScore--;
             Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
             lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
-            Debug.Log(GameHandler.lifeEnergyScore);
         }
-
-        //Debug.Log("beingAttacked: " + beingAttacked);
-        //Debug.Log("attackFinished: " + attackFinished);
-
-        // if (beingAttacked && attackFinished) {
-        //     attackFinished = false;
-        //     health -= 5f;
-        //     UpdateHealth();
-        //     if (health == 0) {
-        //         SceneManager.LoadScene("LoseScene");
-        //     }
-        //     StartCoroutine(Attack());
-        // }
     }
 
     public static void UpdateHealth() {
-        Debug.Log("in update health");
         healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
         healthBarBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
     }

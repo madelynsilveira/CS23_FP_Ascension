@@ -44,7 +44,6 @@ public class EnemyPatrol : MonoBehaviour {
               } else if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) <= 0.5f){
                      pursuing = false;
                      if (waitTime <= 0){
-                            //Debug.Log("Walking");
                             anim.SetBool("Walk", true);
                             if (moveForward == true){ previousSpot = nextSpot; nextSpot += 1; }
                             else if (moveForward == false){ previousSpot = nextSpot; nextSpot -= 1; }
@@ -52,7 +51,6 @@ public class EnemyPatrol : MonoBehaviour {
                      } else {
                             waitTime -= Time.deltaTime;
                             anim.SetBool("Walk", false);
-                            //Debug.Log("Not walking");
                      }
               }
 
