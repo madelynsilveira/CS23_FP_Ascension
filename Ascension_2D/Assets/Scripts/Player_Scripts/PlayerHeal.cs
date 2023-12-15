@@ -50,6 +50,8 @@ public class PlayerHeal : MonoBehaviour
                 if (closestEnemy != -1) {
                     enemyArray[closestEnemy].GetComponentInChildren<Animator>().SetTrigger("getHurt");
                     StartCoroutine(HealEnemy(enemyArray[closestEnemy]));
+                    GameHandler.soulsHealed++;
+                    Debug.Log("souls healed: " + GameHandler.soulsHealed);
                 } else if (health < maxHealth) {
                     health += 5f;
                     UpdateHealth();

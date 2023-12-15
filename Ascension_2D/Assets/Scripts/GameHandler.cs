@@ -14,6 +14,7 @@ public class GameHandler : MonoBehaviour
     public GameObject lifeEnergyBar;
     public static float lifeEnergyScore;
     public static float maxLifeEnergy;
+    public static int soulsHealed;
     public static bool level1Complete = false;
     public GameObject level2Button;
     public static bool level2Complete = false;
@@ -72,12 +73,20 @@ public class GameHandler : MonoBehaviour
             }
         } else if (scene.name == "winScene") {
             winScene.SetActive(true);
+            if (soulsHealed == 1) {
+                GameObject.FindWithTag("SoulsHealed").GetComponent<Text>().text = "You healed 1 soul. Good job.";
+            } else if (soulsHealed == 0) {
+                GameObject.FindWithTag("SoulsHealed").GetComponent<Text>().text = "You didn't heal any souls. That was selfish of you.";
+            } else {
+                GameObject.FindWithTag("SoulsHealed").GetComponent<Text>().text = "You healed " + soulsHealed + " souls! Great job!";
+            }
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
         } else {
             playScene.SetActive(true);
             if (scene.name == "Tutorial") {
                 lifeEnergyScore = 0f;
+                soulsHealed = 0;
             }
             if (lifeEnergyScore > 10f) {
                 maxLifeEnergy = lifeEnergyScore;

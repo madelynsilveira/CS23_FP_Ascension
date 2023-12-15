@@ -6,7 +6,7 @@ public class PlayerJump : MonoBehaviour {
 
       //public Animator anim;
       public Rigidbody2D rb;
-      public float jumpForce = 10f;
+      private float jumpForce = 8f;
       public Transform feet;
       public LayerMask groundLayer;
       public LayerMask enemyLayer;
