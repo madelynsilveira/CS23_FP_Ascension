@@ -76,8 +76,14 @@ public class GameHandler : MonoBehaviour
             loseScene.SetActive(true);
         } else {
             playScene.SetActive(true);
-            lifeEnergyScore = 0f;
-            maxLifeEnergy = 10f;
+            if (scene.name == "Tutorial") {
+                lifeEnergyScore = 0f;
+            }
+            if (lifeEnergyScore > 10f) {
+                maxLifeEnergy = lifeEnergyScore;
+            } else {
+                maxLifeEnergy = 10f;
+            }
             lifeEnergyBar.GetComponent<Image>().fillAmount = lifeEnergyScore / maxLifeEnergy;
         }
     }

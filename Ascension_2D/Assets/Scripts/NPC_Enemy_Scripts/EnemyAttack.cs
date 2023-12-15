@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       private float attackRange = 1.5f;
-       private float damageRange = 1.5f;
+       private float attackRange = 2f;
+       private float damageRange = 2f;
        //public LayerMask playerLayer;
 
        public float damage = 10;

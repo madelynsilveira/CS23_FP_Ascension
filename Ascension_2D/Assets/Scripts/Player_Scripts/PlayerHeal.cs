@@ -38,9 +38,11 @@ public class PlayerHeal : MonoBehaviour
             if (enemyArray.Length > 0) {
                 // find closest enemy
                 int closestEnemy = -1;
-                float currMin = 8f;
+                float currMin = 5f;
                 for (int i = 0; i < enemyArray.Length; i++) {
-                    if (Vector3.Distance (enemyArray[i].transform.position, gameObject.transform.position) < currMin) {
+                    Transform childArt = enemyArray[i].transform.GetChild(0).transform;
+                    Debug.Log("Enemy " + i + " distance: " + Vector3.Distance (childArt.position, gameObject.transform.position));
+                    if (Vector3.Distance (childArt.position, gameObject.transform.position) < currMin) {
                         closestEnemy = i;
                     }
                 }

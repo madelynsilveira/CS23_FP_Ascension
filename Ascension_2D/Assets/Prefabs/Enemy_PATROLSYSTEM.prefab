@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 6832084714642550479}
   - component: {fileID: 1767065491251335496}
   m_Layer: 0
-  m_Name: demon2_art
+  m_Name: demon_art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
