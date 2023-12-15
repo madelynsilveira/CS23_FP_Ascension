@@ -120,11 +120,13 @@ public class PlayerMove : MonoBehaviour {
                         GameHandler.level5Complete = true;
                   } else if (SceneManager.GetActiveScene().name == "Level6") {
                         GameHandler.level6Complete = true;
-                  } else if (SceneManager.GetActiveScene().name == "Level7") {
-                        SceneManager.LoadScene("winScene");
                   }
-
-                  SceneManager.LoadScene("MainMenu");
+                  
+                  if (SceneManager.GetActiveScene().name == "Level7") {
+                        SceneManager.LoadScene("winScene");
+                  } else {
+                        SceneManager.LoadScene("MainMenu");
+                  }
             } else if (other.gameObject.tag == "Boundary") {
                   transform.position = new Vector2 (-72f, -1f);
             }
