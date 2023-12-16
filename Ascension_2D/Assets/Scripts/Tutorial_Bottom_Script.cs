@@ -94,13 +94,21 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         isDisplaying = false;
     }
 
-    // // This method is called when the first collision occurs
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     // Check if the collision involves a specific tag
-    //     if (collision.gameObject.tag == "FirstSoul")
-    //     {
-    //         DisplayText("They increase your soul bar up top!");
+    // public void OnTriggerEnter2D (Collider2D other){
+    //     if (other.gameObject.tag == "next"){
+    //             GetComponent<Collider2D>().enabled = false;
+    //             //GetComponent< AudioSource>().Play();
+    //             StartCoroutine(DestroyThis());
+
+    //             if (isHealthPickUp == true) {
+    //                 gameHandler.playerGetHit(healthBoost * -1);
+    //                 //playerPowerupVFX.powerup();
+    //             }
+
+    //             if (isSpeedBoostPickUp == true) {
+    //                 other.gameObject.GetComponent<PlayerMove>().speedBoost(speedBoost, speedTime);
+    //                 //playerPowerupVFX.powerup();
+    //             }
     //     }
     // }
 }

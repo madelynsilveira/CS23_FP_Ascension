@@ -6,7 +6,7 @@ public class PlayerJump : MonoBehaviour {
 
       //public Animator anim;
       public Rigidbody2D rb;
-      private float jumpForce = 8f;
+      private float jumpForce = 10f;
       public Transform feet;
       public LayerMask groundLayer;
       public LayerMask enemyLayer;
@@ -15,6 +15,10 @@ public class PlayerJump : MonoBehaviour {
       public bool isAlive = true;
       //public static bool jumpFrozen;
       //public AudioSource JumpSFX;
+
+      // for a less floaty jump
+      public float fallMultiplier = 2.5f;
+      public float lowJumpMultiplier = 2f;
 
       void Start(){
             //anim = gameObject.GetComponentInChildren<Animator>();
@@ -30,6 +34,13 @@ public class PlayerJump : MonoBehaviour {
 
            if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w")) || (Input.GetKeyDown("space"))) && ((IsGrounded()) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
                   Jump();
+            }
+
+            // make the jump less floaty
+            if (rb.velocity.y < 0) {
+                  rb.velocity += Vector2.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            } else if (rb.velocity.y > 0 && !Input.GetButton ("Jump")){
+                  rb.velocity += Vector2.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
       }
 
