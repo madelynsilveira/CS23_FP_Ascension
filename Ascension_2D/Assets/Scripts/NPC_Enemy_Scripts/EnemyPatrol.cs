@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour {
        private Animator anim;
+       private ParticleSystem particleSystem;
        private float speed = 6f;
        private float waitTime;
        public float startWaitTime = 2f;
@@ -26,6 +27,7 @@ public class EnemyPatrol : MonoBehaviour {
               waitTime = startWaitTime;
               nextSpot = startSpot;
               anim = gameObject.GetComponentInChildren<Animator>();
+              particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
               player = GameObject.FindWithTag("Player").transform;
        }
 
