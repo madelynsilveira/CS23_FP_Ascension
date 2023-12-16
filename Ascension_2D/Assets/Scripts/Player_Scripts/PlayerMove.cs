@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour {
       public float startSpeed = 10f;
       //public float freezeDistance = 25f;
       public static bool isFrozen;
+      public static bool keyFound = false;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
       // public int lifeEnergyScore = 0;
@@ -107,7 +108,9 @@ public class PlayerMove : MonoBehaviour {
       }
 
       void OnTriggerEnter2D(Collider2D other) {
-            if (other.gameObject.tag == "Portal") {
+            if (other.gameObject.tag = "Key") {
+                  keyFound = true;
+            } else if (other.gameObject.tag == "Portal" && keyFound) {
                   if (SceneManager.GetActiveScene().name == "Level1") {
                         GameHandler.level1Complete = true;
                   } else if (SceneManager.GetActiveScene().name == "Level2") {
