@@ -108,8 +108,9 @@ public class PlayerMove : MonoBehaviour {
       }
 
       void OnTriggerEnter2D(Collider2D other) {
-            if (other.gameObject.tag = "Key") {
+            if (other.gameObject.tag == "Key") {
                   keyFound = true;
+                  Destroy(other.gameObject);
             } else if (other.gameObject.tag == "Portal" && keyFound) {
                   if (SceneManager.GetActiveScene().name == "Level1") {
                         GameHandler.level1Complete = true;

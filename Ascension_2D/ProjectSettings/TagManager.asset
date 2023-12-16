@@ -15,6 +15,7 @@ TagManager:
   - HealthBar
   - HealthBarBG
   - SoulsHealed
+  - Key
   layers:
   - Default
   - TransparentFX
