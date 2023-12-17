@@ -712,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7974593752244086621, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_Text
-      value: Souls
+      value: Soul Energy
       objectReference: {fileID: 0}
     - target: {fileID: 7978424264858966899, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_RootOrder

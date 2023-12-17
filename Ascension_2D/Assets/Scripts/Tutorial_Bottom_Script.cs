@@ -15,20 +15,21 @@ public class Tutorial_Bottom_Script : MonoBehaviour
     private float fifthTime = 20.0f;
     private float sixthTime = 24.0f;
     private float seventhTime = 28.0f;
-    public float displayDuration = 1.0f; 
+    private float eighthTime = 32.0f;
+    // public float displayDuration = 1.0f; 
 
-    private bool isDisplaying = false;
-    private float displayTimer = 0.0f;
+    // private bool isDisplaying = false;
+    // private float displayTimer = 0.0f;
 
-    private int next = 0;
-    private string[] messages = {
-        "Oh no! You have fallen from grace..",
-        "Maybe you should follow the blue orbs..", 
-        "They increase your soul bar up top!", 
-        "Who is that scary creature?",
-        "Try healing it!",
-        "Keep going until you reach the gate!"
-    };
+    // private int next = 0;
+    // private string[] messages = {
+    //     "Oh no! You have fallen from grace..",
+    //     "Maybe you should follow the blue orbs..", 
+    //     "They increase your soul bar up top!", 
+    //     "Who is that scary creature?",
+    //     "Try healing it!",
+    //     "Keep going until you reach the gate!"
+    // };
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         fifthTime -= Time.deltaTime;
         sixthTime -= Time.deltaTime;
         seventhTime -= Time.deltaTime;
+        eighthTime -= Time.deltaTime;
         
         // Hide the text initially
         textComponent.enabled = false;
@@ -53,6 +55,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         fifthTime -= Time.deltaTime;
         sixthTime -= Time.deltaTime;
         seventhTime -= Time.deltaTime;
+        eighthTime -= Time.deltaTime;
 
         if (fallTime <= 0)
         {
@@ -82,6 +85,10 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         }
 
         if (seventhTime <= 0) {
+            DisplayText("Make sure you grab the key!");
+        }
+
+        if (eighthTime <= 0) {
             DisplayText("Keep going until you reach the gate!");
         }
     }
@@ -91,15 +98,15 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         textComponent.text = message;
         // textComponent.text = "Maybe you should follow the blue orbs..";
         textComponent.enabled = true;
-        isDisplaying = true;
-        displayTimer = 0.0f;
+        // isDisplaying = true;
+        // displayTimer = 0.0f;
     }
 
-    void HideText()
-    {
-        textComponent.enabled = false;
-        isDisplaying = false;
-    }
+    // void HideText()
+    // {
+    //     textComponent.enabled = false;
+    //     isDisplaying = false;
+    // }
 
     // public void OnTriggerEnter2D (Collider2D other){
     //     if (other.gameObject.tag == "next"){
