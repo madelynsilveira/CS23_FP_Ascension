@@ -8,12 +8,13 @@ public class Tutorial_Bottom_Script : MonoBehaviour
     public Text textComponent;
     private string defaultMessage = "Oh no! You have fallen from grace..";
         // private string defaultMessage = "HHAGUGSJHGllen from grace..";
-    public float fallTime = 3.0f;
-    public float nextTime = 9.0f;
-    public float thirdTime = 12.0f;
-    public float fourthTime = 16.0f;
-    public float fifthTime = 22.0f;
-    public float sixthTime = 26.0f;
+    private float fallTime = 2.0f;
+    private float nextTime = 4.0f;
+    private float thirdTime = 9.0f;
+    private float fourthTime = 16.0f;
+    private float fifthTime = 20.0f;
+    private float sixthTime = 24.0f;
+    private float seventhTime = 28.0f;
     public float displayDuration = 1.0f; 
 
     private bool isDisplaying = false;
@@ -25,7 +26,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         "Maybe you should follow the blue orbs..", 
         "They increase your soul bar up top!", 
         "Who is that scary creature?",
-        "I wish we could help it...",
+        "Try healing it!",
         "Keep going until you reach the gate!"
     };
 
@@ -37,6 +38,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         fourthTime -= Time.deltaTime;
         fifthTime -= Time.deltaTime;
         sixthTime -= Time.deltaTime;
+        seventhTime -= Time.deltaTime;
         
         // Hide the text initially
         textComponent.enabled = false;
@@ -50,6 +52,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         fourthTime -= Time.deltaTime;
         fifthTime -= Time.deltaTime;
         sixthTime -= Time.deltaTime;
+        seventhTime -= Time.deltaTime;
 
         if (fallTime <= 0)
         {
@@ -71,10 +74,14 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         }
         
         if (fifthTime <= 0) {
-            DisplayText("I wish we could help it...");
+            DisplayText("Try healing it!");
         }
 
         if (sixthTime <= 0) {
+            DisplayText("Now heal yourself!");
+        }
+
+        if (seventhTime <= 0) {
             DisplayText("Keep going until you reach the gate!");
         }
     }

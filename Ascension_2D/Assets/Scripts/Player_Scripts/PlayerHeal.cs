@@ -21,7 +21,11 @@ public class PlayerHeal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100f;
+        if (SceneManager.GetActiveScene().name == "Tutorial") {
+            health = 90f;
+        } else {
+            health = 100f;
+        }
         healthBar = GameObject.FindWithTag("HealthBar");
         healthBarBG = GameObject.FindWithTag("HealthBarBG");
         UpdateHealth();
