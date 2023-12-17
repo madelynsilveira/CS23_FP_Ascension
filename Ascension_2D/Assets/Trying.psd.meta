@@ -210,10 +210,10 @@ TextureImporter:
       name: Trying_4
       rect:
         serializedVersion: 2
-        x: 292
-        y: 438.85715
-        width: 73.14286
-        height: 73.14286
+        x: 297
+        y: 453
+        width: 53
+        height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: Trying_5
       rect:
         serializedVersion: 2
-        x: 365
-        y: 438.85715
-        width: 73.14286
-        height: 73.14286
+        x: 373
+        y: 454
+        width: 53
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: Trying_6
       rect:
         serializedVersion: 2
-        x: 438
-        y: 438.85715
-        width: 73.14286
-        height: 73.14286
+        x: 446
+        y: 447
+        width: 53
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: Trying_11
       rect:
         serializedVersion: 2
-        x: 292
-        y: 365.85715
-        width: 73.14286
-        height: 73.14286
+        x: 298
+        y: 373
+        width: 53
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: Trying_12
       rect:
         serializedVersion: 2
-        x: 365
-        y: 365.85715
-        width: 73.14286
-        height: 73.14286
+        x: 368
+        y: 374
+        width: 53
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
