@@ -16,6 +16,7 @@ public class EnemyAttack : MonoBehaviour {
        private float distanceToMouth;
        public float timeToNextAttack = 2f;
        public bool canAttack = true;
+       public bool isAlive = true;
 
 
        void Start(){
@@ -60,7 +61,9 @@ public class EnemyAttack : MonoBehaviour {
 
        IEnumerator HurtPlayer() {
               yield return new WaitForSeconds(0.1f);
-              PlayerHeal.playerGetHit(damage);
+              if (isAlive) {
+                     PlayerHeal.playerGetHit(damage);
+              }
        }
 
        //NOTE: to help see the attack sphere in editor:

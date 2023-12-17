@@ -49,6 +49,7 @@ public class PlayerHeal : MonoBehaviour
                 // heal closest enemy if they exist
                 if (closestEnemy != -1) {
                     enemyArray[closestEnemy].GetComponentInChildren<Animator>().SetTrigger("getHurt");
+                    enemyArray[closestEnemy].GetComponentInChildren<EnemyAttack>().isAlive = false;
                     StartCoroutine(HealEnemy(enemyArray[closestEnemy]));
                     GameHandler.soulsHealed++;
                 } else if (health < maxHealth) {
