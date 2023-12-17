@@ -6,13 +6,14 @@ public class PlayerJump : MonoBehaviour {
 
       //public Animator anim;
       public Rigidbody2D rb;
-      private float jumpForce = 10f;
+      private float jumpForce = 12f;
       public Transform feet;
       public LayerMask groundLayer;
       public LayerMask enemyLayer;
       public bool canJump = false;
       public int jumpTimes = 0;
       public bool isAlive = true;
+      private bool grounded;
       //public static bool jumpFrozen;
       //public AudioSource JumpSFX;
 
@@ -31,8 +32,9 @@ public class PlayerJump : MonoBehaviour {
             // }  else if (jumpTimes > 1){
             //       canJump = false;
             // }
+            grounded = IsGrounded();
 
-           if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w")) || (Input.GetKeyDown("space"))) && ((IsGrounded()) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
+           if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w")) || (Input.GetKeyDown("space"))) && ((grounded) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
                   Jump();
             }
 
@@ -57,10 +59,21 @@ public class PlayerJump : MonoBehaviour {
       public bool IsGrounded() {
             Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 1f, groundLayer);
             Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 1f, enemyLayer);
+            
+            //grounded
             if ((groundCheck != null) || (enemyCheck != null)) {
                   jumpTimes = 0;
+
+                  if (groundCheck.tag == "MovingPlatform") {
+                        transform.parent = groundCheck.transform;
+                  } else {
+                        transform.parent = null;
+                  }
                   return true;
+            } else {
+                  transform.parent = null;
+                  return false;
             }
-            return false;
+            
       }
 }

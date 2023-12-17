@@ -15,6 +15,7 @@ TagManager:
   - HealthBar
   - HealthBarBG
   - SoulsHealed
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
