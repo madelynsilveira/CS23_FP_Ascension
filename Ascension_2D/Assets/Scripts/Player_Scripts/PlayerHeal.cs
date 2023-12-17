@@ -71,6 +71,7 @@ public class PlayerHeal : MonoBehaviour
     public static void UpdateHealth() {
         healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
         healthBarBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
+        if (health <= 0) {
             SceneManager.LoadScene("LoseScene");
         }
     }
