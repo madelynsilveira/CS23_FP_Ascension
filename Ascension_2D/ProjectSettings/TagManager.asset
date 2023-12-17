@@ -16,6 +16,8 @@ TagManager:
   - HealthBarBG
   - SoulsHealed
   - MovingPlatform
+  - Key
+  - Lava
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour {
       public float startSpeed = 10f;
       //public float freezeDistance = 25f;
       public static bool isFrozen;
+      private bool inLava = false;
       public static bool keyFound = false;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
@@ -133,6 +134,24 @@ public class PlayerMove : MonoBehaviour {
                   }
             } else if (other.gameObject.tag == "Boundary") {
                   transform.position = new Vector2 (-72f, -1f);
+            } else if (other.gameObject.tag == "Lava") {
+                  inLava = true;
+                  StartCoroutine(HurtByLava());
+            }
+      }
+
+      void OnTriggerExit2D(Collider2D other) {
+            if (other.gameObject.tag == "Lava") {
+                  inLava = false;
+            }
+      }
+
+      IEnumerator HurtByLava() {
+            if (inLava) {
+                  PlayerHeal.health -= 5f;
+                  PlayerHeal.UpdateHealth();
+                  yield return new WaitForSeconds(0.5f);
+                  StartCoroutine(HurtByLava());
             }
       }
 }
