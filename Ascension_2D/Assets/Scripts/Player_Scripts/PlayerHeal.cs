@@ -71,14 +71,13 @@ public class PlayerHeal : MonoBehaviour
     public static void UpdateHealth() {
         healthBar.GetComponent<Image>().fillAmount = health / maxHealth;
         healthBarBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 
     public static void playerGetHit(float damage) {
         health -= damage;
         UpdateHealth();
-        if (health == 0) {
-            SceneManager.LoadScene("LoseScene");
-        }
     }
 
     IEnumerator HealEnemy(GameObject enemy) {
