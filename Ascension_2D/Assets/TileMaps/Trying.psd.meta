@@ -189,10 +189,10 @@ TextureImporter:
       name: Trying_3
       rect:
         serializedVersion: 2
-        x: 219
-        y: 438.85715
-        width: 73.14286
-        height: 73.14286
+        x: 218
+        y: 438
+        width: 73
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: Trying_4
       rect:
         serializedVersion: 2
-        x: 297
-        y: 453
-        width: 53
-        height: 55
+        x: 292
+        y: 438
+        width: 73
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: Trying_11
       rect:
         serializedVersion: 2
-        x: 298
-        y: 373
-        width: 53
-        height: 58
+        x: 293
+        y: 364
+        width: 74
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: Trying_17
       rect:
         serializedVersion: 2
-        x: 219
-        y: 292.85715
-        width: 73.14286
-        height: 73.14286
+        x: 218
+        y: 293
+        width: 73
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
