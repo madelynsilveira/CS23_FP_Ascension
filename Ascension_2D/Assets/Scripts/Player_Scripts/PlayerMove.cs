@@ -121,6 +121,10 @@ public class PlayerMove : MonoBehaviour {
             } else if (other.gameObject.tag == "Lava") {
                   inLava = true;
                   StartCoroutine(HurtByLava());
+            } else if (other.gameObject.tag == "Checkpoint") {
+                  Tutorial_Bottom_Script.DisplayText(Tutorial_Bottom_Script.messages[Tutorial_Bottom_Script.currIndex]);
+                  Tutorial_Bottom_Script.currIndex++;
+                  Destroy(other.gameObject);
             }
       }
 

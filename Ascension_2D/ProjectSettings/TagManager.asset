@@ -18,6 +18,7 @@ TagManager:
   - MovingPlatform
   - Key
   - Lava
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
