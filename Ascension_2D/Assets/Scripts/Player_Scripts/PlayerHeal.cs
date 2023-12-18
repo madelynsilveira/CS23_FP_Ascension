@@ -16,7 +16,7 @@ public class PlayerHeal : MonoBehaviour
     public static GameObject healthBar;
     public static GameObject healthBarBG;
     public static GameObject player;
-    public static bool isAlive = true;
+    public static bool isAlive;
     private GameObject[] enemyArray;
     private float[] enemyDistanceArray;
 
@@ -28,6 +28,7 @@ public class PlayerHeal : MonoBehaviour
         } else {
             health = 100f;
         }
+        isAlive = true;
         healthBar = GameObject.FindWithTag("HealthBar");
         healthBarBG = GameObject.FindWithTag("HealthBarBG");
         player = GameObject.FindWithTag("Player");
@@ -44,7 +45,7 @@ public class PlayerHeal : MonoBehaviour
             player.GetComponentInChildren<Animator>().SetTrigger("player_die");
             StartCoroutine(EndLevel());
         }
-        
+
         if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
             enemyArray = GameObject.FindGameObjectsWithTag("NPC");
 
@@ -71,7 +72,7 @@ public class PlayerHeal : MonoBehaviour
                     health += 5f;
                     UpdateHealth();
                 }
-            } else {
+            } else if (health < maxHealth) {
                 gameObject.GetComponentInChildren<Animator>().SetTrigger("player_healSelf");
                 health += 5f;
                 UpdateHealth();

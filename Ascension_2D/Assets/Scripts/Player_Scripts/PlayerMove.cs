@@ -15,8 +15,8 @@ public class PlayerMove : MonoBehaviour {
       public float startSpeed = 10f;
       //public float freezeDistance = 25f;
       public static bool isFrozen;
-      private bool inLava = false;
-      public static bool keyFound = false;
+      private bool inLava;
+      public static bool keyFound;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
       // public int lifeEnergyScore = 0;
@@ -26,6 +26,8 @@ public class PlayerMove : MonoBehaviour {
            anim = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
            isFrozen = false;
+           inLava = false;
+           keyFound = false;
 
             // Get the SpriteRenderer component attached to the GameObject
             playerSprite = GetComponentInChildren<SpriteRenderer>();
@@ -47,13 +49,6 @@ public class PlayerMove : MonoBehaviour {
             playerSprite.color = new Color(0.0f, 0.0f, 0.0f);
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-            
-            // set movement animation
-            if ((hMove.x > 0.5) || (hMove.x < -0.5)) {
-                  anim.SetBool("player_walk", true);
-            } else {
-                  anim.SetBool("player_walk", false);
-            }
 
             // adjust falling gravity
             if (rb2D.velocity.y < 0) {
@@ -68,21 +63,14 @@ public class PlayerMove : MonoBehaviour {
 
 
             if (PlayerHeal.isAlive){
-                  /*if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
-                      (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {*/
-                        transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
-                  //}
-                  
+                  transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
 
-                  // if (Input.GetAxis("Horizontal") != 0){
-                  //       animator.SetBool ("Walk", true);
-                  //       if (!WalkSFX.isPlaying){
-                  //             WalkSFX.Play();
-                  //      }
-                  // } else {
-                  //      animator.SetBool ("Walk", false);
-                  //      WalkSFX.Stop();
-                  // }
+                  // set movement animation
+                  if ((hMove.x > 0.5) || (hMove.x < -0.5)) {
+                        anim.SetBool("player_walk", true);
+                  } else {
+                        anim.SetBool("player_walk", false);
+                  }
 
                   // Turning: Reverse if input is moving the Player right and Player faces left
                  if ((hMove.x <0 && FaceRight) || (hMove.x >0 && !FaceRight)){
@@ -127,11 +115,7 @@ public class PlayerMove : MonoBehaviour {
                         GameHandler.level6Complete = true;
                   }
                   
-                  if (SceneManager.GetActiveScene().name == "Level7") {
-                        SceneManager.LoadScene("winScene");
-                  } else {
-                        SceneManager.LoadScene("MainMenu");
-                  }
+                  StartCoroutine(OpenGates());
             } else if (other.gameObject.tag == "Boundary") {
                   transform.position = new Vector2 (-72f, -1f);
             } else if (other.gameObject.tag == "Lava") {
@@ -153,6 +137,19 @@ public class PlayerMove : MonoBehaviour {
                   PlayerHeal.UpdateHealth();
                   yield return new WaitForSeconds(0.5f);
                   StartCoroutine(HurtByLava());
+            }
+      }
+
+      IEnumerator OpenGates() {
+            PlayerHeal.isAlive = false;
+            gameObject.GetComponentInChildren<Animator>().SetBool("player_walk", false);
+            gameObject.GetComponentInChildren<Animator>().SetTrigger("player_idle");
+            GameObject.FindWithTag("Portal").GetComponentInChildren<Animator>().SetTrigger("openGate");
+            yield return new WaitForSeconds(1f);
+            if (SceneManager.GetActiveScene().name == "Level7") {
+                  SceneManager.LoadScene("winScene");
+            } else {
+                  SceneManager.LoadScene("MainMenu");
             }
       }
 }
