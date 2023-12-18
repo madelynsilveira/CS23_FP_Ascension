@@ -16,21 +16,20 @@ public class LifeScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collision is with the player
-        if (other.CompareTag("Player") && !collected)
-        {
-            // Increment a count (You should manage this count elsewhere)
-            GameHandler.lifeEnergyScore++;
-            if (GameHandler.lifeEnergyScore > GameHandler.maxLifeEnergy) {
-                GameHandler.maxLifeEnergy = GameHandler.lifeEnergyScore;
+        if (other.CompareTag("Player") && !collected) {
+            if (GameHandler.lifeEnergyScore < GameHandler.maxLifeEnergy) {
+                // Increment a count (You should manage this count elsewhere)
+                GameHandler.lifeEnergyScore++;
+
+                // Mark the object as collected
+                collected = true;
+
+                // Destroy the object
+                Destroy(gameObject);
             }
+
             Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
             lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
-
-            // Mark the object as collected
-            collected = true;
-
-            // Destroy the object
-            Destroy(gameObject);
         }
     }
 }

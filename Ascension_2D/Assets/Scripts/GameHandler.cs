@@ -88,11 +88,8 @@ public class GameHandler : MonoBehaviour
                 lifeEnergyScore = 0f;
                 soulsHealed = 0;
             }
-            if (lifeEnergyScore > 10f) {
-                maxLifeEnergy = lifeEnergyScore;
-            } else {
-                maxLifeEnergy = 10f;
-            }
+
+            maxLifeEnergy = 10f;
             lifeEnergyBar.GetComponent<Image>().fillAmount = lifeEnergyScore / maxLifeEnergy;
         }
     }

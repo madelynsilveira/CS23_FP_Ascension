@@ -231,10 +231,10 @@ TextureImporter:
       name: Trying_5
       rect:
         serializedVersion: 2
-        x: 373
-        y: 454
-        width: 53
-        height: 58
+        x: 366
+        y: 438
+        width: 74
+        height: 74
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: Trying_6
       rect:
         serializedVersion: 2
-        x: 446
-        y: 447
-        width: 53
-        height: 58
+        x: 441
+        y: 437
+        width: 71
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: Trying_12
       rect:
         serializedVersion: 2
-        x: 368
-        y: 374
-        width: 53
-        height: 58
+        x: 367
+        y: 365
+        width: 71
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -777,10 +777,10 @@ TextureImporter:
       name: Trying_31
       rect:
         serializedVersion: 2
-        x: 219
-        y: 146.85715
-        width: 73.14286
-        height: 73.14286
+        x: 228
+        y: 146
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -799,9 +799,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 292
-        y: 146.85715
-        width: 73.14286
-        height: 73.14286
+        y: 147
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -924,10 +924,10 @@ TextureImporter:
       name: Trying_38
       rect:
         serializedVersion: 2
-        x: 219
-        y: 73.85714
-        width: 73.14286
-        height: 73.14286
+        x: 229
+        y: 83
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -945,10 +945,10 @@ TextureImporter:
       name: Trying_39
       rect:
         serializedVersion: 2
-        x: 292
-        y: 73.85714
-        width: 73.14286
-        height: 73.14286
+        x: 293
+        y: 84
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
