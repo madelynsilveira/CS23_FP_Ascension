@@ -12,7 +12,6 @@ public class PlayerJump : MonoBehaviour {
       public LayerMask enemyLayer;
       public bool canJump = false;
       public int jumpTimes = 0;
-      public bool isAlive = true;
       private bool grounded;
       //public static bool jumpFrozen;
       //public AudioSource JumpSFX;
@@ -34,7 +33,13 @@ public class PlayerJump : MonoBehaviour {
             // }
             grounded = IsGrounded();
 
-           if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w")) || (Input.GetKeyDown("space"))) && ((grounded) || (jumpTimes <= 1)) && (isAlive == true)/* && !jumpFrozen*/) {
+            if (rb.velocity.y < -0.5f) {
+                  gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
+            } else if (grounded) {
+                  gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", false);
+            }
+
+            if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w")) || (Input.GetKeyDown("space"))) && ((grounded) || (jumpTimes <= 1)) && (PlayerHeal.isAlive)) {
                   Jump();
             }
 
@@ -47,6 +52,9 @@ public class PlayerJump : MonoBehaviour {
       }
 
       public void Jump() {
+            //gameObject.GetComponentInChildren<Animator>().SetTrigger("player_idle");
+            gameObject.GetComponentInChildren<Animator>().SetTrigger("player_jump");
+            gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
             jumpTimes += 1;
             rb.velocity = Vector2.up * jumpForce;
             // anim.SetTrigger("Jump");
