@@ -422,7 +422,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 188008993}
-  displayDuration: 1
 --- !u!1001 &233004798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,7 +664,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 486688511440740058, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7179087840834364903, guid: 9a87c6b0348b641428e6703aacf2866e, type: 3}
     m_AddedGameObjects:
@@ -2652,8 +2652,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[left/right arrows] - move                     [up arrow] - jump                    
-    [shift] - heal soul'
+  m_Text: '[LR arrows] - move     [up arrow] - jump     [down arrow] - heal self    
+    [shift] - heal demon'
 --- !u!222 &688526239
 CanvasRenderer:
   m_ObjectHideFlags: 0
