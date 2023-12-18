@@ -67,7 +67,7 @@ public class PlayerMove : MonoBehaviour {
             }
 
 
-            if (!isFrozen){
+            if (PlayerHeal.isAlive){
                   /*if ((transform.position + hMove * runSpeed * Time.deltaTime).x > -freezeDistance &&
                       (transform.position + hMove * runSpeed * Time.deltaTime).x < freezeDistance) {*/
                         transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
@@ -148,6 +148,7 @@ public class PlayerMove : MonoBehaviour {
 
       IEnumerator HurtByLava() {
             if (inLava) {
+                  gameObject.GetComponentInChildren<Animator>().SetTrigger("player_getHurt");
                   PlayerHeal.health -= 5f;
                   PlayerHeal.UpdateHealth();
                   yield return new WaitForSeconds(0.5f);
