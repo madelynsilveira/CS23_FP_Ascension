@@ -682,6 +682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 1607757317736930008, guid: 76da7d1836b5c4c7794bc25e3f47d60e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -821,6 +825,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HillWithPlateau
       objectReference: {fileID: 0}
+    - target: {fileID: 1727249663721356564, guid: 8667e33115601470b85d32c6aa7284d6, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727249663721356564, guid: 8667e33115601470b85d32c6aa7284d6, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 1.9285715
+      objectReference: {fileID: 0}
     - target: {fileID: 5260164314027460045, guid: 8667e33115601470b85d32c6aa7284d6, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -888,19 +900,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3226404407294948431, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226404407294948431, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7084758533372331292, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_RootOrder
@@ -948,11 +964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7668422879057756271, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7668422879057756271, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1075,6 +1091,14 @@ PrefabInstance:
     - target: {fileID: 3513133437033324618, guid: d1b6187f790124b9fadc92808bb11d05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421610663230775714, guid: d1b6187f790124b9fadc92808bb11d05, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421610663230775714, guid: d1b6187f790124b9fadc92808bb11d05, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 1.9285715
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
