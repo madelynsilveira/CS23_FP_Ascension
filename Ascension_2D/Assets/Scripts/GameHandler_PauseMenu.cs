@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameHandler_PauseMenu : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class GameHandler_PauseMenu : MonoBehaviour {
         }
 
         void Update (){
-                if (Input.GetKeyDown(KeyCode.Escape)){
+                if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "winScene" && SceneManager.GetActiveScene().name != "loseScene"){
                         if (GameisPaused){
                                 Resume();
                         }
