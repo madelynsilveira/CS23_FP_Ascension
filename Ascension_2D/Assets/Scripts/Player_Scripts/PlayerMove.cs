@@ -116,13 +116,8 @@ public class PlayerMove : MonoBehaviour {
                         if (enemyArray.Length == 0) {
                               GameHandler.level5Starred = true;
                         }
-                  } else if (SceneManager.GetActiveScene().name == "Level6") {
-                        GameHandler.level6Complete = true;
-                        if (enemyArray.Length == 0) {
-                              GameHandler.level6Starred = true;
-                        }
-                  } else if (SceneManager.GetActiveScene().name == "Level7" && enemyArray.Length == 0) {
-                        // GameHandler.tutorialStarred = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level6" && enemyArray.Length == 0) {
+                        GameHandler.level6Starred = true;
                   }
                   
                   StartCoroutine(OpenGates());
@@ -170,7 +165,7 @@ public class PlayerMove : MonoBehaviour {
             gameObject.GetComponentInChildren<Animator>().SetTrigger("player_idle");
             GameObject.FindWithTag("Portal").GetComponentInChildren<Animator>().SetTrigger("openGate");
             yield return new WaitForSeconds(1f);
-            if (SceneManager.GetActiveScene().name == "Level7") {
+            if (SceneManager.GetActiveScene().name == "Level6") {
                   SceneManager.LoadScene("winScene");
             } else {
                   SceneManager.LoadScene("MainMenu");

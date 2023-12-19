@@ -117,6 +117,9 @@ public class PlayerHeal : MonoBehaviour
         Destroy(enemy);
         PlayerMove.playerArt.SetActive(true);
         PlayerMove.redPlayerArt.SetActive(false);
+        if (health > 0f) {
+            isAlive = true;
+        }
     }
 
     IEnumerator EndLevel() {
