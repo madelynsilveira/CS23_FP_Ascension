@@ -88,18 +88,41 @@ public class PlayerMove : MonoBehaviour {
                   keyFound = true;
                   Destroy(GameObject.FindWithTag("Key"));
             } else if (other.gameObject.tag == "Portal" && keyFound) {
-                  if (SceneManager.GetActiveScene().name == "Level1") {
+                  GameObject[] enemyArray = GameObject.FindGameObjectsWithTag("NPC");;
+                  if (SceneManager.GetActiveScene().name == "Tutorial" && enemyArray.Length == 0) {
+                        GameHandler.tutorialStarred = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level1") {
                         GameHandler.level1Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level1Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level2") {
                         GameHandler.level2Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level2Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level3") {
                         GameHandler.level3Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level3Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level4") {
                         GameHandler.level4Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level4Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level5") {
                         GameHandler.level5Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level5Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level6") {
                         GameHandler.level6Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level6Starred = true;
+                        }
+                  } else if (SceneManager.GetActiveScene().name == "Level7" && enemyArray.Length == 0) {
+                        GameHandler.tutorialStarred = true;
                   }
                   
                   StartCoroutine(OpenGates());
