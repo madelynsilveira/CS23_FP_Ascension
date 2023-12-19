@@ -217,8 +217,10 @@ public class GameHandler : MonoBehaviour
     public void RestartGame() {
             Time.timeScale = 1f;
             GameHandler_PauseMenu.GameisPaused = false;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(scene.name);
                 // Please also reset all static variables here, for new games!
+                lifeEnergyScore = 0f;
+                soulsHealed = 0;
       }
     public void QuitGame()
     {
@@ -228,4 +230,13 @@ public class GameHandler : MonoBehaviour
             Application.Quit();
         #endif
     }
+    public void MainMenu()
+    {
+            Time.timeScale = 1f;
+            GameHandler_PauseMenu.GameisPaused = false;
+            SceneManager.LoadScene("MainMenu");
+                // Please also reset all static variables here, for new games!
+                lifeEnergyScore = 0f;
+                soulsHealed = 0;
+      }
 }
