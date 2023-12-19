@@ -48,6 +48,10 @@ public class GameHandler : MonoBehaviour
     public GameObject level6Star;
     public static bool level6Starred = false;
 
+    public AudioSource earlyAudio;
+    public AudioSource middleAudio;
+    public AudioSource lateAudio;
+
     // public GameObject level7Button;
     // public GameObject level7Star;
     // public static bool level7Starred = false;
@@ -63,6 +67,8 @@ public class GameHandler : MonoBehaviour
 
         // Set active menu
         if (scene.name == "MainMenu") {
+            earlyAudio.Play();
+
             mainMenu.SetActive(true);
 
             level2Button.SetActive(level1Complete);
@@ -118,6 +124,7 @@ public class GameHandler : MonoBehaviour
             //     level7Button.SetActive(false);
             // }
         } else if (scene.name == "winScene") {
+            earlyAudio.Play();
             winScene.SetActive(true);
             if (soulsHealed == 1) {
                 GameObject.FindWithTag("SoulsHealed").GetComponent<Text>().text = "You healed 1 soul. Good job.";
@@ -148,11 +155,20 @@ public class GameHandler : MonoBehaviour
             GameObject.FindWithTag("NumStars").GetComponent<Text>().text = "You got " + numStars + " / 6 possible stars";
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
+            earlyAudio.Play();
         } else {
             playScene.SetActive(true);
             if (scene.name == "Tutorial") {
                 lifeEnergyScore = 0f;
                 soulsHealed = 0;
+            }
+            
+            if (scene.name == "Tutorial" || scene.name == "Level1" || scene.name == "Level2") {
+                earlyAudio.Play();
+            } else if (scene.name == "Level3" || scene.name == "Level4") {
+                middleAudio.Play();
+            } else {
+                lateAudio.Play();
             }
 
             maxLifeEnergy = 10f;
