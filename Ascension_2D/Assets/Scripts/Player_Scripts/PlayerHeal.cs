@@ -40,12 +40,10 @@ public class PlayerHeal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0) {
-            isAlive = false;
-            player.GetComponentInChildren<Animator>().SetTrigger("player_die");
+        if (!isAlive) {
             StartCoroutine(EndLevel());
         }
-
+        
         if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
             enemyArray = GameObject.FindGameObjectsWithTag("NPC");
 
@@ -102,8 +100,14 @@ public class PlayerHeal : MonoBehaviour
     }
 
     public static void playerGetHit(float damage) {
-        player.GetComponentInChildren<Animator>().SetTrigger("player_getHurt");
         health -= damage;
+        
+        if (health <= 0f) {
+            isAlive = false;
+            player.GetComponentInChildren<Animator>().SetTrigger("player_die");
+        } else {
+            player.GetComponentInChildren<Animator>().SetTrigger("player_getHurt");
+        }
         UpdateHealth();
     }
 
