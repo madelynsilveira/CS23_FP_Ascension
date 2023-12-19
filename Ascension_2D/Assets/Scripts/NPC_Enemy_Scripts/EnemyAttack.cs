@@ -17,16 +17,12 @@ public class EnemyAttack : MonoBehaviour {
        public float timeToNextAttack = 2f;
        public bool canAttack = true;
        public bool isAlive = true;
-       private GameObject playerArt;
-       private GameObject redPlayerArt;
 
 
        void Start(){
               //gameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler>();
               anim = GetComponentInChildren<Animator>();
               player = GameObject.FindWithTag("Player").transform;
-              playerArt = GameObject.FindWithTag("PlayerArt");
-              redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
        }
 
        void Update(){
@@ -66,14 +62,14 @@ public class EnemyAttack : MonoBehaviour {
        IEnumerator HurtPlayer() {
               yield return new WaitForSeconds(0.1f);
               if (isAlive) {
-                     redPlayerArt.SetActive(true);
-                     playerArt.SetActive(false);
+                     PlayerMove.redPlayerArt.SetActive(true);
+                     PlayerMove.playerArt.SetActive(false);
                      PlayerHeal.isAlive = false;
                      PlayerHeal.playerGetHit(damage);
                      yield return new WaitForSeconds(0.4f);
                      PlayerHeal.isAlive = true;
-                     playerArt.SetActive(true);
-                     redPlayerArt.SetActive(false);
+                     PlayerMove.playerArt.SetActive(true);
+                     PlayerMove.redPlayerArt.SetActive(false);
               }
        }
 

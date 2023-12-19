@@ -15,8 +15,8 @@ public class PlayerMove : MonoBehaviour {
       public static bool isFrozen;
       private bool inLava;
       public static bool keyFound;
-      private GameObject redPlayerArt;
-      private GameObject playerArt;
+      public static GameObject redPlayerArt;
+      public static GameObject playerArt;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
 
