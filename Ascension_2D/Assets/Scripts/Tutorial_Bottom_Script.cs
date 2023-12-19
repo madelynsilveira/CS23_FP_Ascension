@@ -28,7 +28,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         "They increase your soul bar up top!",
         "Try healing yourself!", 
         "Who is that scary creature? Go right up to its cage!",
-        "Try healing it!",
+        "Try healing it once it gets close!",
         "Make sure you grab the key!",
         "Keep going until you reach the gate!"
     };

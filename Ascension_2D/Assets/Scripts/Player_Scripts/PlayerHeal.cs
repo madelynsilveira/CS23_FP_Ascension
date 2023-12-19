@@ -84,8 +84,8 @@ public class PlayerHeal : MonoBehaviour
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
-                UpdateHealth();
             }
+            UpdateHealth();
 
             player.GetComponentInChildren<Animator>().SetTrigger("player_healSelf");
 

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5196295548565359769}
   - component: {fileID: 8100936627181083668}
   - component: {fileID: 316290505403478265}
-  - component: {fileID: 486688511440740058}
   - component: {fileID: 6648608830097391468}
   - component: {fileID: 8214111900466498164}
   m_Layer: 0
@@ -114,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ae34e42720249df9ee8ee002a91d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   rb2D: {fileID: 5196295548565359769}
   startSpeed: 10
-  freezeDistance: 25
 --- !u!114 &316290505403478265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5196295548565359769}
-  jumpForce: 8
   feet: {fileID: 7679651183457755355}
   groundLayer:
     serializedVersion: 2
@@ -140,28 +138,8 @@ MonoBehaviour:
     m_Bits: 64
   canJump: 0
   jumpTimes: 0
-  isAlive: 1
---- !u!114 &486688511440740058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66518451102527513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ea7887db340417da67c15f70cc4c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  isHidden: 0
-  feet: {fileID: 7679651183457755355}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!114 &6648608830097391468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,10 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  maxHealth: 100
-  health: 0
-  life1: {fileID: 0}
-  healthBG: {fileID: 0}
 --- !u!82 &8214111900466498164
 AudioSource:
   m_ObjectHideFlags: 0
