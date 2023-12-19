@@ -19,6 +19,8 @@ TagManager:
   - Key
   - Lava
   - Checkpoint
+  - PlayerArt
+  - PlayerArtRed
   layers:
   - Default
   - TransparentFX

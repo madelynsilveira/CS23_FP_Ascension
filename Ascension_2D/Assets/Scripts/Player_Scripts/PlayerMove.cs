@@ -7,20 +7,18 @@ using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour {
 
       public Animator anim;
-      private SpriteRenderer playerSprite;
       public Rigidbody2D rb2D;
 
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
       public float startSpeed = 10f;
-      //public float freezeDistance = 25f;
       public static bool isFrozen;
       private bool inLava;
       public static bool keyFound;
+      private GameObject redPlayerArt;
+      private GameObject playerArt;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
-      // public int lifeEnergyScore = 0;
-      //public GameObject lifeEnergyObj;
 
       void Start(){
            anim = gameObject.GetComponentInChildren<Animator>();
@@ -29,27 +27,13 @@ public class PlayerMove : MonoBehaviour {
            inLava = false;
            keyFound = false;
 
-            // Get the SpriteRenderer component attached to the GameObject
-            playerSprite = GameObject.FindWithTag("Player").GetComponentInChildren<SpriteRenderer>();
-
-            // Check if a SpriteRenderer component is found
-            if (playerSprite != null)
-            {
-                  Debug.Log(playerSprite.color);
-                  // Change the color to red (you can use any color you want)
-                  playerSprite.color = new Color(0, 0, 0, 1);
-                  Debug.Log(playerSprite.color);
-            }
-            else
-            {
-                  Debug.Log("No sprite renderer");
-                  // Log a warning if no SpriteRenderer component is found
-                  Debug.LogWarning("SpriteRenderer component not found on this GameObject.");
-            }
+           playerArt = GameObject.FindWithTag("PlayerArt");
+           redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
+           playerArt.SetActive(true);
+           redPlayerArt.SetActive(false);
       }
 
       void Update(){
-            playerSprite.color = new Color(0, 0, 0, 1);
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
 
@@ -141,17 +125,16 @@ public class PlayerMove : MonoBehaviour {
             if (inLava) {
                   PlayerHeal.health -= 5f;
                   PlayerHeal.UpdateHealth();
+                  redPlayerArt.SetActive(true);
+                  playerArt.SetActive(false);
 
                   if (PlayerHeal.health <= 0f) {
                         PlayerHeal.isAlive = false;
                         gameObject.GetComponentInChildren<Animator>().SetTrigger("player_die");
                   } else {
-                        Debug.Log(playerSprite.color);
-                        playerSprite.color = new Color (1, 0, 0, 1);
-                        Debug.Log(playerSprite.color);
                         yield return new WaitForSeconds(0.25f);
-                        playerSprite.color = new Color (0, 0, 0, 1);
-                        Debug.Log(playerSprite.color);
+                        playerArt.SetActive(true);
+                        redPlayerArt.SetActive(false);
                         yield return new WaitForSeconds(0.25f);
                         StartCoroutine(HurtByLava());
                   }  
