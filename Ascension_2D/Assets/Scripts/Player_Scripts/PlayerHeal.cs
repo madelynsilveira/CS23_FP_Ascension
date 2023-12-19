@@ -40,10 +40,10 @@ public class PlayerHeal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAlive) {
+        if (health <= 0f) {
             StartCoroutine(EndLevel());
         }
-        
+
         if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
             enemyArray = GameObject.FindGameObjectsWithTag("NPC");
 
