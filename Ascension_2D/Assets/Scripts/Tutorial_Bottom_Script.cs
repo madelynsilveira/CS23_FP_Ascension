@@ -29,6 +29,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         "Try healing yourself!", 
         "Who is that scary creature? Go right up to its cage!",
         "Try healing it once it gets close!",
+        "Healing all demons in a level gives you a star!",
         "Make sure you grab the key!",
         "Keep going until you reach the gate!"
     };
