@@ -52,16 +52,10 @@ public class PlayerJump : MonoBehaviour {
       }
 
       public void Jump() {
-            //gameObject.GetComponentInChildren<Animator>().SetTrigger("player_idle");
             gameObject.GetComponentInChildren<Animator>().SetTrigger("player_jump");
-            gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
+            StartCoroutine(Fall());
             jumpTimes += 1;
             rb.velocity = Vector2.up * jumpForce;
-            // anim.SetTrigger("Jump");
-            // JumpSFX.Play();
-
-            //Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
-            //rb.velocity = movement;
       }
 
       public bool IsGrounded() {
@@ -83,5 +77,10 @@ public class PlayerJump : MonoBehaviour {
                   return false;
             }
             
+      }
+
+      IEnumerator Fall() {
+            yield return new WaitForSeconds(0.25f);
+            gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
       }
 }

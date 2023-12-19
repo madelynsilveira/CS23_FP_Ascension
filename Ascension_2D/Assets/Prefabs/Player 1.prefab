@@ -293,12 +293,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1852233966135881996, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852233966135881996, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852233966135881996, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1852233966135881996, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1852233966135881996, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -334,15 +342,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835511081095839836, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_Name
-      value: JasonWiser_PlayerSpritesheet_1024_0
+      value: Player_art
       objectReference: {fileID: 0}
     - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1814993937, guid: 82009df8716e0490695ba9849e5a4697, type: 3}
+    - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_Color.b
-      value: 0.1254902
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_Color.g
-      value: 0.67058825
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7277494371489768897, guid: 9ce2bfdf545224f24b653665edef50db, type: 3}
       propertyPath: m_Color.r
