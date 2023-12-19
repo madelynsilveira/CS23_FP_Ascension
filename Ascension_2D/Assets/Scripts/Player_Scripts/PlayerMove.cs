@@ -90,7 +90,7 @@ public class PlayerMove : MonoBehaviour {
             } else if (other.gameObject.tag == "Portal" && keyFound) {
                   GameObject[] enemyArray = GameObject.FindGameObjectsWithTag("NPC");;
                   if (SceneManager.GetActiveScene().name == "Tutorial" && enemyArray.Length == 0) {
-                        GameHandler.tutorialStarred = true;
+                        // GameHandler.tutorialStarred = true;
                   } else if (SceneManager.GetActiveScene().name == "Level1") {
                         GameHandler.level1Complete = true;
                         if (enemyArray.Length == 0) {
@@ -122,7 +122,7 @@ public class PlayerMove : MonoBehaviour {
                               GameHandler.level6Starred = true;
                         }
                   } else if (SceneManager.GetActiveScene().name == "Level7" && enemyArray.Length == 0) {
-                        GameHandler.tutorialStarred = true;
+                        // GameHandler.tutorialStarred = true;
                   }
                   
                   StartCoroutine(OpenGates());

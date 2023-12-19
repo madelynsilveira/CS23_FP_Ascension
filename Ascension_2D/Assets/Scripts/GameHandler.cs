@@ -16,8 +16,8 @@ public class GameHandler : MonoBehaviour
     public static float maxLifeEnergy;
     public static int soulsHealed;
 
-    public GameObject tutorialStar;
-    public static bool tutorialStarred = false;
+    // public GameObject tutorialStar;
+    // public static bool tutorialStarred = false;
 
     public static bool level1Complete = false;
     public GameObject level1Star;
@@ -48,9 +48,9 @@ public class GameHandler : MonoBehaviour
     public GameObject level6Star;
     public static bool level6Starred = false;
 
-    public GameObject level7Button;
-    public GameObject level7Star;
-    public static bool level7Starred = false;
+    // public GameObject level7Button;
+    // public GameObject level7Star;
+    // public static bool level7Starred = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,16 +70,16 @@ public class GameHandler : MonoBehaviour
             level4Button.SetActive(level3Complete);
             level5Button.SetActive(level4Complete);
             level6Button.SetActive(level5Complete);
-            level7Button.SetActive(level6Complete);
+            // level7Button.SetActive(level6Complete);
 
-            tutorialStar.SetActive(tutorialStarred);
+            // tutorialStar.SetActive(tutorialStarred);
             level1Star.SetActive(level1Starred);
             level2Star.SetActive(level2Starred);
             level3Star.SetActive(level3Starred);
             level4Star.SetActive(level4Starred);
             level5Star.SetActive(level5Starred);
             level6Star.SetActive(level6Starred);
-            level7Star.SetActive(level7Starred);
+            // level7Star.SetActive(level7Starred);
 
             // if (level1Complete) {
             //     level2Button.SetActive(level1Complete);
@@ -128,14 +128,15 @@ public class GameHandler : MonoBehaviour
             }
 
             bool[] stars = {
-                tutorialStarred,
+                // tutorialStarred,
                 level1Starred,
                 level2Starred,
                 level3Starred,
                 level4Starred,
                 level5Starred,
-                level6Starred,
-                level7Starred
+                level6Starred
+                // ,
+                // level7Starred
             };
 
             int numStars = 0;
@@ -144,7 +145,7 @@ public class GameHandler : MonoBehaviour
                     numStars++;
                 }
             }
-            GameObject.FindWithTag("NumStars").GetComponent<Text>().text = "You got " + numStars + " / 8 possible stars";
+            GameObject.FindWithTag("NumStars").GetComponent<Text>().text = "You got " + numStars + " / 6 possible stars";
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
         } else {
@@ -207,11 +208,11 @@ public class GameHandler : MonoBehaviour
             // Set static vars
     }
 
-    public void PlayLevel7()
-    {
-        SceneManager.LoadScene("Level7");
-            // Set static vars
-    }
+    // public void PlayLevel7()
+    // {
+    //     SceneManager.LoadScene("Level7");
+    //         // Set static vars
+    // }
 
     public void RestartGame() {
             Time.timeScale = 1f;
