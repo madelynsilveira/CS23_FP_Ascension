@@ -21,6 +21,7 @@ TagManager:
   - Checkpoint
   - PlayerArt
   - PlayerArtRed
+  - NumStars
   layers:
   - Default
   - TransparentFX

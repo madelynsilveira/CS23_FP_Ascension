@@ -114,6 +114,8 @@ public class PlayerHeal : MonoBehaviour
 
     IEnumerator HealEnemy(GameObject enemy) {
         yield return new WaitForSeconds(0.5f);
+        enemy.SetActive(false);
+        yield return new WaitForSeconds(1f);
         Destroy(enemy);
     }
 
