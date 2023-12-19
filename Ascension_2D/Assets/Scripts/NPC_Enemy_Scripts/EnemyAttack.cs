@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       private float attackRange = 2f;
-       private float damageRange = 2f;
+       private float attackRange = 2.5f;
+       private float damageRange = 2.5f;
        //public LayerMask playerLayer;
 
        public float damage = 10;
@@ -17,12 +17,16 @@ public class EnemyAttack : MonoBehaviour {
        public float timeToNextAttack = 2f;
        public bool canAttack = true;
        public bool isAlive = true;
+       private GameObject playerArt;
+       private GameObject redPlayerArt;
 
 
        void Start(){
               //gameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler>();
               anim = GetComponentInChildren<Animator>();
               player = GameObject.FindWithTag("Player").transform;
+              playerArt = GameObject.FindWithTag("PlayerArt");
+              redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
        }
 
        void Update(){
@@ -62,7 +66,14 @@ public class EnemyAttack : MonoBehaviour {
        IEnumerator HurtPlayer() {
               yield return new WaitForSeconds(0.1f);
               if (isAlive) {
+                     redPlayerArt.SetActive(true);
+                     playerArt.SetActive(false);
+                     PlayerHeal.isAlive = false;
                      PlayerHeal.playerGetHit(damage);
+                     yield return new WaitForSeconds(0.4f);
+                     PlayerHeal.isAlive = true;
+                     playerArt.SetActive(true);
+                     redPlayerArt.SetActive(false);
               }
        }
 
