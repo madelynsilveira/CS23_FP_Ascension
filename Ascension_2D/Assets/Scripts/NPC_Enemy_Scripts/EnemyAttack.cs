@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour {
 
        private Transform player;
        public Transform AttackPoint;
-       private float attackRange = 2f;
-       private float damageRange = 2f;
+       private float attackRange = 2.5f;
+       private float damageRange = 2.5f;
        //public LayerMask playerLayer;
 
        public float damage = 10;
@@ -62,7 +62,14 @@ public class EnemyAttack : MonoBehaviour {
        IEnumerator HurtPlayer() {
               yield return new WaitForSeconds(0.1f);
               if (isAlive) {
+                     PlayerMove.redPlayerArt.SetActive(true);
+                     PlayerMove.playerArt.SetActive(false);
+                     PlayerHeal.isAlive = false;
                      PlayerHeal.playerGetHit(damage);
+                     yield return new WaitForSeconds(0.4f);
+                     PlayerHeal.isAlive = true;
+                     PlayerMove.playerArt.SetActive(true);
+                     PlayerMove.redPlayerArt.SetActive(false);
               }
        }
 

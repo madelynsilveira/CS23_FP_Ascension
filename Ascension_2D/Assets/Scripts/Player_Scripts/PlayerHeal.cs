@@ -40,9 +40,7 @@ public class PlayerHeal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0) {
-            isAlive = false;
-            player.GetComponentInChildren<Animator>().SetTrigger("player_die");
+        if (health <= 0f) {
             StartCoroutine(EndLevel());
         }
 
@@ -66,16 +64,15 @@ public class PlayerHeal : MonoBehaviour
                     enemyArray[closestEnemy].GetComponentInChildren<ParticleSystem>().Play();
                     StartCoroutine(HealEnemy(enemyArray[closestEnemy]));
                     GameHandler.soulsHealed++;
+
+                    player.GetComponentInChildren<Animator>().SetTrigger("player_healEnemy");
+
+                    // adjust player life energy
+                    GameHandler.lifeEnergyScore--;
+                    Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
+                    lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
                 }
             }
-
-
-            player.GetComponentInChildren<Animator>().SetTrigger("player_healEnemy");
-
-            // adjust player life energy
-            GameHandler.lifeEnergyScore--;
-            Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
-            lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
         }
 
         if ((Input.GetKeyDown("down") || Input.GetKeyDown("s")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
@@ -84,15 +81,17 @@ public class PlayerHeal : MonoBehaviour
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
-                UpdateHealth();
+
+                player.GetComponentInChildren<Animator>().SetTrigger("player_healSelf");
+
+                // adjust player life energy
+                GameHandler.lifeEnergyScore--;
+                Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
+                lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
             }
+            UpdateHealth();
 
-            player.GetComponentInChildren<Animator>().SetTrigger("player_healSelf");
-
-            // adjust player life energy
-            GameHandler.lifeEnergyScore--;
-            Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
-            lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
+            
         }
     }
 
@@ -102,14 +101,22 @@ public class PlayerHeal : MonoBehaviour
     }
 
     public static void playerGetHit(float damage) {
-        player.GetComponentInChildren<Animator>().SetTrigger("player_getHurt");
         health -= damage;
+        
+        if (health <= 0f) {
+            isAlive = false;
+            player.GetComponentInChildren<Animator>().SetTrigger("player_die");
+        } else {
+            player.GetComponentInChildren<Animator>().SetTrigger("player_getHurt");
+        }
         UpdateHealth();
     }
 
     IEnumerator HealEnemy(GameObject enemy) {
         yield return new WaitForSeconds(0.5f);
         Destroy(enemy);
+        PlayerMove.playerArt.SetActive(true);
+        PlayerMove.redPlayerArt.SetActive(false);
     }
 
     IEnumerator EndLevel() {

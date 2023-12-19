@@ -7,20 +7,18 @@ using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour {
 
       public Animator anim;
-      private SpriteRenderer playerSprite;
       public Rigidbody2D rb2D;
 
       private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
       public float startSpeed = 10f;
-      //public float freezeDistance = 25f;
       public static bool isFrozen;
       private bool inLava;
       public static bool keyFound;
+      public static GameObject redPlayerArt;
+      public static GameObject playerArt;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
-      // public int lifeEnergyScore = 0;
-      //public GameObject lifeEnergyObj;
 
       void Start(){
            anim = gameObject.GetComponentInChildren<Animator>();
@@ -29,24 +27,13 @@ public class PlayerMove : MonoBehaviour {
            inLava = false;
            keyFound = false;
 
-            // Get the SpriteRenderer component attached to the GameObject
-            playerSprite = GetComponentInChildren<SpriteRenderer>();
-
-            // Check if a SpriteRenderer component is found
-            if (playerSprite != null)
-            {
-                  // Change the color to red (you can use any color you want)
-                  playerSprite.color = new Color(0.0f, 0.0f, 0.0f);
-            }
-            else
-            {
-                  // Log a warning if no SpriteRenderer component is found
-                  Debug.LogWarning("SpriteRenderer component not found on this GameObject.");
-            }
+           playerArt = GameObject.FindWithTag("PlayerArt");
+           redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
+           playerArt.SetActive(true);
+           redPlayerArt.SetActive(false);
       }
 
       void Update(){
-            playerSprite.color = new Color(0.0f, 0.0f, 0.0f);
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
 
@@ -101,24 +88,47 @@ public class PlayerMove : MonoBehaviour {
                   keyFound = true;
                   Destroy(GameObject.FindWithTag("Key"));
             } else if (other.gameObject.tag == "Portal" && keyFound) {
-                  if (SceneManager.GetActiveScene().name == "Level1") {
+                  GameObject[] enemyArray = GameObject.FindGameObjectsWithTag("NPC");;
+                  if (SceneManager.GetActiveScene().name == "Tutorial" && enemyArray.Length == 0) {
+                        GameHandler.tutorialStarred = true;
+                  } else if (SceneManager.GetActiveScene().name == "Level1") {
                         GameHandler.level1Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level1Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level2") {
                         GameHandler.level2Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level2Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level3") {
                         GameHandler.level3Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level3Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level4") {
                         GameHandler.level4Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level4Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level5") {
                         GameHandler.level5Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level5Starred = true;
+                        }
                   } else if (SceneManager.GetActiveScene().name == "Level6") {
                         GameHandler.level6Complete = true;
+                        if (enemyArray.Length == 0) {
+                              GameHandler.level6Starred = true;
+                        }
+                  } else if (SceneManager.GetActiveScene().name == "Level7" && enemyArray.Length == 0) {
+                        GameHandler.tutorialStarred = true;
                   }
                   
                   StartCoroutine(OpenGates());
             } else if (other.gameObject.tag == "Boundary") {
                   transform.position = new Vector2 (-72f, -1f);
-            } else if (other.gameObject.tag == "Lava") {
+            } else if (other.gameObject.tag == "Lava" && PlayerHeal.isAlive) {
                   inLava = true;
                   StartCoroutine(HurtByLava());
             } else if (other.gameObject.tag == "Checkpoint") {
@@ -136,11 +146,21 @@ public class PlayerMove : MonoBehaviour {
 
       IEnumerator HurtByLava() {
             if (inLava) {
-                  gameObject.GetComponentInChildren<Animator>().SetTrigger("player_getHurt");
                   PlayerHeal.health -= 5f;
                   PlayerHeal.UpdateHealth();
-                  yield return new WaitForSeconds(0.5f);
-                  StartCoroutine(HurtByLava());
+                  redPlayerArt.SetActive(true);
+                  playerArt.SetActive(false);
+
+                  if (PlayerHeal.health <= 0f) {
+                        PlayerHeal.isAlive = false;
+                        gameObject.GetComponentInChildren<Animator>().SetTrigger("player_die");
+                  } else {
+                        yield return new WaitForSeconds(0.25f);
+                        playerArt.SetActive(true);
+                        redPlayerArt.SetActive(false);
+                        yield return new WaitForSeconds(0.25f);
+                        StartCoroutine(HurtByLava());
+                  }  
             }
       }
 

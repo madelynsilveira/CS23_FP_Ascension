@@ -24,11 +24,12 @@ public class Tutorial_Bottom_Script : MonoBehaviour
     public static int currIndex = 0;
     public static string[] messages = {
         "Oh no! You have fallen from grace..",
-        "Maybe you should follow the blue orbs..", 
-        "They increase your soul bar up top!",
+        "Follow the blue orbs.. but beware of demons!", 
+        "The orbs increase your soul bar up top!",
         "Try healing yourself!", 
         "Who is that scary creature? Go right up to its cage!",
-        "Try healing it!",
+        "Try healing it once it gets close!",
+        "Healing all demons in a level gives you a star!",
         "Make sure you grab the key!",
         "Keep going until you reach the gate!"
     };

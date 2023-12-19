@@ -15,18 +15,42 @@ public class GameHandler : MonoBehaviour
     public static float lifeEnergyScore;
     public static float maxLifeEnergy;
     public static int soulsHealed;
+
+    public GameObject tutorialStar;
+    public static bool tutorialStarred = false;
+
     public static bool level1Complete = false;
+    public GameObject level1Star;
+    public static bool level1Starred = false;
+
     public GameObject level2Button;
     public static bool level2Complete = false;
+    public GameObject level2Star;
+    public static bool level2Starred = false;
+
     public GameObject level3Button;
     public static bool level3Complete = false;
+    public GameObject level3Star;
+    public static bool level3Starred = false;
+
     public GameObject level4Button;
     public static bool level4Complete = false;
+    public GameObject level4Star;
+    public static bool level4Starred = false;
+
     public GameObject level5Button;
     public static bool level5Complete = false;
+    public GameObject level5Star;
+    public static bool level5Starred = false;
+
     public GameObject level6Button;
     public static bool level6Complete = false;
+    public GameObject level6Star;
+    public static bool level6Starred = false;
+
     public GameObject level7Button;
+    public GameObject level7Star;
+    public static bool level7Starred = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,36 +65,58 @@ public class GameHandler : MonoBehaviour
         if (scene.name == "MainMenu") {
             mainMenu.SetActive(true);
 
-            if (level1Complete) {
-                level2Button.SetActive(true);
-            } else {
-                level2Button.SetActive(false);
-            }
-            if (level2Complete) {
-                level3Button.SetActive(true);
-            } else {
-                level3Button.SetActive(false);
-            }
-            if (level3Complete) {
-                level4Button.SetActive(true);
-            } else {
-                level4Button.SetActive(false);
-            }
-            if (level4Complete) {
-                level5Button.SetActive(true);
-            } else {
-                level5Button.SetActive(false);
-            }
-            if (level5Complete) {
-                level6Button.SetActive(true);
-            } else {
-                level6Button.SetActive(false);
-            }
-            if (level6Complete) {
-                level7Button.SetActive(true);
-            } else {
-                level7Button.SetActive(false);
-            }
+            level2Button.SetActive(level1Complete);
+            level3Button.SetActive(level2Complete);
+            level4Button.SetActive(level3Complete);
+            level5Button.SetActive(level4Complete);
+            level6Button.SetActive(level5Complete);
+            level7Button.SetActive(level6Complete);
+
+            tutorialStar.SetActive(tutorialStarred);
+            level1Star.SetActive(level1Starred);
+            level2Star.SetActive(level2Starred);
+            level3Star.SetActive(level3Starred);
+            level4Star.SetActive(level4Starred);
+            level5Star.SetActive(level5Starred);
+            level6Star.SetActive(level6Starred);
+            level7Star.SetActive(level7Starred);
+
+            // if (level1Complete) {
+            //     level2Button.SetActive(level1Complete);
+            // } else {
+            //     level2Button.SetActive(false);
+            // }
+            // if (level1Starred) {
+            //     level1Star.SetActive(true);
+            // } else {
+            //     level1Star.SetActive(false);
+            // }
+
+            // if (level2Complete) {
+            //     level3Button.SetActive(true);
+            // } else {
+            //     level3Button.SetActive(false);
+            // }
+            // if (level3Complete) {
+            //     level4Button.SetActive(true);
+            // } else {
+            //     level4Button.SetActive(false);
+            // }
+            // if (level4Complete) {
+            //     level5Button.SetActive(true);
+            // } else {
+            //     level5Button.SetActive(false);
+            // }
+            // if (level5Complete) {
+            //     level6Button.SetActive(true);
+            // } else {
+            //     level6Button.SetActive(false);
+            // }
+            // if (level6Complete) {
+            //     level7Button.SetActive(true);
+            // } else {
+            //     level7Button.SetActive(false);
+            // }
         } else if (scene.name == "winScene") {
             winScene.SetActive(true);
             if (soulsHealed == 1) {
@@ -80,6 +126,25 @@ public class GameHandler : MonoBehaviour
             } else {
                 GameObject.FindWithTag("SoulsHealed").GetComponent<Text>().text = "You healed " + soulsHealed + " souls! Great job!";
             }
+
+            bool[] stars = {
+                tutorialStarred,
+                level1Starred,
+                level2Starred,
+                level3Starred,
+                level4Starred,
+                level5Starred,
+                level6Starred,
+                level7Starred
+            };
+
+            int numStars = 0;
+            foreach (bool star in stars) {
+                if (star) {
+                    numStars++;
+                }
+            }
+            GameObject.FindWithTag("NumStars").GetComponent<Text>().text = "You got " + numStars + " / 8 possible stars";
         } else if (scene.name == "loseScene") {
             loseScene.SetActive(true);
         } else {

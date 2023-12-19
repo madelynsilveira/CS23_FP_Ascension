@@ -19,6 +19,9 @@ TagManager:
   - Key
   - Lava
   - Checkpoint
+  - PlayerArt
+  - PlayerArtRed
+  - NumStars
   layers:
   - Default
   - TransparentFX
@@ -61,4 +64,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 4090475017
+    locked: 0
+  - name: player
+    uniqueID: 2504802207
     locked: 0
