@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 6b848ac052a0d40d19465fcd6762c0b4, type: 3}
     - target: {fileID: 430255631678063130, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 927647105571986751, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -475,8 +475,13 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8862746
       objectReference: {fileID: 0}
+    - target: {fileID: 8149648618819212542, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1285
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6409332654605480741, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8149648618819212542, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       insertIndex: -1
