@@ -21,7 +21,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
     // private bool isDisplaying = false;
     // private float displayTimer = 0.0f;
 
-    public static int currIndex = 0;
+    public static int currIndex;
     public static string[] messages = {
         "Oh no! You have fallen from grace..",
         "Follow the blue orbs.. but beware of demons!", 
@@ -48,6 +48,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         // Hide the text initially
         textComponent = GameObject.FindWithTag("Instructions").GetComponent<Text>();
         textComponent.enabled = false;
+        currIndex = 0;
     }
 
     void Update()

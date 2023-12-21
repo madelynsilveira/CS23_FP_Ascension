@@ -13,8 +13,10 @@ public class GameHandler : MonoBehaviour
     public GameObject playScene;
     public GameObject lifeEnergyBar;
     public static float lifeEnergyScore;
+    private float startingLifeEnergy;
     public static float maxLifeEnergy;
     public static int soulsHealed;
+    private int startingSoulsHealed;
 
     // public GameObject tutorialStar;
     // public static bool tutorialStarred = false;
@@ -162,6 +164,9 @@ public class GameHandler : MonoBehaviour
                 lifeEnergyScore = 0f;
                 soulsHealed = 0;
             }
+
+            startingLifeEnergy = lifeEnergyScore;
+            startingSoulsHealed = soulsHealed;
             
             if (scene.name == "Tutorial" || scene.name == "Level1" || scene.name == "Level2") {
                 earlyAudio.Play();
@@ -235,8 +240,8 @@ public class GameHandler : MonoBehaviour
             GameHandler_PauseMenu.GameisPaused = false;
             SceneManager.LoadScene(scene.name);
                 // Please also reset all static variables here, for new games!
-                lifeEnergyScore = 0f;
-                soulsHealed = 0;
+                lifeEnergyScore = startingLifeEnergy;
+                soulsHealed = startingSoulsHealed;
       }
     public void QuitGame()
     {
