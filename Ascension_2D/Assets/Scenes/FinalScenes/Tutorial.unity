@@ -2828,8 +2828,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[LR arrows] - move     [up arrow] - jump     [down arrow] - heal self    
-    [shift] - heal demon'
+  m_Text: '[LR arrows] - move   [up arrow] - jump   [down arrow] - heal self   [e]/[shift]
+    - heal demon'
 --- !u!222 &688526239
 CanvasRenderer:
   m_ObjectHideFlags: 0

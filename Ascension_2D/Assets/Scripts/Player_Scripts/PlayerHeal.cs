@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHeal : MonoBehaviour
 {
-    //public static bool canHeal;
     public static bool beingAttacked;
-    //private bool attackFinished;
     public GameObject npc;
 
     public static float maxHealth = 100f;
@@ -33,8 +31,6 @@ public class PlayerHeal : MonoBehaviour
         healthBarBG = GameObject.FindWithTag("HealthBarBG");
         player = GameObject.FindWithTag("Player");
         UpdateHealth();
-        // beingAttacked = false;
-        // attackFinished = true;
     }
 
     // Update is called once per frame
@@ -44,7 +40,7 @@ public class PlayerHeal : MonoBehaviour
             StartCoroutine(EndLevel());
         }
 
-        if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
+        if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift") || Input.GetKeyDown("e")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
             enemyArray = GameObject.FindGameObjectsWithTag("NPC");
 
             if (enemyArray.Length > 0) {
