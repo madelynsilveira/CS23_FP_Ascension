@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyAttack : MonoBehaviour {
     private Animator anim;
@@ -15,14 +16,20 @@ public class EnemyAttack : MonoBehaviour {
        public float damage = 10;
        private float distanceToMouth;
        public float timeToNextAttack = 2f;
-       public bool canAttack = true;
-       public bool isAlive = true;
+       public bool canAttack;
+       public bool isAlive;
 
 
        void Start(){
               //gameHandler = GameObject.FindWithTag ("GameHandler").GetComponent<GameHandler>();
               anim = GetComponentInChildren<Animator>();
               player = GameObject.FindWithTag("Player").transform;
+              if (SceneManager.GetActiveScene().name == "Tutorial") {
+                     canAttack = false;
+              } else {
+                     canAttack = true;
+              }
+              isAlive = true;
        }
 
        void Update(){
