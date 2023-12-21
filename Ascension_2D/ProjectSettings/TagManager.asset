@@ -22,6 +22,7 @@ TagManager:
   - PlayerArt
   - PlayerArtRed
   - NumStars
+  - DemonsText
   layers:
   - Default
   - TransparentFX

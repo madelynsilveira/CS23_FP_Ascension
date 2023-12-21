@@ -15,6 +15,9 @@ public class PlayerHeal : MonoBehaviour
     public static GameObject healthBarBG;
     public static GameObject player;
     public static bool isAlive;
+    private bool canHealEnemy;
+    private int numDemons;
+    private Text DemonText;
     private GameObject[] enemyArray;
     private float[] enemyDistanceArray;
 
@@ -29,8 +32,13 @@ public class PlayerHeal : MonoBehaviour
         isAlive = true;
         healthBar = GameObject.FindWithTag("HealthBar");
         healthBarBG = GameObject.FindWithTag("HealthBarBG");
+        DemonText = GameObject.FindWithTag("DemonsText").GetComponent<Text>();
+        enemyArray = GameObject.FindGameObjectsWithTag("NPC");
+        numDemons = enemyArray.Length;
+        UpdateDemonCount();
         player = GameObject.FindWithTag("Player");
         UpdateHealth();
+        canHealEnemy = true;
     }
 
     // Update is called once per frame
@@ -40,7 +48,7 @@ public class PlayerHeal : MonoBehaviour
             StartCoroutine(EndLevel());
         }
 
-        if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift") || Input.GetKeyDown("e")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
+        if ((Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift") || Input.GetKeyDown("e")) && GameHandler.lifeEnergyScore > 0 && isAlive && canHealEnemy) {
             enemyArray = GameObject.FindGameObjectsWithTag("NPC");
 
             if (enemyArray.Length > 0) {
@@ -96,6 +104,14 @@ public class PlayerHeal : MonoBehaviour
         healthBarBG.GetComponent<Image>().fillAmount = (maxHealth - health) / maxHealth;
     }
 
+    private void UpdateDemonCount() {
+        if (numDemons == 1) {
+            DemonText.text = "1 remaining demon";
+        } else {
+            DemonText.text = numDemons + " remaining demons";
+        }
+    }
+
     public static void playerGetHit(float damage) {
         health -= damage;
         
@@ -109,13 +125,17 @@ public class PlayerHeal : MonoBehaviour
     }
 
     IEnumerator HealEnemy(GameObject enemy) {
+        canHealEnemy = false;
         yield return new WaitForSeconds(0.5f);
         Destroy(enemy);
+        numDemons--;
+        UpdateDemonCount();
         PlayerMove.playerArt.SetActive(true);
         PlayerMove.redPlayerArt.SetActive(false);
         if (health > 0f) {
             isAlive = true;
         }
+        canHealEnemy = true;
     }
 
     IEnumerator EndLevel() {
