@@ -105,11 +105,12 @@ public class PlayerHeal : MonoBehaviour
     }
 
     private void UpdateDemonCount() {
-        if (numDemons == 1) {
-            DemonText.text = "1 remaining demon";
-        } else {
-            DemonText.text = numDemons + " remaining demons";
-        }
+        DemonText.text = numDemons.ToString();
+        // if (numDemons == 1) {
+        //     DemonText.text = "1 remaining demon";
+        // } else {
+        //     DemonText.text = numDemons + " remaining demons";
+        // }
     }
 
     public static void playerGetHit(float damage) {

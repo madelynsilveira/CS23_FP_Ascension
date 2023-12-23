@@ -23,6 +23,8 @@ TagManager:
   - PlayerArtRed
   - NumStars
   - DemonsText
+  - KeyNotFound
+  - KeyFound
   layers:
   - Default
   - TransparentFX

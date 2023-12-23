@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour {
       public static bool keyFound;
       public static GameObject redPlayerArt;
       public static GameObject playerArt;
+      public static GameObject keyNotFoundArt;
+      public static GameObject keyFoundArt;
       //public AudioSource WalkSFX;
       private Vector3 hMove;
 
@@ -31,6 +33,11 @@ public class PlayerMove : MonoBehaviour {
            redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
            playerArt.SetActive(true);
            redPlayerArt.SetActive(false);
+
+            keyNotFoundArt = GameObject.FindWithTag("KeyNotFound");
+            keyFoundArt = GameObject.FindWithTag("KeyFound");
+            keyNotFoundArt.SetActive(true);
+            keyFoundArt.SetActive(false);
       }
 
       void Update(){
@@ -63,6 +70,13 @@ public class PlayerMove : MonoBehaviour {
                  if ((hMove.x <0 && FaceRight) || (hMove.x >0 && !FaceRight)){
                         playerTurn();
                   }
+            }
+
+            // update key marker in top menu
+            if (keyFound)
+            {
+                  keyNotFoundArt.SetActive(false);
+                  keyFoundArt.SetActive(true);
             }
       }
 
