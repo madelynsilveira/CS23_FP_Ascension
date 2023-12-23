@@ -22,16 +22,17 @@ public class PlayerJump : MonoBehaviour {
 
       // Stretch and Squash parameters
       private SpriteRenderer playersprite;
-      private Vector3 originalScale;
-      private Vector3 squashScale;
-      private Vector3 stretchScale;
+      private float originalScale;
+      private float squashScale;
+      private float stretchScale;
+      private bool squashed = true;
 
 
       void Start(){
             rb = GetComponent<Rigidbody2D>();
-            originalScale = transform.localScale;
-            squashScale = new Vector3(originalScale.x, originalScale.y * 0.8f, originalScale.z);
-            stretchScale = new Vector3(originalScale.x, originalScale.y * 1.2f, originalScale.z);
+            originalScale = transform.localScale.y;
+            squashScale = originalScale * 0.8f;
+            stretchScale = originalScale * 1.2f;;
             playersprite = GetComponent<SpriteRenderer>();
       }
 
@@ -60,7 +61,6 @@ public class PlayerJump : MonoBehaviour {
       }
 
       public void Jump() {
-            Debug.Log("jump");
             StartCoroutine(stretch());
             gameObject.GetComponentInChildren<Animator>().SetTrigger("player_jump");
             StartCoroutine(Fall());
@@ -76,12 +76,20 @@ public class PlayerJump : MonoBehaviour {
             if ((groundCheck != null) || (enemyCheck != null)) {
                   jumpTimes = 0;
 
+                  // squash effect
+                  if (!squashed) {
+                        StartCoroutine(squash());
+                  }
+
+                  // transform parent for moving platforms
                   if (groundCheck.tag == "MovingPlatform") {
                         transform.parent = groundCheck.transform;
                   } else {
                         transform.parent = null;
                   }
                   return true;
+
+            // not grounded
             } else {
                   transform.parent = null;
                   return false;
@@ -95,15 +103,27 @@ public class PlayerJump : MonoBehaviour {
       }
 
       IEnumerator stretch() {
-            Debug.Log("Stretch Coroutine started");
             // stretch the sprite
-            transform.localScale = stretchScale;
+            transform.localScale = new Vector3(transform.localScale.x, stretchScale, transform.localScale.z);
 
             // Wait for a short duration
             yield return new WaitForSeconds(0.3f); 
 
             // Reset the player's scale
-            transform.localScale = originalScale;
-            Debug.Log("Stretch Coroutine Completed");
-    }
+            transform.localScale = new Vector3(transform.localScale.x, originalScale, transform.localScale.z);
+            squashed = false;
+      }
+
+      IEnumerator squash() {
+
+            // stretch the sprite
+            transform.localScale = new Vector3(transform.localScale.x, squashScale, transform.localScale.z);
+
+            // Wait for a short duration
+            yield return new WaitForSeconds(0.3f); 
+
+            // Reset the player's scale
+            transform.localScale = new Vector3(transform.localScale.x, originalScale, transform.localScale.z);
+            squashed = true;
+      }
 }

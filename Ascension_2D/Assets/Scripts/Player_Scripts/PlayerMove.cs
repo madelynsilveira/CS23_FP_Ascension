@@ -88,6 +88,7 @@ public class PlayerMove : MonoBehaviour {
       }
 
       private void playerTurn(){
+
             // NOTE: Switch player facing label
             FaceRight = !FaceRight;
 
