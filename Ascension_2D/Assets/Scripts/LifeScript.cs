@@ -20,13 +20,13 @@ public class LifeScript : MonoBehaviour
             if (GameHandler.lifeEnergyScore < GameHandler.maxLifeEnergy) {
                 // Increment a count (You should manage this count elsewhere)
                 GameHandler.lifeEnergyScore++;
-
-                // Mark the object as collected
-                collected = true;
-
-                // Destroy the object
-                Destroy(gameObject);
             }
+
+            // Mark the object as collected
+            collected = true;
+
+            // Destroy the object
+            Destroy(gameObject);
 
             Image lifeEnergyBar = GameObject.FindWithTag("LifeEnergyBar").GetComponent<Image>();
             lifeEnergyBar.fillAmount = GameHandler.lifeEnergyScore / GameHandler.maxLifeEnergy;
