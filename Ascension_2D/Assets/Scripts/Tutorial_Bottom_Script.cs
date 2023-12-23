@@ -13,6 +13,7 @@ public class Tutorial_Bottom_Script : MonoBehaviour
         "Follow the blue orbs, but beware of demons..", 
         "The orbs increase your soul bar up top!",
         "Use souls to heal yourself with the down arrow.", 
+        "Check out how many times you can jump!", 
         "Who is that scary creature? Try to get a closer look.",
         "Use shift or 'e' to heal the demon if it gets close.",
         "Healing all demons in a level gives you a star.",
