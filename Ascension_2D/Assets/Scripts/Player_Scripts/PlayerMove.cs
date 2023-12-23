@@ -23,17 +23,19 @@ public class PlayerMove : MonoBehaviour {
       private Vector3 hMove;
 
       void Start(){
-           anim = gameObject.GetComponentInChildren<Animator>();
-           rb2D = transform.GetComponent<Rigidbody2D>();
-           isFrozen = false;
-           inLava = false;
-           keyFound = false;
+            anim = gameObject.GetComponentInChildren<Animator>();
+            rb2D = transform.GetComponent<Rigidbody2D>();
+            isFrozen = false;
+            inLava = false;
+            keyFound = false;
 
-           playerArt = GameObject.FindWithTag("PlayerArt");
-           redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
-           playerArt.SetActive(true);
-           redPlayerArt.SetActive(false);
+            // for player get hurt color change
+            playerArt = GameObject.FindWithTag("PlayerArt");
+            redPlayerArt = GameObject.FindWithTag("PlayerArtRed");
+            playerArt.SetActive(true);
+            redPlayerArt.SetActive(false);
 
+            // for top menu key indication
             keyNotFoundArt = GameObject.FindWithTag("KeyNotFound");
             keyFoundArt = GameObject.FindWithTag("KeyFound");
             keyNotFoundArt.SetActive(true);
@@ -46,8 +48,7 @@ public class PlayerMove : MonoBehaviour {
 
             // adjust falling gravity
             if (rb2D.velocity.y < 0) {
-                  if (rb2D != null)
-                  {
+                  if (rb2D != null) {
                         // Adjust the gravity scale
                         rb2D.gravityScale = 2;
                   }
@@ -73,8 +74,7 @@ public class PlayerMove : MonoBehaviour {
             }
 
             // update key marker in top menu
-            if (keyFound)
-            {
+            if (keyFound) {
                   keyNotFoundArt.SetActive(false);
                   keyFoundArt.SetActive(true);
             }

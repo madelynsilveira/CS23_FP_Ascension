@@ -20,25 +20,33 @@ public class PlayerJump : MonoBehaviour {
       public float fallMultiplier = 2.5f;
       public float lowJumpMultiplier = 2f;
 
+      // Stretch and Squash parameters
+      private SpriteRenderer playersprite;
+      private Vector3 originalScale;
+      private Vector3 squashScale;
+      private Vector3 stretchScale;
+
+
       void Start(){
-            //anim = gameObject.GetComponentInChildren<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            originalScale = transform.localScale;
+            squashScale = new Vector3(originalScale.x, originalScale.y * 0.8f, originalScale.z);
+            stretchScale = new Vector3(originalScale.x, originalScale.y * 1.2f, originalScale.z);
+            playersprite = GetComponent<SpriteRenderer>();
       }
 
       void Update() {
-            // if ((IsGrounded()) || (jumpTimes <= 1)){
-            //       canJump = true;
-            // }  else if (jumpTimes > 1){
-            //       canJump = false;
-            // }
+
             grounded = IsGrounded();
 
+            // falling
             if (rb.velocity.y < -0.5f) {
                   gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
             } else if (grounded) {
                   gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", false);
             }
 
+            // player sprite animaiton
             if (((Input.GetKeyDown("up")) || (Input.GetKeyDown("w")) || (Input.GetKeyDown("space"))) && ((grounded) || (jumpTimes <= 1)) && (PlayerHeal.isAlive)) {
                   Jump();
             }
@@ -52,6 +60,8 @@ public class PlayerJump : MonoBehaviour {
       }
 
       public void Jump() {
+            Debug.Log("jump");
+            StartCoroutine(stretch());
             gameObject.GetComponentInChildren<Animator>().SetTrigger("player_jump");
             StartCoroutine(Fall());
             jumpTimes += 1;
@@ -83,4 +93,17 @@ public class PlayerJump : MonoBehaviour {
             yield return new WaitForSeconds(0.25f);
             gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
       }
+
+      IEnumerator stretch() {
+            Debug.Log("Stretch Coroutine started");
+            // stretch the sprite
+            transform.localScale = stretchScale;
+
+            // Wait for a short duration
+            yield return new WaitForSeconds(0.3f); 
+
+            // Reset the player's scale
+            transform.localScale = originalScale;
+            Debug.Log("Stretch Coroutine Completed");
+    }
 }

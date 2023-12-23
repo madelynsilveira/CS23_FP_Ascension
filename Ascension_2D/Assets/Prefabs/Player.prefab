@@ -172,6 +172,10 @@ MonoBehaviour:
   jumpTimes: 0
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
+  body: {fileID: 4061106745134635564}
+  squash: {x: 0, y: 0, z: 0}
+  stretch: {x: 0, y: 0, z: 0}
+  elasticity: 0.2
 --- !u!114 &2102529630346458384
 MonoBehaviour:
   m_ObjectHideFlags: 0
