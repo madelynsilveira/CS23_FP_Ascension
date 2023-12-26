@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: REPLAY LEVEL
       objectReference: {fileID: 0}
+    - target: {fileID: 1879301438783839063, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879301438783839063, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879301438783839063, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2960985559884969440, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -147,9 +159,37 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4916686755253648019, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Text
+      value: MAIN MENU
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916686755253648019, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916686755253648019, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916686755253648019, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6128273921729426317, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7405323104771683699, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446008426094240979, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446008426094240979, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7668422879057756271, guid: 76fecf027ba2f4dbc9b2e97faa60798a, type: 3}
       propertyPath: m_AnchorMax.x
