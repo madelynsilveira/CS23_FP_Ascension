@@ -1331,15 +1331,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 825643779813983022, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
       propertyPath: m_Color.b
-      value: 0.019607844
+      value: 0.04705883
       objectReference: {fileID: 0}
     - target: {fileID: 825643779813983022, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.011764707
       objectReference: {fileID: 0}
     - target: {fileID: 825643779813983022, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
       propertyPath: m_Color.r
-      value: 0.078431375
+      value: 0.9176471
       objectReference: {fileID: 0}
     - target: {fileID: 825643779813983022, guid: cdd5512aa4710447381929db28b5a4a2, type: 3}
       propertyPath: m_FontData.m_MinSize

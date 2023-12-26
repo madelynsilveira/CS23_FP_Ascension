@@ -8,23 +8,27 @@ public class PlayerMove : MonoBehaviour {
 
       public Animator anim;
       public Rigidbody2D rb2D;
+      private Vector3 hMove;
 
-      private bool FaceRight = true; // determine which way player is facing.
       public static float runSpeed = 10f;
-      public float startSpeed = 10f;
       public static bool isFrozen;
-      private bool inLava;
-      public static bool keyFound;
+      public static bool keyFound;  // to open gate
+      public bool FaceRight = true; // which way player is facing
+      private bool inLava;          // get hurt by lava
+      
+      // changing visual effects
       public static GameObject redPlayerArt;
       public static GameObject playerArt;
       public static GameObject keyNotFoundArt;
       public static GameObject keyFoundArt;
-      //public AudioSource WalkSFX;
-      private Vector3 hMove;
 
       void Start(){
+
+            // pulling compunents
             anim = gameObject.GetComponentInChildren<Animator>();
             rb2D = transform.GetComponent<Rigidbody2D>();
+
+            // setting variables
             isFrozen = false;
             inLava = false;
             keyFound = false;
@@ -43,7 +47,8 @@ public class PlayerMove : MonoBehaviour {
       }
 
       void Update(){
-            //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
+
+            // Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
 
             // adjust falling gravity
@@ -80,19 +85,20 @@ public class PlayerMove : MonoBehaviour {
             }
       }
 
-      void FixedUpdate(){
-            //slow down on hills / stops sliding from velocity
+      void FixedUpdate() {
+
+            // slow down on hills / stops sliding from velocity
             if (hMove.x == 0){
                   rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
             }
       }
 
-      private void playerTurn(){
+      private void playerTurn() {
 
-            // NOTE: Switch player facing label
+            // Switch player facing label
             FaceRight = !FaceRight;
 
-            // NOTE: Multiply player's x local scale by -1.
+            // Multiply player's x local scale by -1.
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;

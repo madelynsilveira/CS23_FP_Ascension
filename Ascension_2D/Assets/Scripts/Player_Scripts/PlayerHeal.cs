@@ -143,4 +143,17 @@ public class PlayerHeal : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("LoseScene");
     }
+
+    // public IEnumerator squash() {
+    //     float originalScale = transform.localScale.y;
+
+    //     // stretch the sprite
+    //     transform.localScale = new Vector3(transform.localScale.x, transform.localScale * 1.1, transform.localScale.z);
+
+    //     // Wait for a short duration
+    //     yield return new WaitForSeconds(0.1f); 
+
+    //             // stretch the sprite
+    //     transform.localScale = new Vector3(transform.localScale.x, transform.localScale * , transform.localScale.z);
+    // }
 }

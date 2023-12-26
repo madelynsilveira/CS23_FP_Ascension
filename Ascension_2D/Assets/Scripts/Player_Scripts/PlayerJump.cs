@@ -21,27 +21,30 @@ public class PlayerJump : MonoBehaviour {
       public float lowJumpMultiplier = 2f;
 
       // Stretch and Squash parameters
-      private SpriteRenderer playersprite;
-      private float originalScale;
-      private float squashScale;
-      private float stretchScale;
-      private bool squashed = true;
+      // private SpriteRenderer playersprite;
+      // private Vector3 originalScale;
+      // private Vector3 squashScale;
+      // private Vector3 stretchScale;
+      // private bool squashed = true;
 
 
       void Start(){
             rb = GetComponent<Rigidbody2D>();
-            originalScale = transform.localScale.y;
-            squashScale = originalScale * 0.8f;
-            stretchScale = originalScale * 1.2f;;
-            playersprite = GetComponent<SpriteRenderer>();
+            // float xNoSign = Mathf.Abs(transform.localScale.x);
+            // originalScale = new Vector3(xNoSign, transform.localScale.y, transform.localScale.z);
+            // squashScale = new Vector3(xNoSign * 1.2f, originalScale.y * 0.8f, originalScale.z);
+            // stretchScale = new Vector3(xNoSign * 0.8f, originalScale.y * 1.2f, originalScale.z);
+            // playersprite = GetComponent<SpriteRenderer>();
       }
 
       void Update() {
+            // Debug.Log(playerMove.FaceRight);
 
             grounded = IsGrounded();
 
             // falling
             if (rb.velocity.y < -0.5f) {
+                  // squashed = false;
                   gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
             } else if (grounded) {
                   gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", false);
@@ -61,9 +64,9 @@ public class PlayerJump : MonoBehaviour {
       }
 
       public void Jump() {
-            StartCoroutine(stretch());
+            // StartCoroutine(stretch());
             gameObject.GetComponentInChildren<Animator>().SetTrigger("player_jump");
-            StartCoroutine(Fall());
+            // StartCoroutine(Fall());
             jumpTimes += 1;
             rb.velocity = Vector2.up * jumpForce;
       }
@@ -77,9 +80,9 @@ public class PlayerJump : MonoBehaviour {
                   jumpTimes = 0;
 
                   // squash effect
-                  if (!squashed) {
-                        StartCoroutine(squash());
-                  }
+                  // if (!squashed && (Mathf.Abs(rb.velocity.y) <= 0.2f)) {
+                  //       StartCoroutine(squash());
+                  // }
 
                   // transform parent for moving platforms
                   if (groundCheck.tag == "MovingPlatform") {
@@ -102,28 +105,34 @@ public class PlayerJump : MonoBehaviour {
             gameObject.GetComponentInChildren<Animator>().SetBool("player_fall", true);
       }
 
-      IEnumerator stretch() {
-            // stretch the sprite
-            transform.localScale = new Vector3(transform.localScale.x, stretchScale, transform.localScale.z);
+      // IEnumerator stretch() {
 
-            // Wait for a short duration
-            yield return new WaitForSeconds(0.3f); 
+      //       // face correct direction
+      //       float sign = (float)Mathf.Sign(rb.velocity.x);
 
-            // Reset the player's scale
-            transform.localScale = new Vector3(transform.localScale.x, originalScale, transform.localScale.z);
-            squashed = false;
-      }
+      //       // stretch the sprite
+      //       transform.localScale = new Vector3(stretchScale.x * sign, stretchScale.y, stretchScale.z);
 
-      IEnumerator squash() {
+      //       // Wait for a short duration
+      //       yield return new WaitForSeconds(0.3f); 
 
-            // stretch the sprite
-            transform.localScale = new Vector3(transform.localScale.x, squashScale, transform.localScale.z);
+      //       // Reset the player's scale
+      //       transform.localScale = new Vector3(originalScale.x * sign, originalScale.y, originalScale.z);
+      //       squashed = false;
+      // }
 
-            // Wait for a short duration
-            yield return new WaitForSeconds(0.3f); 
+      // IEnumerator squash() {
+      //       // face correct direction
+      //       float sign = (float)Mathf.Sign(rb.velocity.x);
 
-            // Reset the player's scale
-            transform.localScale = new Vector3(transform.localScale.x, originalScale, transform.localScale.z);
-            squashed = true;
-      }
+      //       // squash the sprite
+      //       transform.localScale = new Vector3(squashScale.x * sign, squashScale.y, squashScale.z);
+
+      //       // Wait for a short duration
+      //       yield return new WaitForSeconds(0.3f); 
+
+      //       // Reset the player's scale
+      //       transform.localScale = new Vector3(originalScale.x * sign, originalScale.y, originalScale.z);
+      //       squashed = true;
+      // }
 }
