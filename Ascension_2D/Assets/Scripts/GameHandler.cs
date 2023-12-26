@@ -242,7 +242,8 @@ public class GameHandler : MonoBehaviour
                 // Please also reset all static variables here, for new games!
                 lifeEnergyScore = startingLifeEnergy;
                 soulsHealed = startingSoulsHealed;
-      }
+    }
+    
     public void QuitGame()
     {
         #if UNITY_EDITOR
