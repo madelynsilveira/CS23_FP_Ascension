@@ -54,6 +54,8 @@ public class GameHandler : MonoBehaviour
     public AudioSource middleAudio;
     public AudioSource lateAudio;
 
+    public static string previousScene;
+
     // public GameObject level7Button;
     // public GameObject level7Star;
     // public static bool level7Starred = false;
@@ -238,10 +240,14 @@ public class GameHandler : MonoBehaviour
     public void RestartGame() {
             Time.timeScale = 1f;
             GameHandler_PauseMenu.GameisPaused = false;
-            SceneManager.LoadScene(scene.name);
-                // Please also reset all static variables here, for new games!
-                lifeEnergyScore = startingLifeEnergy;
-                soulsHealed = startingSoulsHealed;
+            // Please also reset all static variables here, for new games!
+            lifeEnergyScore = startingLifeEnergy;
+            soulsHealed = startingSoulsHealed;
+            if (scene.name == "loseScene") {
+                SceneManager.LoadScene(previousScene);
+            } else {
+                SceneManager.LoadScene(scene.name);
+            }
     }
     
     public void QuitGame()
