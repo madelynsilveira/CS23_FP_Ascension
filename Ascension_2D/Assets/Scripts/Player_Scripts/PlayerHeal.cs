@@ -21,6 +21,8 @@ public class PlayerHeal : MonoBehaviour
     private GameObject[] enemyArray;
     private float[] enemyDistanceArray;
 
+    private ParticleSystem healParticleSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,8 @@ public class PlayerHeal : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         UpdateHealth();
         canHealEnemy = true;
+
+        healParticleSystem = player.GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -81,6 +85,12 @@ public class PlayerHeal : MonoBehaviour
 
         if ((Input.GetKeyDown("down") || Input.GetKeyDown("s")) && GameHandler.lifeEnergyScore > 0 && isAlive) {
             if (health < maxHealth) {
+
+                if (healParticleSystem != null) {
+                    Debug.Log("system");
+                    healParticleSystem.Play();
+                }
+
                 health += 10f;
                 if (health > maxHealth) {
                     health = maxHealth;
