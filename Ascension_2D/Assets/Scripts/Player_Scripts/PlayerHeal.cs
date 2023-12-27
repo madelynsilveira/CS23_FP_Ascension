@@ -141,6 +141,7 @@ public class PlayerHeal : MonoBehaviour
 
     IEnumerator EndLevel() {
         yield return new WaitForSeconds(1f);
+        GameHandler.previousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("LoseScene");
     }
 
