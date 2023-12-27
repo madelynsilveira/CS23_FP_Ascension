@@ -56,10 +56,7 @@ public class GameHandler : MonoBehaviour
 
     public static string previousScene;
 
-    // public GameObject level7Button;
-    // public GameObject level7Star;
-    // public static bool level7Starred = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         scene = SceneManager.GetActiveScene();
@@ -75,58 +72,22 @@ public class GameHandler : MonoBehaviour
 
             mainMenu.SetActive(true);
 
+            // adjust button colors
             level2Button.SetActive(level1Complete);
             level3Button.SetActive(level2Complete);
             level4Button.SetActive(level3Complete);
             level5Button.SetActive(level4Complete);
             level6Button.SetActive(level5Complete);
-            // level7Button.SetActive(level6Complete);
 
-            // tutorialStar.SetActive(tutorialStarred);
+            // adjust stars
             level1Star.SetActive(level1Starred);
             level2Star.SetActive(level2Starred);
             level3Star.SetActive(level3Starred);
             level4Star.SetActive(level4Starred);
             level5Star.SetActive(level5Starred);
             level6Star.SetActive(level6Starred);
-            // level7Star.SetActive(level7Starred);
 
-            // if (level1Complete) {
-            //     level2Button.SetActive(level1Complete);
-            // } else {
-            //     level2Button.SetActive(false);
-            // }
-            // if (level1Starred) {
-            //     level1Star.SetActive(true);
-            // } else {
-            //     level1Star.SetActive(false);
-            // }
 
-            // if (level2Complete) {
-            //     level3Button.SetActive(true);
-            // } else {
-            //     level3Button.SetActive(false);
-            // }
-            // if (level3Complete) {
-            //     level4Button.SetActive(true);
-            // } else {
-            //     level4Button.SetActive(false);
-            // }
-            // if (level4Complete) {
-            //     level5Button.SetActive(true);
-            // } else {
-            //     level5Button.SetActive(false);
-            // }
-            // if (level5Complete) {
-            //     level6Button.SetActive(true);
-            // } else {
-            //     level6Button.SetActive(false);
-            // }
-            // if (level6Complete) {
-            //     level7Button.SetActive(true);
-            // } else {
-            //     level7Button.SetActive(false);
-            // }
         } else if (scene.name == "winScene") {
             earlyAudio.Play();
             winScene.SetActive(true);
@@ -139,15 +100,12 @@ public class GameHandler : MonoBehaviour
             }
 
             bool[] stars = {
-                // tutorialStarred,
                 level1Starred,
                 level2Starred,
                 level3Starred,
                 level4Starred,
                 level5Starred,
                 level6Starred
-                // ,
-                // level7Starred
             };
 
             int numStars = 0;
@@ -181,12 +139,6 @@ public class GameHandler : MonoBehaviour
             maxLifeEnergy = 10f;
             lifeEnergyBar.GetComponent<Image>().fillAmount = lifeEnergyScore / maxLifeEnergy;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void PlayTutorial()
@@ -231,12 +183,6 @@ public class GameHandler : MonoBehaviour
             // Set static vars
     }
 
-    // public void PlayLevel7()
-    // {
-    //     SceneManager.LoadScene("Level7");
-    //         // Set static vars
-    // }
-
     public void RestartGame() {
             Time.timeScale = 1f;
             GameHandler_PauseMenu.GameisPaused = false;
@@ -249,7 +195,35 @@ public class GameHandler : MonoBehaviour
                 SceneManager.LoadScene(scene.name);
             }
     }
-    
+
+    public void RestartGameAfterWin() {
+            Time.timeScale = 1f;
+            GameHandler_PauseMenu.GameisPaused = false;
+
+            lifeEnergyScore = startingLifeEnergy;
+            soulsHealed = startingSoulsHealed;
+            
+            // adjust button colors
+            level2Button.SetActive(false);
+            level3Button.SetActive(false);
+            level4Button.SetActive(false);
+            level5Button.SetActive(false);
+            level6Button.SetActive(false);
+
+            // adjust stars
+            level1Star.SetActive(false);
+            level2Star.SetActive(false);
+            level3Star.SetActive(false);
+            level4Star.SetActive(false);
+            level5Star.SetActive(false);
+            level6Star.SetActive(false);
+
+
+
+            SceneManager.LoadScene("MainMenu");
+            
+    }
+
     public void QuitGame()
     {
         #if UNITY_EDITOR
